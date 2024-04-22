@@ -1,6 +1,7 @@
 #include "circle.hpp"
 #include "square.hpp"
 #include "triangle.hpp"
+#include "polygon.hpp"
 #include <vector>
 
 int main()
@@ -68,6 +69,33 @@ int main()
     
     vector<Triangle> vecTriangle;
     vecTriangle.push_back(t1);    
+    
+    // Polygon
+    
+    Point2d pp1, pp2, pp3, pp4, pp5, pp6;
+    pp1.SetPoint2d(2.9,-2);
+    pp2.SetPoint2d(-4.5,2.9);
+    pp3.SetPoint2d(-6.5,1.1); // desmos
+    pp4.SetPoint2d(-1.3,-5.3);
+    pp5.SetPoint2d(-2,-1.2);
+    pp6.SetPoint2d(-0.7,0.9);
+    
+    vector<Point2d> points;
+    
+    points.push_back(pp1);
+    points.push_back(pp2);
+    points.push_back(pp3);
+    points.push_back(pp4);
+    points.push_back(pp5);
+    points.push_back(pp6);
+    
+    Polygon p1;
+    p1.SetPolygon(points);
+    vector<Polygon> vecPolygon;
+    vecPolygon.push_back(p1); 
+    
+    
+    
        
     
     cout << endl << " === CIRCLE ⚪️ === " << endl;
@@ -92,6 +120,15 @@ int main()
         cout << "Sides size: "<< vecTriangle[i].GetSides()[0] << vecTriangle[i].GetSides()[1] << vecTriangle[i].GetSides()[2] << " | Area: " << vecTriangle[i].GetArea() << "| Perimeter: "<< vecTriangle[i].GetPerimeter() << "| Angles: "<< vecTriangle[i].GetAngle()[0] << vecTriangle[i].GetAngle()[1] << vecTriangle[i].GetAngle()[2]  <<endl;
     
     };    
+    
+    cout << endl << " === POLYGON 🔰️ === " << endl;
+    
+    for (size_t i=0; i<vecPolygon.size(); i++){
+    
+        cout << "Area: " << vecPolygon[i].GetArea() << "| Perimeter: "<< vecPolygon[i].GetPerimeter() <<endl;
+    
+    };    
+    
     
 
     return 0;
