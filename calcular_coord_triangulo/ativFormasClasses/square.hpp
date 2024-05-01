@@ -10,8 +10,14 @@ class Square
         
     public:
     
-        void SetSquare(Point2d p1, Point2d p2); //era pra receber 2 Point2d
+        void SetSquare(Point2d p1, Point2d p2);
         
+        
+        
+        ~Square(){};
+        Square();
+        
+        Square(Point2d p1, Point2d p2);
         float GetArea();
         float GetPerimeter();
         float GetDistance();

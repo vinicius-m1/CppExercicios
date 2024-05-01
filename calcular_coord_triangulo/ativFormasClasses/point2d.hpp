@@ -18,6 +18,13 @@ public:
     void SetPoint2d(int x, int y);
     int GetX();
     int GetY();
+    
+    Point2d();
+    Point2d(int x, int y); // contructor 
+    
+    ~Point2d(){}; // destrucotr
+    
+    
 };
 
 #endif

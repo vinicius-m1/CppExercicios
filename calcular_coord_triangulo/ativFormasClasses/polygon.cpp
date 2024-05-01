@@ -7,9 +7,22 @@ void Polygon::SetPolygon(vector<Point2d> m_points){
         
 };
 
+Polygon::Polygon(vector<Point2d> m_points){
+
+    points = m_points;
+        
+};
+
+Polygon::Polygon(){
+
+    points.clear();
+
+};
+
+
 bool Polygon::IsRegular(){
 
-    vector<float> sides = Polygon::GetSides();
+    vector<double> sides = Polygon::GetSides();
     bool isRegular = true;
     for (int i=0; i<sides.size(); i++){
         if (sides[0] != sides[i]){
@@ -22,16 +35,34 @@ bool Polygon::IsRegular(){
 };
 
 
-float Polygon::GetArea(){
+void Polygon::UpdatePolygon(vector<Point2d> m_points){
 
-    vector<float> sides = Polygon::GetSides();
-    float perimeter = Polygon::GetPerimeter();
-    float apothem, area =0;
+    // add input checks later
+    points.clear();
+    
+    points = m_points;
+
+};
+
+
+
+void Polygon::AddVertex(Point2d m_point){
+
+    points.push_back(m_point);
+
+};
+
+
+double Polygon::GetArea(){
+
+    vector<double> sides = Polygon::GetSides();
+    double perimeter = Polygon::GetPerimeter();
+    double apothem=0, area =0;
     
     // if regular polygon
     
     if (Polygon::IsRegular() == true){
-        apothem = ((sides[0])/2)*tan(180/sides.size());
+        apothem = ((sides[0])/2)*tan(M_PI/sides.size());
         area = ((apothem*perimeter)/2);
         
         return (area);
@@ -39,7 +70,7 @@ float Polygon::GetArea(){
     
     // if irregular polygon
     
-    float xy=0, yx=0;
+    double xy=0, yx=0;
     
     for (int i=0; i<points.size()-1 ; i++){
         xy = xy + ((points[i].GetX()) * (points[i+1].GetY()) );
@@ -55,9 +86,9 @@ float Polygon::GetArea(){
     return (area);
 };
 
-float Polygon::GetPerimeter(){
-    float perimeter = 0;
-    vector<float>sides = Polygon::GetSides();
+double Polygon::GetPerimeter(){ // usar friend
+    double perimeter = 0;
+    vector<double>sides = Polygon::GetSides();
     
     for (int i=0;i<sides.size();i++){
         perimeter = perimeter + (sides[i]);
@@ -67,11 +98,11 @@ float Polygon::GetPerimeter(){
 
 };
 
-vector<float> Polygon::GetSides(){
+vector<double> Polygon::GetSides(){
 
-    vector<float> sides;
+    vector<double> sides;
     
-    for (int i=0; i<(points.size() -1 ); i++){
+    for (int i=0; i<(points.size() -1); i++){
    
         sides.push_back( Polygon::GetDistance(points[i],points[i+1]));
     
@@ -83,14 +114,8 @@ vector<float> Polygon::GetSides(){
 };
 
 
-float Polygon::GetDistance(Point2d pt1, Point2d pt2){
-
-    float distance;
+double Polygon::GetDistance(Point2d pt1, Point2d pt2){
     
-    distance = ( (pt2.GetX() - pt1.GetX()) + (pt2.GetY() - pt1.GetY()) ); 
-    
-    if (distance < 0) {distance = distance*(-1);}; // cheaper than pow and sqrt?
-    
-    return (distance);
+    return (sqrt (pow((pt2.GetX() - pt1.GetX()),2) + pow((pt2.GetY()-pt1.GetY()),2)));
     
 };

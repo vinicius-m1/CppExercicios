@@ -11,6 +11,11 @@ public:
     void SetCircle(float ratio, Point2d ref);
     void SetCircle(float ratio, int xref, int yref);
 
+    ~Circle(){};
+    Circle(float ratio, Point2d ref);
+    Circle();
+    Circle(float ratio, int xref, int yref);
+
     int GetRatio();
     Point2d GetReference();
 

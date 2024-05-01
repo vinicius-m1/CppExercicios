@@ -15,6 +15,22 @@ void Circle::SetCircle(float ratio, int xref, int yref)
     SetCircle(ratio, tmp);
 }
 
+
+
+Circle::Circle(float ratio, Point2d ref){
+
+    m_ref = ref;
+    m_ratio = ratio;
+
+}
+
+Circle::Circle(){
+    m_ratio = 0;
+
+};
+
+
+
 int Circle::GetRatio()
 {
     return m_ratio;

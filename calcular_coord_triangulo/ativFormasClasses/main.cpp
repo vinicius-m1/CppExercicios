@@ -117,7 +117,7 @@ int main()
     
     for (size_t i=0; i<vecTriangle.size(); i++){
                                                 // botar resto dos lados
-        cout << "Sides size: "<< vecTriangle[i].GetSides()[0] << vecTriangle[i].GetSides()[1] << vecTriangle[i].GetSides()[2] << " | Area: " << vecTriangle[i].GetArea() << "| Perimeter: "<< vecTriangle[i].GetPerimeter() << "| Angles: "<< vecTriangle[i].GetAngle()[0] << vecTriangle[i].GetAngle()[1] << vecTriangle[i].GetAngle()[2]  <<endl;
+        cout << "Sides size: "<< vecTriangle[i].GetSides()[0] << " "<< vecTriangle[i].GetSides()[1] << " "<< vecTriangle[i].GetSides()[2] << " | Area: " << vecTriangle[i].GetArea() << "| Perimeter: "<< vecTriangle[i].GetPerimeter() << "| Angles: "<< vecTriangle[i].GetAngle().at(0)  <<" "<< vecTriangle[i].GetAngle().at(1) << " " << vecTriangle[i].GetAngle().at(2)  <<endl;
     
     };    
     
@@ -125,7 +125,10 @@ int main()
     
     for (size_t i=0; i<vecPolygon.size(); i++){
     
-        cout << "Area: " << vecPolygon[i].GetArea() << "| Perimeter: "<< vecPolygon[i].GetPerimeter() <<endl;
+        cout << "Area: " << vecPolygon[i].GetArea() << " | Perimeter: "<< vecPolygon[i].GetPerimeter() <<endl;
+        for (int j=0; j<vecPolygon[i].GetSides().size(); j++){
+            cout << endl<< "distance " <<j << ": " << vecPolygon[i].GetSides()[j];
+        }  
     
     };    
     
