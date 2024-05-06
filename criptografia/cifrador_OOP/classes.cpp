@@ -1,10 +1,9 @@
-#include "classes.hpp"
-#include <algorithm>
+#include"classes.hpp"
+#include<algorithm>
 #include<iostream>
-#include <fstream>
-// Cipher Implementations
+#include<fstream>
 
-
+// **************************** Cipher Implementations ****************************
 
 string Cipher::Decrypt(string m_encrypted_text){
 
@@ -43,23 +42,31 @@ void Cipher::Encrypt(){
     
 };
 
-// CoversionTable Implementations
 
+
+// **************************** CoversionTable Implementations ****************************
 
 ConversionTable::ConversionTable(const string m_user_code){
 
     user_code = ConversionTable::Hash(m_user_code);
-    cout << "hash done: "<< user_code<<endl;
+    string used_numbers = "";
+    //cout << "hash done: "<< user_code<<endl;
     int j=1;
     for(size_t i=0; i<256; i++){
-        j=j*-1;
+        
         encrypt_table.at(i).first = i;
-        encrypt_table.at(i).second = j*((i + user_code.at(i%user_code.size()))%255);
         
-        //cout << "1 - " << encrypt_table.at(i).first << "    2 - "<< encrypt_table.at(i).second<<endl;
+        int temp = ((i + user_code.at(i%user_code.size()))%255);
         
+        // search for next available spot
+        while (used_numbers.find(temp) != -1){
+            temp += j;
+            if (temp>=255){j=j*-1;};
+        };
+        used_numbers += temp;
+        
+        encrypt_table.at(i).second = temp;
     };
-    cout << "done";
 };
 
 string ConversionTable::Hash(string str){

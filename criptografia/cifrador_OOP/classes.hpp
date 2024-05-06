@@ -21,10 +21,10 @@ class ConversionTable{
     public:
         
         vector<pair<char,char>> GetConversionTable(){return encrypt_table;};
-        // only cipher protected methods should access
+        // only cipher private methods should access - encrypt/decrypt
         
         ConversionTable(const string m_user_code);
-        ~ConversionTable();
+        ~ConversionTable(){};
      
 };
 
@@ -53,6 +53,8 @@ class Cipher{
     
         Cipher(const string m_user_code){
             conversion_table = new ConversionTable(m_user_code);
+            // test with inheritance later
+            
         };
         
         string GetDecryptedText(string m_encrypted_text){

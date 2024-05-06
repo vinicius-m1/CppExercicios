@@ -22,18 +22,22 @@ int main(){
         switch (toupper(input)){
         
             case ('1'):
+                // ENCRYPT
                 system("clear");
                 encryptText(secret);
                 
             break;
 
             case ('2'):
+                //DECRYPT
                 system("clear");
                 decryptText(secret);
             
             break;
             
             case ('3'):
+                //SET USER CODE
+            
                 system("clear");
                 if (secret != nullptr){
                     cout  << "User code already exists! \nTry the re-generate option on main menu.";
@@ -41,15 +45,19 @@ int main(){
                     break;
                 };
                 secret = new Cipher(setUserCode());
-                cout<< endl<< "The code was saved. Table generated."<<endl;
-                cin.get();
             break;
             
             case ('4'):
-            
+                // RE-GENERATE CONV. TABLE
+                delete secret;
+                secret = nullptr;
+                system("clear");
+                secret = new Cipher(setUserCode());
             break;
             
             case ('0'):
+                // EXITING
+                if (secret != nullptr){delete secret;};
                 system("clear");
                 cout<<"Exiting..."<<endl;
                 return 0;
@@ -72,6 +80,11 @@ int main(){
 
 void decryptText(Cipher *secret){
 
+    if (secret == nullptr){
+        cout <<" =-= Set User Code first."<< endl;
+        cin.get();
+        return;
+    };
     string input;
     cout <<"------Encrypt Text------"<<endl;
     cout << endl << "Insert text: ";
@@ -84,13 +97,23 @@ void decryptText(Cipher *secret){
 
 void encryptText(Cipher *secret){
 
+    if (secret == nullptr){
+        cout <<" =-= Set User Code first."<< endl;
+        cin.get();
+        return;
+    };
+    
     string input;
     cout <<"------Encrypt Text------"<<endl;
     cout << endl << "Insert text: ";
     getline(cin, input);
     secret->SetInputText(input);
+    // TODO: 
     cout << endl <<"Encrypted text: "<< secret->GetEncryptedText() << endl;
-    cout << "\n\n [INFO] Note that some characters might not be displayed correctly. \n The text was also stored in a file named data.txt in this directory.";
+    
+    cout << "\n [INFO] Note that some characters might not be displayed correctly. \n The text was also stored in a file named data.txt in this directory.\n\n\n";
+    
+    cout << "[Double Check] - The original text was: "<< secret->GetDecryptedText(secret->GetEncryptedText())<<endl;
     cin.get();
     
 };
@@ -102,6 +125,8 @@ string setUserCode(){
     cout <<"------Set User Code------"<<endl;
     cout << endl << "Insert new User Code: ";
     getline(cin, input);
+    cout<< endl<< "The code was saved. Table generated."<<endl;
+    cin.get();
     
     return(input);
     
