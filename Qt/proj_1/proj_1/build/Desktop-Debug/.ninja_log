@@ -1,0 +1,9 @@
+# ninja log v5
+0	423	1715295736963823449	proj_1_autogen/timestamp	fbcf99872608e1b4
+0	423	1715295736963823449	proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+0	423	1715295736963823449	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/timestamp	fbcf99872608e1b4
+0	423	1715295736963823449	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+424	3327	1715295739871800466	CMakeFiles/proj_1.dir/main.cpp.o	3ffc684e0bd0eda
+423	3830	1715295740375796485	CMakeFiles/proj_1.dir/proj_1_autogen/mocs_compilation.cpp.o	949f3869ecd48828
+424	4031	1715295740575794907	CMakeFiles/proj_1.dir/mainwindow.cpp.o	ad0da0cb024b3316
+4032	4537	1715295741079790927	proj_1	88ae1bf3c9a0126

@@ -5,7 +5,7 @@
 
 // **************************** Cipher Implementations ****************************
 
-string Cipher::Decrypt(string m_encrypted_text){
+string Cipher::Decrypt(const string m_encrypted_text){
 
     vector<pair<char,char>> m_conversion_table = conversion_table->GetConversionTable();
     string output;
@@ -35,11 +35,9 @@ void Cipher::Encrypt(){
     };
     
     encrypted_text = output;
-    
     ofstream datafile("data.txt");
     datafile << output;
-    datafile.close();
-    
+    datafile.close();    
 };
 
 

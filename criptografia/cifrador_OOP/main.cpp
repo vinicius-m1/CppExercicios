@@ -1,4 +1,5 @@
 #include <iostream>
+#include<fstream>
 #include <string>
 #include "classes.hpp"
 #include <vector>
@@ -10,6 +11,7 @@ char menu();
 string setUserCode();
 void encryptText(Cipher *secret);
 void decryptText(Cipher *secret);
+void decryptFromFile(Cipher *secret);
 
 int main(){
 
@@ -55,6 +57,13 @@ int main(){
                 secret = new Cipher(setUserCode());
             break;
             
+            case ('5'):
+                // DECRYPT FROM FILE
+                system("clear");
+                decryptFromFile(secret);
+          
+            break;            
+            
             case ('0'):
                 // EXITING
                 if (secret != nullptr){delete secret;};
@@ -78,6 +87,37 @@ int main(){
 };
 
 
+void decryptFromFile(Cipher *secret){
+    if (secret == nullptr){
+        cout <<" =-= Set User Code first."<< endl;
+        cin.get();
+        return;
+    };
+    string input,line;
+    cout <<"------Decrypt Text------"<<endl;
+    
+    
+    ifstream datafile("data.txt");
+    
+    if(datafile.is_open() == false){
+        cout << endl << "Data file doesn't exist.";
+        cin.get();
+        return;
+    };
+ 
+    while (getline(datafile,line))
+    {
+            input += (line);
+    };     
+    
+    datafile.close();
+                   
+    cout << endl <<"Decrypted text: "<< secret->GetDecryptedText(input) << endl;
+    cin.get();
+
+};
+
+
 void decryptText(Cipher *secret){
 
     if (secret == nullptr){
@@ -86,7 +126,8 @@ void decryptText(Cipher *secret){
         return;
     };
     string input;
-    cout <<"------Encrypt Text------"<<endl;
+    cout <<"------Decrypt Text------"<<endl;
+    cout << "*some characters input can be buggy\nuse read from file instead."<<endl;
     cout << endl << "Insert text: ";
     getline(cin, input);
     cout << endl <<"Decrypted text: "<< secret->GetDecryptedText(input) << endl;
@@ -108,14 +149,14 @@ void encryptText(Cipher *secret){
     cout << endl << "Insert text: ";
     getline(cin, input);
     secret->SetInputText(input);
-    // TODO: 
+    input.erase;
+    
     cout << endl <<"Encrypted text: "<< secret->GetEncryptedText() << endl;
     
     cout << "\n [INFO] Note that some characters might not be displayed correctly. \n The text was also stored in a file named data.txt in this directory.\n\n\n";
     
     cout << "[Double Check] - The original text was: "<< secret->GetDecryptedText(secret->GetEncryptedText())<<endl;
     cin.get();
-    
 };
 
 
@@ -125,17 +166,16 @@ string setUserCode(){
     cout <<"------Set User Code------"<<endl;
     cout << endl << "Insert new User Code: ";
     getline(cin, input);
-    cout<< endl<< "The code was saved. Table generated."<<endl;
+    cout<< endl<< "The code was saved."<<endl;
     cin.get();
     
     return(input);
-    
 };
 
 char menu(){
     char input;
     cout <<"======MENU======"<<endl;
-    cout << " 1 - Encrypt Text \n 2 - Decrypt Text \n 3 - Set User Code \n 4 - Re-generate Conv. Table \n 0 - Exit "<< endl;
+    cout << " 1 - Encrypt Text \n 2 - Decrypt Text \n 3 - Set User Code \n 4 - Re-generate Conv. Table \n 5 - Decrypt From File \n 0 - Exit "<< endl;
     cout << "================ \nEnter Option:";
     cin.clear();
     cin >> input;    
