@@ -1,11 +1,11 @@
-#include"classes.hpp"
-#include<algorithm>
-#include<iostream>
-#include<fstream>
+#include "classes.hpp"
+#include <algorithm>
+#include <iostream>
+#include <fstream>
 
 // **************************** Cipher Implementations ****************************
 
-string Cipher::Decrypt(const string m_encrypted_text){
+string Cipher::Decrypt(string m_encrypted_text){
 
     vector<pair<char,char>> m_conversion_table = conversion_table->GetConversionTable();
     string output;
@@ -35,12 +35,12 @@ void Cipher::Encrypt(){
     };
     
     encrypted_text = output;
+    
     ofstream datafile("data.txt");
     datafile << output;
-    datafile.close();    
+    datafile.close();
+    
 };
-
-
 
 // **************************** CoversionTable Implementations ****************************
 
@@ -55,6 +55,8 @@ ConversionTable::ConversionTable(const string m_user_code){
         encrypt_table.at(i).first = i;
         
         int temp = ((i + user_code.at(i%user_code.size()))%255);
+        
+        // hash exemple: 8095747390098
         
         // search for next available spot
         while (used_numbers.find(temp) != -1){
@@ -73,7 +75,7 @@ string ConversionTable::Hash(string str){
     string salt = str;
     sort(salt.begin(),salt.end());
     str = (str + salt + "jP30iWe");
-    // djb2 hash function
+    // DJB2 hash function
     unsigned long hash = 5381;
     for (char c : str) {
         hash = ((hash << 5) + hash) + c;

@@ -1,11 +1,11 @@
-#include <iostream>
-#include<fstream>
-#include <string>
 #include "classes.hpp"
+#include <iostream>
+#include <fstream>
+#include <string>
 #include <vector>
 
 using namespace std;
-// test for windows or linux and use define if possible
+//TODO test for windows or linux and use define
 
 char menu();
 string setUserCode();
@@ -149,7 +149,7 @@ void encryptText(Cipher *secret){
     cout << endl << "Insert text: ";
     getline(cin, input);
     secret->SetInputText(input);
-    input.erase;
+    
     
     cout << endl <<"Encrypted text: "<< secret->GetEncryptedText() << endl;
     

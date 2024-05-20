@@ -1,8 +1,9 @@
 #ifndef CLASSES_HPP
 #define CLASSES_HPP
-#include<vector>
-#include<string>
-#include<utility>
+#include <vector>
+#include <string>
+#include <utility>
+	
 	
 using namespace std;
 
@@ -50,7 +51,7 @@ class Cipher{
             return Decrypt(m_encrypted_text);
         };
         
-        Cipher();
+        //Cipher(){};
         
         void SetInputText(const string m_input_text){input_text = m_input_text;};
         
