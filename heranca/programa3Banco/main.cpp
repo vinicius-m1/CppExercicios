@@ -5,6 +5,7 @@
 
 char menu();
 int createAccount(vector<Client> *clientList, vector<ContaCorrente*> *accountList);
+int listData(const vector<Client> *clientList, const vector<ContaCorrente*> *accountList)
 int createSpecialAccount();
 int insertClient(vector<Client> *clientList);
 int deposit();
@@ -42,6 +43,26 @@ int createSpecialAccount(){
 
 };
 
+int listData(const vector<Client> *clientList, const vector<ContaCorrente*> *accountList){
+    cout <<"==========List Data=========="<<endl;
+    
+    cout << "Clients data: "<<endl;
+    for (int i=0; i<clientList->size(); i++){
+        cout << clientList->at(i).GetInformation <<endl;
+    };
+    
+    cout << "\n\n\n Clients data: "<<endl;
+    
+    for (int i=0; i<accountList->size(); i++){
+        cout << accountList->at(i).GetInformation <<endl;
+        // criar metodo em account
+    };
+    
+    
+    cin.get();
+    return 0;
+
+};
 
 int insertClient(vector<Client> *clientList){
     cout <<"==========Insert Client=========="<<endl;
@@ -72,6 +93,14 @@ int insertClient(vector<Client> *clientList){
 
 
 int createAccount(vector<Client> *clientList, vector<ContaCorrente*> *accountList){
+
+    if (clientList->empty()){
+        cout<< "[INFO] No Available clients.";
+        cin.get()
+        return 0;  
+    };
+        
+    
     cout <<"==========Create Account=========="<<endl;
     
     cout << "Select client:"<<endl;
@@ -101,7 +130,7 @@ int createAccount(vector<Client> *clientList, vector<ContaCorrente*> *accountLis
 
 char menu(){
     system("clear");
-    cout << "========Menu======= \n 1 - Insert Client 👤️ \n 2 - Create Account 💳️ \n 3 - Deposit 💲️ \n 4 - Transfer 💱️ \n 5 - Withdraw 💰️ \n 6 - Create Special Account 🧾️ \n 0 - Exit 🚪️" <<endl;
+    cout << "========Menu======= \n 1 - Insert Client 👤️ \n 2 - Create Account 💳️ \n 3 - Deposit 💲️ \n 4 - Transfer 💱️ \n 5 - Withdraw 💰️ \n 6 - Create Special Account 🧾️ \n 7 - List Data 🎲️ \n 0 - Exit 🚪️" <<endl;
     cout << "===================\nOption: ";
 
     char input;
@@ -162,7 +191,12 @@ int main()
             case('6'):
                 system("clear");
                 createSpecialAccount();
-                break;                
+                break;  
+                
+            case('7'):
+                system("clear");
+                listData(&clientList, &accountList);
+                break;                        
                 
             default:
                 system("clear");
