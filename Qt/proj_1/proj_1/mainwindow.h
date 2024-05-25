@@ -5,7 +5,7 @@
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
-class MainWindow;
+class janela;
 }
 QT_END_NAMESPACE
 
@@ -17,7 +17,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_btnMORE_clicked();
+
+    void on_progBar_valueChanged(int value);
+
 private:
-    Ui::MainWindow *ui;
+    Ui::janela *ui;
 };
 #endif // MAINWINDOW_H

@@ -9,6 +9,7 @@ char menu();
 int scheduleTask();
 int pickTask1();
 int pickTask2();
+int pickTask3();
 int printPending();
 
 // -------------------------------------------------------------------------------------------------
@@ -46,6 +47,31 @@ int scheduleTask(vector<size_t> *tasks){
     cin.get();
     return 0;
 };
+
+
+
+
+int pickTask3(vector<size_t> *tasks){
+
+    cout << "=========Pick Task = Policy 3========"<<endl;
+    int status;
+    cout <<endl<< "[INFO] Processing using policy 3.";
+    
+    PolicyThree processing_task(tasks); // endereco original ou do vetor?
+    status = processing_task.Process();
+    
+    if (status == 1){
+        cout <<endl<<"Error Processing!";
+        cin.get();
+        return 1;
+    };
+    cout <<endl<<"[INFO] Done Processing.";
+    
+    cin.get();
+    return 0;
+};
+
+
 
 
 int pickTask2(vector<size_t> *tasks){
@@ -93,7 +119,7 @@ int pickTask1(vector<size_t> *tasks){
 
 char menu(){
     system("clear");
-    cout << "========Menu======= \n 1 - Schedule a task to process \n 2 - Pick up a task to process using policy 1 \n 3 - Pick up a task to process using policy 2 \n 4 - Print pending tasks \n 5 - Exit " <<endl;
+    cout << "========Menu======= \n 1 - Schedule a task to process \n 2 - Pick up a task to process using policy 1 \n 3 - Pick up a task to process using policy 2 \n 4 - Print pending tasks \n 5 - Pick up a task to process using policy 3 \n 6 - Exit " <<endl;
     cout << "===================\nOption: ";
 
     char input;
@@ -117,7 +143,7 @@ int main()
         
         switch(menu()){
         
-            case('5'):
+            case('6'):
                 system("clear");
                 return 0;
                 break;
@@ -140,6 +166,11 @@ int main()
             case('4'):
                 system("clear");
                 printPending(&tasks);
+                break;
+
+            case('5'):
+                system("clear");
+                pickTask3(&tasks);
                 break;
                
             default:

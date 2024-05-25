@@ -32,3 +32,23 @@ int PolicyTwo::Process(){
 
     return 0;
 };
+
+
+
+
+// ------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------
+
+
+
+int PolicyThree::Process(){
+
+   // try{
+        m_tasks->erase(m_tasks->begin() + int(m_tasks->size()/2)); // inventar nova metodo
+        //delete last entry in vector
+    //    throw 600;
+  //  }
+   // catch(600) {return 1;};
+
+    return 0;
+};

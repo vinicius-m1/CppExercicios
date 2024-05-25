@@ -1,9 +1,55 @@
 # ninja log v5
-0	423	1715295736963823449	proj_1_autogen/timestamp	fbcf99872608e1b4
-0	423	1715295736963823449	proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
-0	423	1715295736963823449	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/timestamp	fbcf99872608e1b4
-0	423	1715295736963823449	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
-424	3327	1715295739871800466	CMakeFiles/proj_1.dir/main.cpp.o	3ffc684e0bd0eda
-423	3830	1715295740375796485	CMakeFiles/proj_1.dir/proj_1_autogen/mocs_compilation.cpp.o	949f3869ecd48828
-424	4031	1715295740575794907	CMakeFiles/proj_1.dir/mainwindow.cpp.o	ad0da0cb024b3316
-4032	4537	1715295741079790927	proj_1	88ae1bf3c9a0126
+3	23	1716606868457912469	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+693	4753	1716605915537742533	CMakeFiles/proj_1.dir/main.cpp.o	3ffc684e0bd0eda
+693	4592	1716605915373743863	CMakeFiles/proj_1.dir/proj_1_autogen/mocs_compilation.cpp.o	949f3869ecd48828
+3	23	1716606868457912469	proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+3	23	1716606868457912469	proj_1_autogen/timestamp	fbcf99872608e1b4
+26	3090	1716606871522022117	CMakeFiles/proj_1.dir/mainwindow.cpp.o	ad0da0cb024b3316
+3090	3592	1716606872022039984	proj_1	88ae1bf3c9a0126
+3	23	1716606868457912469	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/timestamp	fbcf99872608e1b4
+4	26	1716606982209792047	proj_1_autogen/timestamp	fbcf99872608e1b4
+4	26	1716606982209792047	proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+4	26	1716606982209792047	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/timestamp	fbcf99872608e1b4
+4	26	1716606982209792047	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+4	37	1716607008434635511	proj_1_autogen/timestamp	fbcf99872608e1b4
+4	37	1716607008434635511	proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+4	37	1716607008434635511	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/timestamp	fbcf99872608e1b4
+4	37	1716607008434635511	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+4	550	1716607064808391858	proj_1_autogen/timestamp	fbcf99872608e1b4
+4	550	1716607064808391858	proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+4	550	1716607064808391858	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/timestamp	fbcf99872608e1b4
+4	550	1716607064808391858	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+550	4867	1716607069132523554	CMakeFiles/proj_1.dir/proj_1_autogen/mocs_compilation.cpp.o	949f3869ecd48828
+551	4926	1716607069192525378	CMakeFiles/proj_1.dir/main.cpp.o	3ffc684e0bd0eda
+2	27	1716607114905892966	proj_1_autogen/timestamp	fbcf99872608e1b4
+2	27	1716607114905892966	proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+2	27	1716607114905892966	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/timestamp	fbcf99872608e1b4
+2	27	1716607114905892966	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+30	3377	1716607118257991543	CMakeFiles/proj_1.dir/mainwindow.cpp.o	ad0da0cb024b3316
+3378	4057	1716607118934011396	proj_1	88ae1bf3c9a0126
+3	23	1716607260157975158	proj_1_autogen/timestamp	fbcf99872608e1b4
+3	23	1716607260157975158	proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+3	23	1716607260157975158	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/timestamp	fbcf99872608e1b4
+3	23	1716607260157975158	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+4	27	1716607362104642296	proj_1_autogen/timestamp	fbcf99872608e1b4
+4	27	1716607362104642296	proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+4	27	1716607362104642296	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/timestamp	fbcf99872608e1b4
+4	27	1716607362104642296	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+12	61	1716607426398255977	proj_1_autogen/timestamp	fbcf99872608e1b4
+12	61	1716607426398255977	proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+12	61	1716607426398255977	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/timestamp	fbcf99872608e1b4
+12	61	1716607426398255977	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+3	39	1716608354665820621	proj_1_autogen/timestamp	fbcf99872608e1b4
+3	39	1716608354665820621	proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+3	39	1716608354665820621	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/timestamp	fbcf99872608e1b4
+3	39	1716608354665820621	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+8	38	1716608406483430547	proj_1_autogen/timestamp	fbcf99872608e1b4
+8	38	1716608406483430547	proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+8	38	1716608406483430547	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/timestamp	fbcf99872608e1b4
+8	38	1716608406483430547	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+5	40	1716608483200397893	proj_1_autogen/timestamp	fbcf99872608e1b4
+5	40	1716608483200397893	proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+5	40	1716608483200397893	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/timestamp	fbcf99872608e1b4
+5	40	1716608483200397893	/home/bansola/Desktop/C codigos/Qt/proj_1/proj_1/build/Desktop-Debug/proj_1_autogen/mocs_compilation.cpp	fbcf99872608e1b4
+43	2593	1716608485752306539	CMakeFiles/proj_1.dir/mainwindow.cpp.o	ad0da0cb024b3316
+2593	3051	1716608486208290276	proj_1	88ae1bf3c9a0126

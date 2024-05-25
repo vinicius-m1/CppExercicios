@@ -53,3 +53,21 @@ class PolicyTwo : public Policy{
         ~PolicyTwo(){};         
     
 };
+
+
+class PolicyThree : public Policy{
+
+    private:
+    
+           
+    
+    
+    public:
+
+        PolicyThree(vector<size_t> * tasks){m_tasks = tasks;};   
+        int Process();
+        
+        ~PolicyThree(){};         
+    
+};
+
