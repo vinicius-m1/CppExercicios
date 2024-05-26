@@ -1,107 +1,64 @@
 # ninja log v5
-30	47	1716658388087124459	CMakeFiles/QtGameTest.dir/QtGameTest_autogen/mocs_compilation.cpp.o	623d4ebe1e46b9ed
-0	5	0	CMakeFiles/clean.additional	342cb1edb1166fd7
-50	5452	1716681263748508321	CMakeFiles/QtGameTest.dir/main.cpp.o	84fb6bdfae8de9ce
-3	44	1716681258344542139	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-3	44	1716681258344542139	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-3	44	1716681258344542139	QtGameTest_autogen/timestamp	b43526bdf735973a
-4534	5210	1716680651027258558	QtGameTest	5c251bc356a12aad
-3	44	1716681258344542139	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-5	10	0	clean	2db4a79084368e4
-3	43	1716681354107984028	QtGameTest_autogen/timestamp	b43526bdf735973a
-3	43	1716681354107984028	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-3	43	1716681354107984028	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-3	43	1716681354107984028	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-43	84	1716681354155983769	CMakeFiles/QtGameTest.dir/QtGameTest_autogen/mocs_compilation.cpp.o	623d4ebe1e46b9ed
-43	3683	1716681357755964392	CMakeFiles/QtGameTest.dir/main.cpp.o	84fb6bdfae8de9ce
-3	24	1716681407159709098	QtGameTest_autogen/timestamp	b43526bdf735973a
-3	24	1716681407159709098	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-3	24	1716681407159709098	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-3	24	1716681407159709098	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-26	2792	1716681409927695359	CMakeFiles/QtGameTest.dir/MyRect.cpp.o	d8ede171b1bd1cd9
-2792	3235	1716681410367693182	QtGameTest	19ed3f31b2c9d652
-3	21	1716681585702929150	QtGameTest_autogen/timestamp	b43526bdf735973a
-3	21	1716681585702929150	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-3	21	1716681585702929150	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-3	21	1716681585702929150	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-23	2852	1716681588530918343	CMakeFiles/QtGameTest.dir/MyRect.cpp.o	d8ede171b1bd1cd9
-23	3117	1716681588794917336	CMakeFiles/QtGameTest.dir/main.cpp.o	84fb6bdfae8de9ce
-3118	3562	1716681589238915644	QtGameTest	19ed3f31b2c9d652
-9	39	1716681902281937451	QtGameTest_autogen/timestamp	b43526bdf735973a
-9	39	1716681902281937451	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-9	39	1716681902281937451	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-9	39	1716681902281937451	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-41	5382	1716681907625923783	CMakeFiles/QtGameTest.dir/MyRect.cpp.o	d8ede171b1bd1cd9
-5383	6062	1716681908297922070	QtGameTest	19ed3f31b2c9d652
-4	18	1716682400412485173	QtGameTest_autogen/timestamp	b43526bdf735973a
-4	18	1716682400412485173	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-4	18	1716682400412485173	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-4	18	1716682400412485173	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-19	2628	1716682403024392713	CMakeFiles/QtGameTest.dir/main.cpp.o	84fb6bdfae8de9ce
-2628	3064	1716682403456377465	QtGameTest	19ed3f31b2c9d652
-4	19	1716682625725740017	QtGameTest_autogen/timestamp	b43526bdf735973a
-4	19	1716682625725740017	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-4	19	1716682625725740017	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-4	19	1716682625725740017	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-20	2416	1716682628121679844	CMakeFiles/QtGameTest.dir/MyRect.cpp.o	d8ede171b1bd1cd9
-2416	2866	1716682628569668620	QtGameTest	19ed3f31b2c9d652
-3	22	1716682682604365921	QtGameTest_autogen/timestamp	b43526bdf735973a
-3	22	1716682682604365921	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-3	22	1716682682604365921	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-3	22	1716682682604365921	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-3	28	1716682697024034799	QtGameTest_autogen/timestamp	b43526bdf735973a
-3	28	1716682697024034799	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-3	28	1716682697024034799	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-3	28	1716682697024034799	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-29	4295	1716682701287938159	CMakeFiles/QtGameTest.dir/MyRect.cpp.o	d8ede171b1bd1cd9
-4295	4947	1716682701939923430	QtGameTest	19ed3f31b2c9d652
-12	46	1716682745278973602	QtGameTest_autogen/timestamp	b43526bdf735973a
-12	46	1716682745278973602	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-12	46	1716682745278973602	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-12	46	1716682745278973602	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-48	4250	1716682749478884511	CMakeFiles/QtGameTest.dir/MyRect.cpp.o	d8ede171b1bd1cd9
-4250	4898	1716682750122870893	QtGameTest	19ed3f31b2c9d652
-4	24	1716682814013576560	QtGameTest_autogen/timestamp	b43526bdf735973a
-4	24	1716682814013576560	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-4	24	1716682814013576560	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-4	24	1716682814013576560	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-4	20	1716682840849064380	QtGameTest_autogen/timestamp	b43526bdf735973a
-4	20	1716682840849064380	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-4	20	1716682840849064380	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-4	20	1716682840849064380	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-21	4581	1716682845404979162	CMakeFiles/QtGameTest.dir/main.cpp.o	84fb6bdfae8de9ce
-3	30	1716682873516464056	QtGameTest_autogen/timestamp	b43526bdf735973a
-3	30	1716682873516464056	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-3	30	1716682873516464056	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-3	30	1716682873516464056	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-32	4554	1716682878036382913	CMakeFiles/QtGameTest.dir/MyRect.cpp.o	d8ede171b1bd1cd9
-32	4750	1716682878232379406	CMakeFiles/QtGameTest.dir/main.cpp.o	84fb6bdfae8de9ce
-4750	5365	1716682878844368457	QtGameTest	19ed3f31b2c9d652
-4	29	1716682974802748539	QtGameTest_autogen/timestamp	b43526bdf735973a
-4	29	1716682974802748539	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-4	29	1716682974802748539	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-4	29	1716682974802748539	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-31	4390	1716682979162679216	CMakeFiles/QtGameTest.dir/main.cpp.o	84fb6bdfae8de9ce
-4391	5043	1716682979810668943	QtGameTest	19ed3f31b2c9d652
-3	22	1716683435296885718	QtGameTest_autogen/timestamp	b43526bdf735973a
-3	22	1716683435296885718	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-3	22	1716683435296885718	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-3	22	1716683435296885718	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-23	3052	1716683438324854411	CMakeFiles/QtGameTest.dir/MyRect.cpp.o	d8ede171b1bd1cd9
-3052	3565	1716683438832849166	QtGameTest	19ed3f31b2c9d652
-5	19	1716683586515398241	QtGameTest_autogen/timestamp	b43526bdf735973a
-5	19	1716683586515398241	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-5	19	1716683586515398241	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-5	19	1716683586515398241	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-3	21	1716683665334676063	QtGameTest_autogen/timestamp	b43526bdf735973a
-3	21	1716683665334676063	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-3	21	1716683665334676063	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-3	21	1716683665334676063	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-22	4139	1716683669450639207	CMakeFiles/QtGameTest.dir/MyRect.cpp.o	d8ede171b1bd1cd9
-4139	4798	1716683670106633340	QtGameTest	19ed3f31b2c9d652
-3	19	1716683856421040354	QtGameTest_autogen/timestamp	b43526bdf735973a
-3	19	1716683856421040354	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-3	19	1716683856421040354	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
-3	19	1716683856421040354	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
-23	3170	1716683859569014546	CMakeFiles/QtGameTest.dir/MyRect.cpp.o	d8ede171b1bd1cd9
-3170	3820	1716683860217009237	QtGameTest	19ed3f31b2c9d652
+567	4664	1716690742715851877	CMakeFiles/QtGameTest.dir/QtGameTest_autogen/mocs_compilation.cpp.o	623d4ebe1e46b9ed
+0	7	0	CMakeFiles/clean.additional	342cb1edb1166fd7
+42	4678	1716688517008282992	CMakeFiles/QtGameTest.dir/main.cpp.o	84fb6bdfae8de9ce
+4	31	1716692476853666315	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+34	3894	1716692480713519644	CMakeFiles/QtGameTest.dir/ExtraBlock.cpp.o	d8cdc921dbdd3a33
+4	31	1716692476853666315	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+4	31	1716692476853666315	QtGameTest_autogen/timestamp	b43526bdf735973a
+3894	4572	1716692481385494225	QtGameTest	3895410127ba3809
+4	31	1716692476853666315	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
+7	13	0	clean	2db4a79084368e4
+567	5152	1716690743207872604	CMakeFiles/QtGameTest.dir/MyRect.cpp.o	d8ede171b1bd1cd9
+3	491	1716692980797514070	QtGameTest_autogen/timestamp	b43526bdf735973a
+3	491	1716692980797514070	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+3	491	1716692980797514070	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
+3	491	1716692980797514070	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+492	3193	1716692983505476295	CMakeFiles/QtGameTest.dir/ExtraBlock.cpp.o	d8cdc921dbdd3a33
+491	3898	1716692984209466508	CMakeFiles/QtGameTest.dir/QtGameTest_autogen/mocs_compilation.cpp.o	623d4ebe1e46b9ed
+491	4048	1716692984357464453	CMakeFiles/QtGameTest.dir/MyRect.cpp.o	d8ede171b1bd1cd9
+4048	4508	1716692984813458122	QtGameTest	3895410127ba3809
+4	27	1716693121295802746	QtGameTest_autogen/timestamp	b43526bdf735973a
+4	27	1716693121295802746	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+4	27	1716693121295802746	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
+4	27	1716693121295802746	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+31	3645	1716693124911764804	CMakeFiles/QtGameTest.dir/ExtraBlock.cpp.o	d8cdc921dbdd3a33
+3645	4122	1716693125383759873	QtGameTest	3895410127ba3809
+5	36	1716693174379272828	QtGameTest_autogen/timestamp	b43526bdf735973a
+5	36	1716693174379272828	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+5	36	1716693174379272828	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
+5	36	1716693174379272828	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+39	3370	1716693177711241438	CMakeFiles/QtGameTest.dir/ExtraBlock.cpp.o	d8cdc921dbdd3a33
+3370	4060	1716693178395235020	QtGameTest	3895410127ba3809
+4	34	1716693322238066853	QtGameTest_autogen/timestamp	b43526bdf735973a
+4	34	1716693322238066853	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+4	34	1716693322238066853	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
+4	34	1716693322238066853	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+4	33	1716693406513527291	QtGameTest_autogen/timestamp	b43526bdf735973a
+4	33	1716693406513527291	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+4	33	1716693406513527291	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
+4	33	1716693406513527291	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+5	50	1716693435257363905	QtGameTest_autogen/timestamp	b43526bdf735973a
+5	50	1716693435257363905	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+5	50	1716693435257363905	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
+5	50	1716693435257363905	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+54	3237	1716693438445346383	CMakeFiles/QtGameTest.dir/ExtraBlock.cpp.o	d8cdc921dbdd3a33
+3237	3914	1716693439117342704	QtGameTest	3895410127ba3809
+4	34	1716693632436475122	QtGameTest_autogen/timestamp	b43526bdf735973a
+4	34	1716693632436475122	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+4	34	1716693632436475122	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
+4	34	1716693632436475122	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+37	3059	1716693635460464207	CMakeFiles/QtGameTest.dir/ExtraBlock.cpp.o	d8cdc921dbdd3a33
+3059	3574	1716693635972462365	QtGameTest	3895410127ba3809
+4	51	1716693712172210138	QtGameTest_autogen/timestamp	b43526bdf735973a
+4	51	1716693712172210138	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+4	51	1716693712172210138	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
+4	51	1716693712172210138	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+54	4268	1716693716388197380	CMakeFiles/QtGameTest.dir/ExtraBlock.cpp.o	d8cdc921dbdd3a33
+4268	4826	1716693716944195706	QtGameTest	3895410127ba3809
+7	47	1716694062447478204	QtGameTest_autogen/timestamp	b43526bdf735973a
+7	47	1716694062447478204	QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+7	47	1716694062447478204	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/timestamp	b43526bdf735973a
+7	47	1716694062447478204	/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/mocs_compilation.cpp	b43526bdf735973a
+50	3656	1716694066055473419	CMakeFiles/QtGameTest.dir/ExtraBlock.cpp.o	d8cdc921dbdd3a33
+3657	4346	1716694066739472517	QtGameTest	3895410127ba3809

@@ -39,6 +39,10 @@ int main(int argc, char *argv[])
     // add a view to visualize the scene
     QGraphicsView * view = new QGraphicsView(scene);
 
+    // hide scrollbar
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
     view->show();
     return a.exec();
 }

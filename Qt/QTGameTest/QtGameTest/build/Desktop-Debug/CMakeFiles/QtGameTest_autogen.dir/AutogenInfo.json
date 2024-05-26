@@ -421,6 +421,12 @@
 	"HEADERS" : 
 	[
 		[
+			"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/ExtraBlock.h",
+			"MU",
+			"EWIEGA46WW/moc_ExtraBlock.cpp",
+			null
+		],
+		[
 			"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/MyRect.h",
 			"MU",
 			"EWIEGA46WW/moc_MyRect.cpp",
@@ -486,6 +492,11 @@
 	"SETTINGS_FILE" : "/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/CMakeFiles/QtGameTest_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/ExtraBlock.cpp",
+			"MU",
+			null
+		],
 		[
 			"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/MyRect.cpp",
 			"MU",
