@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 
     MyRect * rect = new MyRect();
 
-    rect->setRect(0,0,50,50);
+    rect->setRect(0,0,30,10);
 
 
     // add the item to the scene
@@ -44,5 +44,14 @@ int main(int argc, char *argv[])
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     view->show();
+
+    //definir tamanho da janela
+    view->setFixedSize(800,600);
+
+    //setando localizacao(na janela) e tamanho da cena
+    scene->setSceneRect(0,0,800,600);
+
+    rect->setPos(view->width()/2, view->height() - rect->rect().height());
+
     return a.exec();
 }

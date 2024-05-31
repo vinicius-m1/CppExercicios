@@ -1,6 +1,8 @@
 /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/EWIEGA46WW/moc_ExtraBlock.cpp: /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/ExtraBlock.h \
   /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/moc_predefs.h \
+  /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/grid.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QObject \
+  /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QTimer \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q20functional.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q20memory.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q20type_traits.h \
@@ -14,6 +16,7 @@
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qatomic.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qatomic_cxx11.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbasicatomic.h \
+  /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbasictimer.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbindingstorage.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearray.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearrayalgorithms.h \
@@ -101,6 +104,7 @@
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtdeprecationmarkers.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtenvironmentvariables.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtextstream.h \
+  /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtimer.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtmetamacros.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtnoop.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtpreprocessorsupport.h \

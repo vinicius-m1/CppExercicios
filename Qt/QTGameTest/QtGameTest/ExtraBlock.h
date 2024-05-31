@@ -1,20 +1,22 @@
 #ifndef EXTRABLOCK_H
 #define EXTRABLOCK_H
 #include <QGraphicsRectItem>
+#include "grid.h"
 #include <QObject>
-
+#include <QTimer>
 class ExtraBlock : public QObject, public QGraphicsRectItem{
     Q_OBJECT //needed to handle slots
 public:
-
-    int movX,movY; // define random number for each extra between -5 .. 5 in constructor
-    int limiter = 200;
-    bool duplication_able = false;
-    ExtraBlock();
+    QTimer * m_timer;
+    int movX,movY;
+    int limiter = 550;
+    //bool duplication_able = false;
+    Grid * m_grid;
+    ExtraBlock(Grid * grid);
 
 public slots:
     void move();
-    void duplication();
+    //void duplication();
 
 
 };
