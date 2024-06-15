@@ -30,54 +30,16 @@ ExtraBlock::ExtraBlock(Grid * grid){
 
 //void ExtraBlock::duplication(){
 
- //   duplication_able = true;
+//   duplication_able = true;
 
 //};
 
 
 void ExtraBlock::move()
-    {
+{
 
-    //extra block movement every 20 miliseconds (timer)
-
-        //int mov = 5; in .h
-        //int limiter = 200;
-
-    //if (x() > 200 || y() < -200 ){ExtraBlock::~ExtraBlock() ;};
-
-
-
-    //if (x()+movX > (limiter) || y() - movY < (limiter*-1) ){
-            //movX = movX*(-1);
-            //movY = movY*(-1);
-
-            //if (duplication_able){
-              //  ExtraBlock * extra = new ExtraBlock();
-            //    extra->setPos(x(),y());
-          //      scene()->addItem(extra);
-        //    };
-
-      //  };
-    //if (x()+movX < (limiter*-1) || y() - movY > (limiter) ){
-     //       movX = movX*(-1);
-   //         movY = movY*(-1);
-
-            //int temp = movX;
-            //movX = movY;
-            //movY = temp;
-
-            //if (duplication_able){
-                //ExtraBlock * extra = new ExtraBlock();
-                //extra->setPos(x(),y());
-                //scene()->addItem(extra);
-     //   };
-    //};
-    //Grid grid; // tem que ser dinamico, obviamente, fui burro
     movY = -5;
     int destination = (y() - (movY-25));
-
-    //border check
-    //if (destination < (limiter))
 
 
     //hit occupied grid slot
@@ -99,4 +61,4 @@ void ExtraBlock::move()
 
     setPos(x()+movX,y()-movY);
 
-    };
+};
