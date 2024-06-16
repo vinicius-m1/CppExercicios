@@ -8,9 +8,11 @@ QtGameTest_autogen/timestamp: \
   CMakeFiles/3.27.7/CMakeCXXCompiler.cmake \
   CMakeFiles/3.27.7/CMakeSystem.cmake \
   QtGameTest_autogen/moc_predefs.h \
+  /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/connector.h \
   /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/grid.cpp \
   /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/grid.h \
   /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/main.cpp \
+  /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QDebug \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QObject \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QTimer \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q20functional.h \
@@ -46,6 +48,7 @@ QtGameTest_autogen/timestamp: \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdarwinhelpers.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdatastream.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdebug.h \
+  /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qendian.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qexceptionhandling.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qflags.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfloat16.h \
@@ -131,10 +134,13 @@ QtGameTest_autogen/timestamp: \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qversiontagging.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qxptype_traits.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qyieldcpu.h \
+  /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qbrush.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qcolor.h \
+  /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qfont.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qimage.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpaintdevice.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpainterpath.h \
+  /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpen.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpixelformat.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpixmap.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpolygon.h \
@@ -147,7 +153,9 @@ QtGameTest_autogen/timestamp: \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtransform.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qwindowdefs.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QGraphicsRectItem \
+  /home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QGraphicsScene \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qgraphicsitem.h \
+  /home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qgraphicsscene.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgetsexports.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \

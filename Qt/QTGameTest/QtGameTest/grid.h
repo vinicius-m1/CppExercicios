@@ -1,13 +1,26 @@
 #ifndef GRID_H
 #define GRID_H
-#include<vector>
+//#include <sys/types.h>
+#include <QObject>
+#include <vector>
 
-class Grid{
+//#include "ExtraBlock.h"
+//#include "MyRect.h"
+#include "QDebug"
+
+#include"algorithm"
+
+class Grid : public QObject{
 
 protected:
+
     std::vector<std::pair<int,int>> occupied;
-    //std::vector<ExtraBlock*> blocks_in_scene;
+
 public:
+
+    std::pair<bool,int> row_to_destroy; // from grid DestroyRow to MyRect.cpp direct access
+
+    //std::vector<ExtraBlock::ExtraBlock*> blocks_in_scene; //public so MyRect.cpp can access
 
     bool IsOccupied(int x,int y);
 

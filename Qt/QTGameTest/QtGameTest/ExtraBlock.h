@@ -1,9 +1,12 @@
 #ifndef EXTRABLOCK_H
 #define EXTRABLOCK_H
-#include <QGraphicsRectItem>
 #include "grid.h"
+#include <QGraphicsRectItem>
 #include <QObject>
 #include <QTimer>
+#include <stdlib.h>
+#include <QGraphicsScene>
+
 class ExtraBlock : public QObject, public QGraphicsRectItem{
     Q_OBJECT //needed to handle slots
 public:

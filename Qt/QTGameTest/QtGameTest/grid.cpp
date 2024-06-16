@@ -1,10 +1,16 @@
 #include "grid.h"
-#include "QDebug"
-#include"algorithm"
+//#include "QDebug"
+//#include"algorithm"
 
+#include "ExtraBlock.h" //idk what i did but test with this
+#include "connector.h" // wont work bcs not same instance
 
 void Grid::SetOccupied(int x, int y)
 {
+
+    if (Grid::IsOccupied(x,y))
+        return;
+
     std::pair<int,int> temp(x,y);
     occupied.push_back(temp);
     qDebug() << "occupied at:" << temp.first << "  "<< temp.second <<x << " " <<y << "size: "<<occupied.size();
@@ -20,16 +26,22 @@ void Grid::SetOccupied(int x, int y)
     };
 
     // if reached the limit of the row size, the row is deleted
-    int row_horizontal_size = 16; // change later
+    int row_horizontal_size = 5; // change later
     if (y_amount >= row_horizontal_size){
         qDebug() << "row shall be destroyed!";
-        DestroyRow(y);
+
+        // MyRect will check this and call DestroyRow (crazy, but due to syncronization issues)
+        row_to_destroy = {true,y};
+
+        //DestroyRow(y);
     }
 
 }
 
 void Grid::DestroyRow(int y)
 {
+
+
     // remove from occupied
     // Using std::remove_if with a lambda function
     occupied.erase(std::remove_if(occupied.begin(), occupied.end(),
@@ -39,22 +51,11 @@ void Grid::DestroyRow(int y)
                    occupied.end()); //removes all occurences
 
 
-    // remove from scene... somehow
-
-
-
 }
 
 bool Grid::IsOccupied(int x, int y)
 {
     std::pair<int,int> search(x,y);
-
-
-    //auto it = std::find(occupied.begin(),occupied.end(), search);
-    //if (it != occupied.end()){
-    //        qDebug() << "already occupied" <<x << " " <<y;
-    //        return (true);
-    //}
 
     for (int i=0; i<occupied.size();i++){
         if (occupied.at(i) == search){
