@@ -36,11 +36,13 @@ void ExtraBlock::move()
 
         m_timer->stop(); // timer cant really stop because of rows possubly being deleted
         // decrease time to reduce performance hogging
-        m_timer->start(200);
+        m_timer->start(100);
 
+        falling = false;
+        m_grid->SetOccupied(x(),y());
 
         qDebug() << "clock stopped bcs occupied. ";
-        m_grid->SetOccupied(x(),y());
+
         return;
     }
 
@@ -51,13 +53,23 @@ void ExtraBlock::move()
 
         m_timer->stop(); // timer cant really stop because of rows possubly being deleted
         // decrease time to reduce performance hogging
-        m_timer->start(200);
+        m_timer->start(100);
 
 
-
+        falling = false;
         qDebug() << "clock stopped bcs border.";
+
         return;
     };
+
+    //--------------------------------------------------------------------------------------
+    // IF BELLOW IS FREE
+    //--------------------------------------------------------------------------------------
+
+    if (falling == false) //if was stopped and now moving, remove old "seat"
+        m_grid->RemoveOccupied(x(),y());
+
+    falling = true;
 
     setPos(x()+movX,y()-movY);
 

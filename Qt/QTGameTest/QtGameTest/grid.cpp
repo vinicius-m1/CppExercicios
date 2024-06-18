@@ -53,6 +53,20 @@ void Grid::DestroyRow(int y)
 
 }
 
+void Grid::RemoveOccupied(int x, int y)
+{
+
+    //remove from occupied
+    // only one item
+    occupied.erase(std::remove_if(occupied.begin(), occupied.end(),
+                                  [&x, &y](const std::pair<int, int>& element) {
+                                      return element.first == x && element.second == y;
+                                  }),
+                   occupied.end());
+
+
+}
+
 bool Grid::IsOccupied(int x, int y)
 {
     std::pair<int,int> search(x,y);

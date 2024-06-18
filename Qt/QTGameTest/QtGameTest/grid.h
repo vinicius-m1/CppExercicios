@@ -28,6 +28,8 @@ public:
 
     void DestroyRow(int y);
 
+    void RemoveOccupied(int x,int y);
+
 };
 
 
