@@ -71,13 +71,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 68,
+				"line" : 69,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 51,
+				"line" : 52,
 				"parent" : 0
 			},
 			{
@@ -454,7 +454,7 @@
 		},
 		{
 			"backtrace" : 4,
-			"path" : "connector.h",
+			"path" : "square.h",
 			"sourceGroupIndex" : 1
 		},
 		{

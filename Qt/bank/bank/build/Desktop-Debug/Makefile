@@ -52,19 +52,31 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../../accountslist.cpp \
+SOURCES       = ../../account.cpp \
+		../../accountslist.cpp \
+		../../client.cpp \
+		../../logs.cpp \
 		../../main.cpp \
 		../../mainwindow.cpp \
-		../../operations.cpp moc_accountslist.cpp \
+		../../operations.cpp \
+		../../registerwindow.cpp moc_accountslist.cpp \
+		moc_logs.cpp \
 		moc_mainwindow.cpp \
-		moc_operations.cpp
-OBJECTS       = accountslist.o \
+		moc_operations.cpp \
+		moc_registerwindow.cpp
+OBJECTS       = account.o \
+		accountslist.o \
+		client.o \
+		logs.o \
 		main.o \
 		mainwindow.o \
 		operations.o \
+		registerwindow.o \
 		moc_accountslist.o \
+		moc_logs.o \
 		moc_mainwindow.o \
-		moc_operations.o
+		moc_operations.o \
+		moc_registerwindow.o
 DIST          = /home/bansola/Qt/6.7.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/bansola/Qt/6.7.0/gcc_64/mkspecs/common/unix.conf \
 		/home/bansola/Qt/6.7.0/gcc_64/mkspecs/common/linux.conf \
@@ -283,12 +295,20 @@ DIST          = /home/bansola/Qt/6.7.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/bansola/Qt/6.7.0/gcc_64/mkspecs/features/exceptions.prf \
 		/home/bansola/Qt/6.7.0/gcc_64/mkspecs/features/yacc.prf \
 		/home/bansola/Qt/6.7.0/gcc_64/mkspecs/features/lex.prf \
-		../../../../bank.pro ../../accountslist.h \
+		../../../../bank.pro ../../account.hpp \
+		../../accountslist.h \
+		../../client.hpp \
+		../../logs.h \
 		../../mainwindow.h \
-		../../operations.h ../../accountslist.cpp \
+		../../operations.h \
+		../../registerwindow.h ../../account.cpp \
+		../../accountslist.cpp \
+		../../client.cpp \
+		../../logs.cpp \
 		../../main.cpp \
 		../../mainwindow.cpp \
-		../../operations.cpp
+		../../operations.cpp \
+		../../registerwindow.cpp
 QMAKE_TARGET  = bank
 DESTDIR       = 
 TARGET        = bank
@@ -297,7 +317,7 @@ TARGET        = bank
 first: all
 ####### Build rules
 
-bank: ui_accountslist.h ui_mainwindow.h ui_operations.h $(OBJECTS)  
+bank: ui_accountslist.h ui_logs.h ui_mainwindow.h ui_operations.h ui_registerwindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET)  $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../../bank.pro /home/bansola/Qt/6.7.0/gcc_64/mkspecs/linux-g++/qmake.conf /home/bansola/Qt/6.7.0/gcc_64/mkspecs/features/spec_pre.prf \
@@ -760,9 +780,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /home/bansola/Qt/6.7.0/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../accountslist.h ../../mainwindow.h ../../operations.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../accountslist.cpp ../../main.cpp ../../mainwindow.cpp ../../operations.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../accountslist.ui ../../mainwindow.ui ../../operations.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../../account.hpp ../../accountslist.h ../../client.hpp ../../logs.h ../../mainwindow.h ../../operations.h ../../registerwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../account.cpp ../../accountslist.cpp ../../client.cpp ../../logs.cpp ../../main.cpp ../../mainwindow.cpp ../../operations.cpp ../../registerwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../accountslist.ui ../../logs.ui ../../mainwindow.ui ../../operations.ui ../../registerwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -794,10 +814,203 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /home/bansola/Qt/6.7.0/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++1z -Wall -Wextra -fPIC -dM -E -o moc_predefs.h /home/bansola/Qt/6.7.0/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_accountslist.cpp moc_mainwindow.cpp moc_operations.cpp
+compiler_moc_header_make_all: moc_accountslist.cpp moc_logs.cpp moc_mainwindow.cpp moc_operations.cpp moc_registerwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_accountslist.cpp moc_mainwindow.cpp moc_operations.cpp
+	-$(DEL_FILE) moc_accountslist.cpp moc_logs.cpp moc_mainwindow.cpp moc_operations.cpp moc_registerwindow.cpp
 moc_accountslist.cpp: ../../accountslist.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QDialog \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qdialog.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qglobal.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtversionchecks.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtconfiginclude.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qconfig.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtcore-config.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtconfigmacros.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtcoreexports.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qassert.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtnoop.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtypes.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtversion.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsysinfo.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlogging.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qflags.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcompare_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qatomic.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qyieldcpu.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qconstructormacros.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qexceptionhandling.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qforeach.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qttypetraits.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfunctionpointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmalloc.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qminmax.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qnumeric.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qoverload.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qswap.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtresource.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qttranslation.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qversiontagging.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtgui-config.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtguiexports.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgetsexports.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qwidget.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qnamespace.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtmetamacros.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qobject.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstring.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qchar.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearray.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qrefcount.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qarraydata.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qpair.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qarraydataops.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q20functional.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q20memory.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearrayview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringfwd.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q20type_traits.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringliteral.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlatin1stringview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qanystringview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qutf8stringview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringtokenizer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringconverter.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringconverter_base.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlist.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qiterator.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringlist.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qalgorithms.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcoreevent.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmetatype.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcompare.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcomparehelpers.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdatastream.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qiodevicebase.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfloat16.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmath.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qiterable.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmetacontainer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcontainerinfo.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtaggedpointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qscopeguard.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qobject_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmargins.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q23utility.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qaction.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qkeysequence.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qicon.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsize.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpixmap.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qrect.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qpoint.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qcolor.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qrgb.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qrgba64.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qshareddata.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qimage.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpixelformat.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtransform.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpolygon.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qregion.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qline.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qvariant.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdebug.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtextstream.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmap.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qshareddata_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qset.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qhash.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpalette.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qbrush.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qfont.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qendian.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qfontinfo.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qcursor.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qbitmap.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qevent.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qiodevice.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qurl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qeventpoint.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qvector2d.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qvectornd.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpointingdevice.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qinputdevice.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qscreen.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QList \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QObject \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QRect \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QSize \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QSizeF \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/QTransform \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qnativeinterface.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qscreen_platform.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdeadlinetimer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qelapsedtimer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qeventloop.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcoreapplication_platform.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfuture.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfutureinterface.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmutex.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtsan_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qresultstore.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfuture_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qthreadpool.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qthread.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qrunnable.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qexception.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qpromise.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qinputmethod.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
+		../../account.hpp \
+		../../client.hpp \
+		moc_predefs.h \
+		/home/bansola/Qt/6.7.0/gcc_64/libexec/moc
+	/home/bansola/Qt/6.7.0/gcc_64/libexec/moc $(DEFINES) --include '/home/bansola/Desktop/C codigos/Qt/bank/bank/build/Desktop-Debug/moc_predefs.h' -I/home/bansola/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -I'/home/bansola/Desktop/C codigos/Qt/bank/bank' -I/home/bansola/Qt/6.7.0/gcc_64/include -I/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/bansola/Qt/6.7.0/gcc_64/include/QtGui -I/home/bansola/Qt/6.7.0/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../accountslist.h -o moc_accountslist.cpp
+
+moc_logs.cpp: ../../logs.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QDialog \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qdialog.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -986,7 +1199,7 @@ moc_accountslist.cpp: ../../accountslist.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
 		moc_predefs.h \
 		/home/bansola/Qt/6.7.0/gcc_64/libexec/moc
-	/home/bansola/Qt/6.7.0/gcc_64/libexec/moc $(DEFINES) --include '/home/bansola/Desktop/C codigos/Qt/bank/bank/build/Desktop-Debug/moc_predefs.h' -I/home/bansola/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -I'/home/bansola/Desktop/C codigos/Qt/bank/bank' -I/home/bansola/Qt/6.7.0/gcc_64/include -I/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/bansola/Qt/6.7.0/gcc_64/include/QtGui -I/home/bansola/Qt/6.7.0/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../accountslist.h -o moc_accountslist.cpp
+	/home/bansola/Qt/6.7.0/gcc_64/libexec/moc $(DEFINES) --include '/home/bansola/Desktop/C codigos/Qt/bank/bank/build/Desktop-Debug/moc_predefs.h' -I/home/bansola/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -I'/home/bansola/Desktop/C codigos/Qt/bank/bank' -I/home/bansola/Qt/6.7.0/gcc_64/include -I/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/bansola/Qt/6.7.0/gcc_64/include/QtGui -I/home/bansola/Qt/6.7.0/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../logs.h -o moc_logs.cpp
 
 moc_mainwindow.cpp: ../../mainwindow.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QMainWindow \
@@ -1176,6 +1389,8 @@ moc_mainwindow.cpp: ../../mainwindow.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../account.hpp \
+		../../client.hpp \
 		moc_predefs.h \
 		/home/bansola/Qt/6.7.0/gcc_64/libexec/moc
 	/home/bansola/Qt/6.7.0/gcc_64/libexec/moc $(DEFINES) --include '/home/bansola/Desktop/C codigos/Qt/bank/bank/build/Desktop-Debug/moc_predefs.h' -I/home/bansola/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -I'/home/bansola/Desktop/C codigos/Qt/bank/bank' -I/home/bansola/Qt/6.7.0/gcc_64/include -I/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/bansola/Qt/6.7.0/gcc_64/include/QtGui -I/home/bansola/Qt/6.7.0/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../mainwindow.h -o moc_mainwindow.cpp
@@ -1367,20 +1582,217 @@ moc_operations.cpp: ../../operations.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qinputmethod.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
+		../../account.hpp \
+		../../client.hpp \
 		moc_predefs.h \
 		/home/bansola/Qt/6.7.0/gcc_64/libexec/moc
 	/home/bansola/Qt/6.7.0/gcc_64/libexec/moc $(DEFINES) --include '/home/bansola/Desktop/C codigos/Qt/bank/bank/build/Desktop-Debug/moc_predefs.h' -I/home/bansola/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -I'/home/bansola/Desktop/C codigos/Qt/bank/bank' -I/home/bansola/Qt/6.7.0/gcc_64/include -I/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/bansola/Qt/6.7.0/gcc_64/include/QtGui -I/home/bansola/Qt/6.7.0/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../operations.h -o moc_operations.cpp
+
+moc_registerwindow.cpp: ../../registerwindow.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QDialog \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qdialog.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qglobal.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtversionchecks.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtconfiginclude.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qconfig.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtcore-config.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtconfigmacros.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtcoreexports.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qassert.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtnoop.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtypes.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtversion.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsysinfo.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlogging.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qflags.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcompare_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qatomic.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qyieldcpu.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qconstructormacros.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qexceptionhandling.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qforeach.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qttypetraits.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfunctionpointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmalloc.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qminmax.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qnumeric.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qoverload.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qswap.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtresource.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qttranslation.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qversiontagging.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtgui-config.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtguiexports.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgetsexports.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qwidget.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qnamespace.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtmetamacros.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qobject.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstring.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qchar.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearray.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qrefcount.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qarraydata.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qpair.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qarraydataops.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q20functional.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q20memory.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearrayview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringfwd.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q20type_traits.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringliteral.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlatin1stringview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qanystringview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qutf8stringview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringtokenizer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringconverter.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringconverter_base.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlist.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qiterator.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringlist.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qalgorithms.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcoreevent.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmetatype.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcompare.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcomparehelpers.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdatastream.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qiodevicebase.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfloat16.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmath.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qiterable.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmetacontainer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcontainerinfo.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtaggedpointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qscopeguard.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qobject_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmargins.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q23utility.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qaction.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qkeysequence.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qicon.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsize.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpixmap.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qrect.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qpoint.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qcolor.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qrgb.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qrgba64.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qshareddata.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qimage.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpixelformat.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtransform.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpolygon.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qregion.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qline.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qvariant.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdebug.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtextstream.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmap.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qshareddata_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qset.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qhash.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpalette.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qbrush.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qfont.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qendian.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qfontinfo.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qcursor.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qbitmap.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qevent.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qiodevice.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qurl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qeventpoint.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qvector2d.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qvectornd.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpointingdevice.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qinputdevice.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qscreen.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QList \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QObject \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QRect \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QSize \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QSizeF \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/QTransform \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qnativeinterface.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qscreen_platform.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdeadlinetimer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qelapsedtimer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qeventloop.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcoreapplication_platform.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfuture.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfutureinterface.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmutex.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtsan_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qresultstore.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfuture_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qthreadpool.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qthread.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qrunnable.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qexception.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qpromise.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qinputmethod.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
+		moc_predefs.h \
+		/home/bansola/Qt/6.7.0/gcc_64/libexec/moc
+	/home/bansola/Qt/6.7.0/gcc_64/libexec/moc $(DEFINES) --include '/home/bansola/Desktop/C codigos/Qt/bank/bank/build/Desktop-Debug/moc_predefs.h' -I/home/bansola/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -I'/home/bansola/Desktop/C codigos/Qt/bank/bank' -I/home/bansola/Qt/6.7.0/gcc_64/include -I/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/bansola/Qt/6.7.0/gcc_64/include/QtGui -I/home/bansola/Qt/6.7.0/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../registerwindow.h -o moc_registerwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_accountslist.h ui_mainwindow.h ui_operations.h
+compiler_uic_make_all: ui_accountslist.h ui_logs.h ui_mainwindow.h ui_operations.h ui_registerwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_accountslist.h ui_mainwindow.h ui_operations.h
+	-$(DEL_FILE) ui_accountslist.h ui_logs.h ui_mainwindow.h ui_operations.h ui_registerwindow.h
 ui_accountslist.h: ../../accountslist.ui \
 		/home/bansola/Qt/6.7.0/gcc_64/libexec/uic
 	/home/bansola/Qt/6.7.0/gcc_64/libexec/uic ../../accountslist.ui -o ui_accountslist.h
+
+ui_logs.h: ../../logs.ui \
+		/home/bansola/Qt/6.7.0/gcc_64/libexec/uic
+	/home/bansola/Qt/6.7.0/gcc_64/libexec/uic ../../logs.ui -o ui_logs.h
 
 ui_mainwindow.h: ../../mainwindow.ui \
 		/home/bansola/Qt/6.7.0/gcc_64/libexec/uic
@@ -1389,6 +1801,10 @@ ui_mainwindow.h: ../../mainwindow.ui \
 ui_operations.h: ../../operations.ui \
 		/home/bansola/Qt/6.7.0/gcc_64/libexec/uic
 	/home/bansola/Qt/6.7.0/gcc_64/libexec/uic ../../operations.ui -o ui_operations.h
+
+ui_registerwindow.h: ../../registerwindow.ui \
+		/home/bansola/Qt/6.7.0/gcc_64/libexec/uic
+	/home/bansola/Qt/6.7.0/gcc_64/libexec/uic ../../registerwindow.ui -o ui_registerwindow.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -1399,6 +1815,10 @@ compiler_lex_clean:
 compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
+
+account.o: ../../account.cpp ../../account.hpp \
+		../../client.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o account.o ../../account.cpp
 
 accountslist.o: ../../accountslist.cpp ../../accountslist.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QDialog \
@@ -1587,6 +2007,8 @@ accountslist.o: ../../accountslist.cpp ../../accountslist.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qinputmethod.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
+		../../account.hpp \
+		../../client.hpp \
 		ui_accountslist.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QVariant \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/QIcon \
@@ -1622,6 +2044,231 @@ accountslist.o: ../../accountslist.cpp ../../accountslist.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QToolButton \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtoolbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o accountslist.o ../../accountslist.cpp
+
+client.o: ../../client.cpp ../../client.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o client.o ../../client.cpp
+
+logs.o: ../../logs.cpp ../../logs.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QDialog \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qdialog.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qglobal.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtversionchecks.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtconfiginclude.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qconfig.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtcore-config.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtconfigmacros.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtcoreexports.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qassert.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtnoop.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtypes.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtversion.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsysinfo.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlogging.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qflags.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcompare_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qatomic.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qyieldcpu.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qconstructormacros.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qexceptionhandling.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qforeach.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qttypetraits.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfunctionpointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmalloc.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qminmax.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qnumeric.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qoverload.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qswap.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtresource.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qttranslation.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qversiontagging.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtgui-config.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtguiexports.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgetsexports.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qwidget.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qnamespace.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtmetamacros.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qobject.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstring.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qchar.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearray.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qrefcount.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qarraydata.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qpair.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qarraydataops.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q20functional.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q20memory.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearrayview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringfwd.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q20type_traits.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringliteral.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlatin1stringview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qanystringview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qutf8stringview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringtokenizer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringconverter.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringconverter_base.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlist.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qiterator.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringlist.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qalgorithms.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcoreevent.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmetatype.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcompare.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcomparehelpers.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdatastream.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qiodevicebase.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfloat16.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmath.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qiterable.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmetacontainer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcontainerinfo.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtaggedpointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qscopeguard.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qobject_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmargins.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q23utility.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qaction.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qkeysequence.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qicon.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsize.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpixmap.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qrect.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qpoint.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qcolor.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qrgb.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qrgba64.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qshareddata.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qimage.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpixelformat.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtransform.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpolygon.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qregion.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qline.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qvariant.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdebug.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtextstream.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmap.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qshareddata_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qset.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qhash.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpalette.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qbrush.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qfont.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qendian.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qfontinfo.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qcursor.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qbitmap.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qevent.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qiodevice.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qurl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qeventpoint.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qvector2d.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qvectornd.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpointingdevice.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qinputdevice.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qscreen.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QList \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QObject \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QRect \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QSize \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QSizeF \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/QTransform \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qnativeinterface.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qscreen_platform.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdeadlinetimer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qelapsedtimer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qeventloop.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcoreapplication_platform.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfuture.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfutureinterface.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmutex.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtsan_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qresultstore.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfuture_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qthreadpool.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qthread.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qrunnable.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qexception.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qpromise.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qinputmethod.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
+		ui_logs.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QVariant \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/QIcon \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QApplication \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qapplication.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QFrame \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qframe.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QLabel \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qlabel.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpicture.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtextdocument.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QListWidget \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qlistwidget.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qlistview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qvalidator.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qregularexpression.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qslider.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qstyle.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QToolButton \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtoolbutton.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QDebug
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o logs.o ../../logs.cpp
 
 main.o: ../../main.cpp ../../mainwindow.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QMainWindow \
@@ -1811,6 +2458,8 @@ main.o: ../../main.cpp ../../mainwindow.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../account.hpp \
+		../../client.hpp \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QApplication \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
@@ -2003,6 +2652,8 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../account.hpp \
+		../../client.hpp \
 		ui_mainwindow.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QVariant \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/QIcon \
@@ -2031,7 +2682,8 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../accountslist.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QDialog \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qdialog.h \
-		../../operations.h
+		../../operations.h \
+		../../logs.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
 operations.o: ../../operations.cpp ../../operations.h \
@@ -2221,17 +2873,248 @@ operations.o: ../../operations.cpp ../../operations.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qinputmethod.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
 		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
-		ui_operations.h
+		../../account.hpp \
+		../../client.hpp \
+		ui_operations.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QVariant \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QApplication \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qapplication.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QComboBox \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qcombobox.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qvalidator.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qregularexpression.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qslider.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qstyle.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qframe.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QFrame \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QLabel \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qlabel.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpicture.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtextdocument.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QProgressBar \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qprogressbar.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QPushButton \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QRadioButton \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qradiobutton.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QSpinBox \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qspinbox.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o operations.o ../../operations.cpp
+
+registerwindow.o: ../../registerwindow.cpp ../../registerwindow.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QDialog \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qdialog.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qglobal.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtversionchecks.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtconfiginclude.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qconfig.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtcore-config.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtconfigmacros.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtcoreexports.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qassert.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtnoop.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtypes.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtversion.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsysinfo.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlogging.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qflags.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcompare_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qatomic.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qyieldcpu.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qconstructormacros.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qexceptionhandling.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qforeach.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qttypetraits.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfunctionpointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmalloc.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qminmax.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qnumeric.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qoverload.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qswap.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtresource.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qttranslation.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qversiontagging.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtgui-config.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtguiexports.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qtwidgetsexports.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qwidget.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qnamespace.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtmetamacros.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qobject.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstring.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qchar.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearray.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qrefcount.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qarraydata.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qpair.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qarraydataops.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q20functional.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q20memory.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearrayview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringfwd.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q20type_traits.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringliteral.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlatin1stringview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qanystringview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qutf8stringview.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringtokenizer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringconverter.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringconverter_base.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlist.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qiterator.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringlist.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qalgorithms.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcoreevent.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmetatype.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcompare.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcomparehelpers.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdatastream.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qiodevicebase.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfloat16.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmath.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qiterable.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmetacontainer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcontainerinfo.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtaggedpointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qscopeguard.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qobject_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmargins.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/q23utility.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qaction.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qkeysequence.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qicon.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsize.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpixmap.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qrect.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qpoint.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qcolor.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qrgb.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qrgba64.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qshareddata.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qimage.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpixelformat.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtransform.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpolygon.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qregion.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qline.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qvariant.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdebug.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtextstream.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmap.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qshareddata_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qset.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qhash.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpalette.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qbrush.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qfont.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qendian.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qfontinfo.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qcursor.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qbitmap.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qevent.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qiodevice.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qurl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qeventpoint.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qvector2d.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qvectornd.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpointingdevice.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qinputdevice.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qscreen.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QList \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QObject \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QRect \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QSize \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QSizeF \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/QTransform \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qnativeinterface.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qscreen_platform.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qdeadlinetimer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qelapsedtimer.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qeventloop.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qcoreapplication_platform.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfuture.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfutureinterface.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qmutex.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qtsan_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qresultstore.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qfuture_impl.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qthreadpool.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qthread.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qrunnable.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qexception.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qpromise.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qinputmethod.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
+		/home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
+		ui_registerwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o registerwindow.o ../../registerwindow.cpp
 
 moc_accountslist.o: moc_accountslist.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_accountslist.o moc_accountslist.cpp
+
+moc_logs.o: moc_logs.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_logs.o moc_logs.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
 moc_operations.o: moc_operations.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_operations.o moc_operations.cpp
+
+moc_registerwindow.o: moc_registerwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_registerwindow.o moc_registerwindow.cpp
 
 ####### Install
 

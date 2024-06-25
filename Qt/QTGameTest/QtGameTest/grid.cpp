@@ -3,7 +3,7 @@
 //#include"algorithm"
 
 #include "ExtraBlock.h" //idk what i did but test with this
-#include "connector.h" // wont work bcs not same instance
+
 
 void Grid::SetOccupied(int x, int y)
 {

@@ -1,14 +1,10 @@
 #include "ExtraBlock.h"
 
-//#include <QTimer>
-//#include <stdlib.h>
-//#include <QGraphicsScene>
-//#include gride.aga
+
 ExtraBlock::ExtraBlock(Grid * grid){
 
     setRect(0,0,30,30);
-    //movX = rand() % 8;
-    //movY = rand() % 5;
+
     movY =0;
     movX=0;
     m_grid = grid;

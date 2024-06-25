@@ -35,8 +35,8 @@ public:
     QPushButton *btn_accountsList;
     QFrame *frm_registerNewAccount;
     QPushButton *btn_registerNewAccount;
-    QFrame *frm_registerNewUser;
-    QPushButton *btn_registerNewUser;
+    QFrame *frm_logs;
+    QPushButton *btn_logs;
     QFrame *frm_operations;
     QPushButton *btn_operations;
     QMenuBar *menubar;
@@ -109,23 +109,24 @@ public:
         btn_registerNewAccount->setIcon(icon1);
         btn_registerNewAccount->setIconSize(QSize(26, 26));
         btn_registerNewAccount->setFlat(true);
-        frm_registerNewUser = new QFrame(frm_mainMenuFrame);
-        frm_registerNewUser->setObjectName("frm_registerNewUser");
-        frm_registerNewUser->setEnabled(true);
-        frm_registerNewUser->setGeometry(QRect(160, 320, 171, 41));
-        frm_registerNewUser->setStyleSheet(QString::fromUtf8("border-color: rgb(0, 0, 0);"));
-        frm_registerNewUser->setFrameShape(QFrame::StyledPanel);
-        frm_registerNewUser->setFrameShadow(QFrame::Raised);
-        btn_registerNewUser = new QPushButton(frm_registerNewUser);
-        btn_registerNewUser->setObjectName("btn_registerNewUser");
-        btn_registerNewUser->setGeometry(QRect(0, 0, 171, 41));
-        btn_registerNewUser->setCursor(QCursor(Qt::PointingHandCursor));
-        btn_registerNewUser->setAutoFillBackground(false);
-        btn_registerNewUser->setStyleSheet(QString::fromUtf8("background-color: grey\n"
+        frm_logs = new QFrame(frm_mainMenuFrame);
+        frm_logs->setObjectName("frm_logs");
+        frm_logs->setEnabled(true);
+        frm_logs->setGeometry(QRect(160, 320, 171, 41));
+        frm_logs->setStyleSheet(QString::fromUtf8("border-color: rgb(0, 0, 0);"));
+        frm_logs->setFrameShape(QFrame::StyledPanel);
+        frm_logs->setFrameShadow(QFrame::Raised);
+        btn_logs = new QPushButton(frm_logs);
+        btn_logs->setObjectName("btn_logs");
+        btn_logs->setGeometry(QRect(0, 0, 171, 41));
+        btn_logs->setCursor(QCursor(Qt::PointingHandCursor));
+        btn_logs->setAutoFillBackground(false);
+        btn_logs->setStyleSheet(QString::fromUtf8("background-color: grey\n"
 ""));
-        btn_registerNewUser->setIcon(icon1);
-        btn_registerNewUser->setIconSize(QSize(26, 26));
-        btn_registerNewUser->setFlat(true);
+        QIcon icon2(QIcon::fromTheme(QString::fromUtf8("text-x-generic")));
+        btn_logs->setIcon(icon2);
+        btn_logs->setIconSize(QSize(26, 26));
+        btn_logs->setFlat(true);
         frm_operations = new QFrame(frm_mainMenuFrame);
         frm_operations->setObjectName("frm_operations");
         frm_operations->setEnabled(true);
@@ -140,14 +141,14 @@ public:
         btn_operations->setAutoFillBackground(false);
         btn_operations->setStyleSheet(QString::fromUtf8("background-color: grey\n"
 ""));
-        QIcon icon2(QIcon::fromTheme(QString::fromUtf8("applications-other")));
-        btn_operations->setIcon(icon2);
+        QIcon icon3(QIcon::fromTheme(QString::fromUtf8("applications-other")));
+        btn_operations->setIcon(icon3);
         btn_operations->setIconSize(QSize(26, 26));
         btn_operations->setFlat(true);
         frm_accountsList->raise();
         label->raise();
         frm_registerNewAccount->raise();
-        frm_registerNewUser->raise();
+        frm_logs->raise();
         frm_operations->raise();
 
         verticalLayout->addWidget(frm_mainMenuFrame);
@@ -165,7 +166,7 @@ public:
 
         btn_accountsList->setDefault(false);
         btn_registerNewAccount->setDefault(false);
-        btn_registerNewUser->setDefault(false);
+        btn_logs->setDefault(false);
         btn_operations->setDefault(false);
 
 
@@ -178,7 +179,7 @@ public:
         label->setText(QCoreApplication::translate("MainWindow", "Main Menu   Bank Admin", nullptr));
         btn_accountsList->setText(QCoreApplication::translate("MainWindow", "Accounts List", nullptr));
         btn_registerNewAccount->setText(QCoreApplication::translate("MainWindow", "Register New Account", nullptr));
-        btn_registerNewUser->setText(QCoreApplication::translate("MainWindow", "Register New User", nullptr));
+        btn_logs->setText(QCoreApplication::translate("MainWindow", "Logs", nullptr));
         btn_operations->setText(QCoreApplication::translate("MainWindow", "Operations", nullptr));
     } // retranslateUi
 

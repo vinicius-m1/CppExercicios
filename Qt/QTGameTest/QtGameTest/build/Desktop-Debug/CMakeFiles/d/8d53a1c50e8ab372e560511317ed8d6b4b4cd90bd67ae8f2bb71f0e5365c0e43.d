@@ -8,10 +8,10 @@ QtGameTest_autogen/timestamp: \
   CMakeFiles/3.27.7/CMakeCXXCompiler.cmake \
   CMakeFiles/3.27.7/CMakeSystem.cmake \
   QtGameTest_autogen/moc_predefs.h \
-  /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/connector.h \
   /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/grid.cpp \
   /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/grid.h \
   /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/main.cpp \
+  /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/square.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QDebug \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QObject \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QTimer \
@@ -134,11 +134,15 @@ QtGameTest_autogen/timestamp: \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qversiontagging.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qxptype_traits.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/qyieldcpu.h \
+  /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/QPainter \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qbrush.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qcolor.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qfont.h \
+  /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qfontinfo.h \
+  /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qfontmetrics.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qimage.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpaintdevice.h \
+  /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpainter.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpainterpath.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpen.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qpixelformat.h \
@@ -147,11 +151,13 @@ QtGameTest_autogen/timestamp: \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qregion.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qrgb.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qrgba64.h \
+  /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtextoption.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtgui-config.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtguiexports.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtguiglobal.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qtransform.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtGui/qwindowdefs.h \
+  /home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QGraphicsItem \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QGraphicsRectItem \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/QGraphicsScene \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets/qgraphicsitem.h \

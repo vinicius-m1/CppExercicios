@@ -198,7 +198,7 @@
          </property>
         </widget>
        </widget>
-       <widget class="QFrame" name="frm_registerNewUser">
+       <widget class="QFrame" name="frm_logs">
         <property name="enabled">
          <bool>true</bool>
         </property>
@@ -219,7 +219,7 @@
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <widget class="QPushButton" name="btn_registerNewUser">
+        <widget class="QPushButton" name="btn_logs">
          <property name="geometry">
           <rect>
            <x>0</x>
@@ -239,10 +239,10 @@
 </string>
          </property>
          <property name="text">
-          <string>Register New User</string>
+          <string>Logs</string>
          </property>
          <property name="icon">
-          <iconset theme="list-add"/>
+          <iconset theme="text-x-generic"/>
          </property>
          <property name="iconSize">
           <size>
@@ -321,7 +321,7 @@
        <zorder>frm_accountsList</zorder>
        <zorder>label</zorder>
        <zorder>frm_registerNewAccount</zorder>
-       <zorder>frm_registerNewUser</zorder>
+       <zorder>frm_logs</zorder>
        <zorder>frm_operations</zorder>
       </widget>
      </item>

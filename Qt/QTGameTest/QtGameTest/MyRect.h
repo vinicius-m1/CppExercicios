@@ -14,10 +14,11 @@ class MyRect: public QGraphicsRectItem{
 public:
 
 
-
+    int test=0;
     Grid grid;
-    std::vector<ExtraBlock*> blocks_in_scene;
-
+    //std::vector<ExtraBlock*> blocks_in_scene;
+    std::vector<QGraphicsItem*> blocks_in_scene;
+    // polimorfismo é fo##
 
     void keyPressEvent(QKeyEvent * event);
 };

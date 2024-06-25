@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QProgressBar>
@@ -35,6 +36,8 @@ public:
     QLabel *lb_accountSelec_2;
     QProgressBar *pb_progressBar;
     QLabel *label;
+    QLabel *lb_amount;
+    QDoubleSpinBox *sb_amount;
 
     void setupUi(QDialog *Operations)
     {
@@ -90,6 +93,13 @@ public:
         font.setPointSize(12);
         font.setBold(true);
         label->setFont(font);
+        lb_amount = new QLabel(frm_operations);
+        lb_amount->setObjectName("lb_amount");
+        lb_amount->setEnabled(false);
+        lb_amount->setGeometry(QRect(250, 110, 111, 16));
+        sb_amount = new QDoubleSpinBox(frm_operations);
+        sb_amount->setObjectName("sb_amount");
+        sb_amount->setGeometry(QRect(250, 130, 111, 23));
 
         retranslateUi(Operations);
 
@@ -106,6 +116,7 @@ public:
         lb_accountSelec->setText(QCoreApplication::translate("Operations", "<html><head/><body><p>Account</p></body></html>", nullptr));
         lb_accountSelec_2->setText(QCoreApplication::translate("Operations", "<html><head/><body><p>Receiver Account</p></body></html>", nullptr));
         label->setText(QCoreApplication::translate("Operations", "<html><head/><body><p><span style=\" color:#ffffff;\">Account Operations</span></p></body></html>", nullptr));
+        lb_amount->setText(QCoreApplication::translate("Operations", "<html><head/><body><p>Amount</p></body></html>", nullptr));
     } // retranslateUi
 
 };
