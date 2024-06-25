@@ -20,11 +20,14 @@ public:
     }
 
     bool Deposit(float value);
-    bool operator +=(float value) { return Deposit(value); }
-    bool Withdraw(float value);
-    bool operator -=(float value) { return Withdraw(value); }
-    bool Transfer(ContaCorrente &account, float value);
+
+    virtual bool Withdraw(float value);
+
+    virtual bool Transfer(ContaCorrente &account, float value);
+
     std::string GetClientName();
+    std::string GetClientFullInfo();
+
     //transfer all
     bool operator >> (ContaCorrente &account);
 
@@ -35,6 +38,7 @@ class ContaEspecial : public ContaCorrente
 protected:
     float m_limit;
 
+
 public:
     //constructors and destructor
     ContaEspecial(Client *client, float balance=0, float limit=1000) : ContaCorrente(client, balance), m_limit(limit) {}
@@ -42,7 +46,6 @@ public:
     //getters and setters
     bool Withdraw(float value);
     bool Transfer(ContaCorrente &account, float value);
-
 
 };
 

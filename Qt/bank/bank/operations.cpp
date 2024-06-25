@@ -51,12 +51,11 @@ void Operations::on_btn_completeOperation_clicked()
     if (accounts_list->empty())
         return;
 
-    if (ui->sb_amount->value() <= 0)
+    if (ui->sb_amount->value() <= 0){
+        QMessageBox::information(nullptr, "Invalid Operation", "Reason: No Value Informed.");
         return;
+    }
 
-
-    ui->pb_progressBar->setEnabled(true);
-    ui->pb_progressBar->show();
     std::string str = "Operation: None Selected";
     bool status = true;
     // code to select operation
@@ -97,13 +96,19 @@ void Operations::on_btn_completeOperation_clicked()
             return;
         }
         str = "Operation Occured: Transfer " + accounts_list->at(ui->cb_accountSelector->currentIndex())->GetClientName() + " to " + accounts_list->at(ui->cb_transferAccount->currentIndex())->GetClientName();
-    } else return;
+    } else {
+        QMessageBox::information(nullptr, "Invalid Operation", "Reason: No Option Selected.");
+        return;
+    }
 
     logs_list->push_back(str); //logging event
     ui->sb_amount->setValue(0);
 
 
     // ----
+
+    ui->pb_progressBar->setEnabled(true);
+    ui->pb_progressBar->show();
 
     while(ui->pb_progressBar->value() < 100)
         ui->pb_progressBar->setValue(ui->pb_progressBar->value()+1);

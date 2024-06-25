@@ -15,9 +15,9 @@ public:
 
     int movX,movY;
     int limiter = 550;
-
+    bool piece_mode = false;
     Grid * m_grid;
-    ExtraBlock(Grid * grid);
+    ExtraBlock(Grid * grid, bool t_piece_mode=false);
 
 public slots:
     void move();

@@ -53,7 +53,7 @@ void AccountsList::refresh_list()
             return;
 
     for (size_t i=0; i < accounts_list->size(); i++){
-        ui->lst_accountsList->addItem(QString::fromStdString(accounts_list->at(i)->GetClientName()));
+        ui->lst_accountsList->addItem(QString::fromStdString(accounts_list->at(i)->GetClientFullInfo()));
         qDebug() << accounts_list->at(i)->GetClientName();
     }
 

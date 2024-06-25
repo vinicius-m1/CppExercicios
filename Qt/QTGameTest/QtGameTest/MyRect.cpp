@@ -1,6 +1,5 @@
 #include "MyRect.h"
-#include "square.h" // be caraful, it didnt have the extrablock .h in here and it worked (?)
-
+#include "square.h" // be carefull, it didnt have the extrablock .h in here and it worked (?)
 
 void MyRect::keyPressEvent(QKeyEvent *event){
     if (event->key() == Qt::Key_Left){
@@ -28,12 +27,12 @@ void MyRect::keyPressEvent(QKeyEvent *event){
     else if (event->key() == Qt::Key_0){
         // temporary - spawn square
 
-       // TetrisPiece * square = new TetrisPiece(&grid);
-        //square->setPos(x()+100,y());
-        //blocks_in_scene.push_back(square);
-        //scene()->addItem(square);
+        SquarePiece * square = new SquarePiece(&grid,x(),y());
+        qDebug() << "Square created.";
 
-
+        square->setPos(x(),y());
+        scene()->addItem(square);
+        blocks_in_scene.push_back(square);
 
 
     }
@@ -43,6 +42,8 @@ void MyRect::keyPressEvent(QKeyEvent *event){
 
         // generate extra block instance (base block for all formats)
         ExtraBlock * extra = new ExtraBlock(&grid);
+        QBrush brush(Qt::red);  // Example: blue color
+        extra->setBrush(brush);
         // -------- i -------- extra should be renamed "format later"
 
         extra->setPos(x(),y());

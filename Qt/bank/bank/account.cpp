@@ -44,6 +44,13 @@ string ContaCorrente::GetClientName()
     return str;
 }
 
+string ContaCorrente::GetClientFullInfo()
+{
+
+    return (m_client->GetInformation() + " balance: " + std::to_string(m_balance));
+
+}
+
 bool ContaEspecial::Transfer(ContaCorrente &account, float value)
 {
     if(m_balance-value+m_limit >= 0)
@@ -55,13 +62,3 @@ bool ContaEspecial::Transfer(ContaCorrente &account, float value)
     return false;
 }
 
-bool ContaCorrente::operator >> (ContaCorrente &account)
-{
-    if(m_balance >= 0)
-    {
-        account.Deposit(m_balance);
-        m_balance=0;
-        return true;
-    }
-    return false;
-}

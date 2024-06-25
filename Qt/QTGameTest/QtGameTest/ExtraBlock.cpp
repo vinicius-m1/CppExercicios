@@ -1,8 +1,9 @@
 #include "ExtraBlock.h"
 
 
-ExtraBlock::ExtraBlock(Grid * grid){
+ExtraBlock::ExtraBlock(Grid * grid, bool t_piece_mode){
 
+    piece_mode = t_piece_mode;
     setRect(0,0,30,30);
 
     movY =0;
@@ -14,8 +15,8 @@ ExtraBlock::ExtraBlock(Grid * grid){
     m_timer = timer;
     connect(timer,SIGNAL(timeout()), this, SLOT(move()) );
 
-
-    timer->start(20);
+    if (!piece_mode) // if its in a piece, it doesnt move by itself by default
+        timer->start(20);
 }
 
 
