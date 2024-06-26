@@ -5,7 +5,7 @@ void MyRect::keyPressEvent(QKeyEvent *event){
     if (event->key() == Qt::Key_Left){
 
         //verify boundaries
-        if (x()-10 < -600){return;};
+        if (x()-10 < 250){return;};
 
         setPos(x()-30,y());
     }
@@ -13,7 +13,7 @@ void MyRect::keyPressEvent(QKeyEvent *event){
 
         //verify boundaries
 
-        if (x()+10 > 600){return;};
+        if (x()+10 > 520){return;};
 
         setPos(x()+30,y());
     }
@@ -27,15 +27,34 @@ void MyRect::keyPressEvent(QKeyEvent *event){
     else if (event->key() == Qt::Key_0){
         // temporary - spawn square
 
-        SquarePiece * square = new SquarePiece(&grid,x(),y());
+        SquarePiece * square = new SquarePiece(&grid);
         qDebug() << "Square created.";
 
         square->setPos(x(),y());
+
+
+
         scene()->addItem(square);
         blocks_in_scene.push_back(square);
-
+        current_piece = square; // give control to player
 
     }
+
+    else if (event->key() == Qt::Key_1){
+        // temporary - change current piece
+
+        test = test+1;
+        if(test>2)
+            test = 1;
+
+        if (current_piece)
+            current_piece->SetFormation(test);
+            //current_piece->setRotation(test); // just for test
+
+        qDebug()<< "tou tried to rotate the piece.";
+    }
+
+
 
     else if (event->key() == Qt::Key_Space){
 

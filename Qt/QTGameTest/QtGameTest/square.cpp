@@ -1,33 +1,35 @@
 #include "square.h"
-#include "ExtraBlock.h"
-                                //external x and y
-SquarePiece::SquarePiece(Grid * grid, int xx, int yy)
+
+
+SquarePiece::SquarePiece(Grid * grid)
 {
 
     m_grid = grid; // saves received grid to pass to blocks
 
     QBrush brush(Qt::cyan);  // Example: blue color
 
+    QBrush test(Qt::green);  // debug color
+
     // Create individual block items and add them to the group
-    ExtraBlock *block1 = new ExtraBlock(grid,true); // piece_mode = true
-    block1->setBrush(brush);
-    block1->setPos(x(), y()); // Adjust position as needed (position based on group)
+    block1 = new ExtraBlock(grid,true); // piece_mode = true
+    block1->setBrush(test);
+    block1->setPos(0, 0); // Adjust position as needed (position based on group)
     addToGroup(block1);
 
 
-    ExtraBlock *block2 = new ExtraBlock(grid,true);
+    block2 = new ExtraBlock(grid,true);
     block2->setBrush(brush);
-    block2->setPos(x()+30,y()+0); // Adjust position as needed
+    block2->setPos(30,0); // Adjust position as needed
     addToGroup(block2);
 
-    ExtraBlock *block3 = new ExtraBlock(grid,true);
+    block3 = new ExtraBlock(grid,true);
     block3->setBrush(brush);
-    block3->setPos(x()+60,y()+0); // Adjust position as needed
+    block3->setPos(60,0); // Adjust position as needed
     addToGroup(block3);
 
-    ExtraBlock *block4 = new ExtraBlock(grid,true);
+    block4 = new ExtraBlock(grid,true);
     block4->setBrush(brush);
-    block4->setPos(x()+90,y()+0); // Adjust position as needed
+    block4->setPos(90,0); // Adjust position as needed
     addToGroup(block4);
 
 
@@ -43,16 +45,46 @@ SquarePiece::SquarePiece(Grid * grid, int xx, int yy)
     // -------------------------------------------------------------
 }
 
+void SquarePiece::SetFormation(int t_formation)
+{
+    // change piece formation visually in the group
+    // 1 - default (horizontal line)
+    // 2 - vertical line
+
+    if (t_formation == 1){
+        block1->setPos(0,0);
+        block2->setPos(30,0);
+        block3->setPos(60,0);
+        block4->setPos(90,0);
+
+        // change piece formation on collisions
+        y_correction = 0;
+        x_correction = 30;
+
+    }
+    else if(t_formation == 2){
+        block1->setPos(0,0);
+        block2->setPos(0,30);
+        block3->setPos(0,60);
+        block4->setPos(0,90);
+
+        // change piece formation on collisions
+        x_correction = 0;
+        y_correction = 30;
+    }
+
+}
+
 
 void SquarePiece::move()
 {
 
     movY = -5;
-    int destination = (y() - (movY-25));
+    int destination = (y() - (movY-25)); //(25 is a constant offset)
 
 
     //hit occupied grid slot
-    if (m_grid->IsOccupied(x(),destination) == true || m_grid->IsOccupied(x()+30,destination) == true || m_grid->IsOccupied(x()+60,destination) == true || m_grid->IsOccupied(x()+90,destination) == true){
+    if (m_grid->IsOccupied(x(),destination) == true || m_grid->IsOccupied(x()+x_correction,destination+y_correction) == true || m_grid->IsOccupied(x()+x_correction+x_correction,destination+y_correction+y_correction) == true || m_grid->IsOccupied(x()+x_correction+x_correction+x_correction,destination+y_correction+y_correction+y_correction) == true){
 
         m_timer->stop(); // timer cant really stop because of rows possubly being deleted
         // decrease time to reduce performance hogging
@@ -60,9 +92,9 @@ void SquarePiece::move()
 
         falling = false;
         m_grid->SetOccupied(x(),y());  //block 1
-        m_grid->SetOccupied(x()+30,y());  //block 2
-        m_grid->SetOccupied(x()+60,y());  //block 3
-        m_grid->SetOccupied(x()+90,y());  //block 4
+        m_grid->SetOccupied(x()+x_correction,y()+y_correction);  //block 2
+        m_grid->SetOccupied(x()+x_correction+x_correction,y()+y_correction+y_correction);  //block 3
+        m_grid->SetOccupied(x()+x_correction+x_correction+x_correction,y()+y_correction+y_correction+y_correction);  //block 4
 
         qDebug() << "clock stopped bcs occupied. ";
 
@@ -70,16 +102,18 @@ void SquarePiece::move()
     }
 
 
-    // ALL OF THESE CHECKS SHOULD INCLUDE ALL BLOCKS LOCATIONS IN GROUP, EVEN IF ONLY BY MATH
+    // yeah, so many "+" but it was better for mental visualization
 
 
     // hit border
-    if (destination >= (limiter)){
+    // only checks first and last block when vertical formation
+    if (destination >= (limiter) || destination+y_correction+y_correction+y_correction >= (limiter) ){
 
         m_grid->SetOccupied(x(),y());  //block 1
-        m_grid->SetOccupied(x()+30,y());  //block 2
-        m_grid->SetOccupied(x()+60,y());  //block 3
-        m_grid->SetOccupied(x()+90,y());  //block 4
+        m_grid->SetOccupied(x()+x_correction,y()+y_correction);  //block 2
+        m_grid->SetOccupied(x()+x_correction+x_correction,y()+y_correction+y_correction);  //block 3
+        m_grid->SetOccupied(x()+x_correction+x_correction+x_correction,y()+y_correction+y_correction+y_correction);  //block 4
+
 
         m_timer->stop(); // timer cant really stop because of rows possubly being deleted
         // decrease time to reduce performance hogging
@@ -96,8 +130,12 @@ void SquarePiece::move()
     // IF BELLOW IS FREE
     //--------------------------------------------------------------------------------------
 
-    if (falling == false) //if was stopped and now moving, remove old "seat"
+    if (falling == false){ //if was stopped and now moving, remove old "seat"
         m_grid->RemoveOccupied(x(),y());
+        m_grid->RemoveOccupied(x()+x_correction,y()+y_correction);
+        m_grid->RemoveOccupied(x()+x_correction+x_correction,y()+y_correction+y_correction);
+        m_grid->RemoveOccupied(x()+x_correction+x_correction+x_correction,y()+y_correction+y_correction+y_correction);
+    }
 
     falling = true;
 

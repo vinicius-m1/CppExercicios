@@ -26,7 +26,7 @@ void Grid::SetOccupied(int x, int y)
     };
 
     // if reached the limit of the row size, the row is deleted
-    int row_horizontal_size = 5; // change later
+
     if (y_amount >= row_horizontal_size){
         qDebug() << "row shall be destroyed!";
 

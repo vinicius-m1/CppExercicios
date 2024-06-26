@@ -19,6 +19,7 @@ protected:
 public:
 
     std::pair<bool,int> row_to_destroy; // from grid DestroyRow to MyRect.cpp direct access
+    int row_horizontal_size = 10; // max quant of block in each row
 
     //std::vector<ExtraBlock::ExtraBlock*> blocks_in_scene; //public so MyRect.cpp can access
 
