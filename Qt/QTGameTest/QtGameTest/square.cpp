@@ -6,30 +6,33 @@ SquarePiece::SquarePiece(Grid * grid)
 
     m_grid = grid; // saves received grid to pass to blocks
 
-    QBrush brush(Qt::cyan);  // Example: blue color
+    QBrush brush(Qt::cyan);
 
     QBrush test(Qt::green);  // debug color
 
-    // Create individual block items and add them to the group
+    // create individual blocks and add them to the group
     block1 = new ExtraBlock(grid,true); // piece_mode = true
     block1->setBrush(test);
-    block1->setPos(0, 0); // Adjust position as needed (position based on group)
+    block1->setPos(0, 0); // (position based on group)
+    block1->name = "block 1";
     addToGroup(block1);
-
 
     block2 = new ExtraBlock(grid,true);
     block2->setBrush(brush);
-    block2->setPos(30,0); // Adjust position as needed
+    block2->setPos(30,0);
+    block2->name = "block 2";
     addToGroup(block2);
 
     block3 = new ExtraBlock(grid,true);
     block3->setBrush(brush);
-    block3->setPos(60,0); // Adjust position as needed
+    block3->setPos(60,0);
+    block3->name = "block 3";
     addToGroup(block3);
 
     block4 = new ExtraBlock(grid,true);
     block4->setBrush(brush);
-    block4->setPos(90,0); // Adjust position as needed
+    block4->setPos(90,0);
+    block4->name = "block 4";
     addToGroup(block4);
 
 
@@ -45,17 +48,57 @@ SquarePiece::SquarePiece(Grid * grid)
     // -------------------------------------------------------------
 }
 
+ExtraBlock *SquarePiece::GetBlock(int id)
+{
+    switch(id){
+    case(1):
+        if (block1)
+            return(block1);
+        break;
+    case(2):
+        if (block2)
+            return(block2);
+        break;
+    case(3):
+        if (block3)
+            return(block3);
+        break;
+    case(4):
+        if (block4)
+            return(block4);
+        break;
+    default:
+        return(nullptr);
+        break;
+    }
+    return(nullptr);
+}
+
 void SquarePiece::SetFormation(int t_formation)
 {
     // change piece formation visually in the group
     // 1 - default (horizontal line)
     // 2 - vertical line
-
+    formation = t_formation;
     if (t_formation == 1){
-        block1->setPos(0,0);
-        block2->setPos(30,0);
-        block3->setPos(60,0);
-        block4->setPos(90,0);
+
+        //remove old positions from occupied vector (uses old coord correction, so should be fine)
+        if (block1){
+            m_grid->RemoveOccupied(x(),y()); //block 1 does not move
+            block1->setPos(0,0);
+        }
+        if (block2){
+            m_grid->RemoveOccupied(x()+x_correction,y()+y_correction);
+            block2->setPos(30,0);
+        }
+        if (block3){
+            m_grid->RemoveOccupied(x()+(x_correction*2),y()+(y_correction*2));
+            block3->setPos(60,0);
+        }
+        if (block4){
+            m_grid->RemoveOccupied(x()+(x_correction*3),y()+(y_correction*3));
+            block4->setPos(90,0);
+        }
 
         // change piece formation on collisions
         y_correction = 0;
@@ -63,14 +106,29 @@ void SquarePiece::SetFormation(int t_formation)
 
     }
     else if(t_formation == 2){
-        block1->setPos(0,0);
-        block2->setPos(0,30);
-        block3->setPos(0,60);
-        block4->setPos(0,90);
+
+        //move pieces on occupied vector
+        if (block1){
+            m_grid->RemoveOccupied(x(),y()); //block 1 does not move
+            block1->setPos(0,0);
+        }
+        if (block2){
+            m_grid->RemoveOccupied(x()+x_correction,y()+y_correction);
+            block2->setPos(0,30);
+        }
+        if (block3){
+            m_grid->RemoveOccupied(x()+(x_correction*2),y()+(y_correction*2));
+            block3->setPos(0,60);
+        }
+        if (block4){
+            m_grid->RemoveOccupied(x()+(x_correction*3),y()+(y_correction*3));
+            block4->setPos(0,90);
+        }
 
         // change piece formation on collisions
         x_correction = 0;
         y_correction = 30;
+
     }
 
 }
@@ -79,65 +137,145 @@ void SquarePiece::SetFormation(int t_formation)
 void SquarePiece::move()
 {
 
+    //CHECK IF GROUP SHOLD STILL EXIST
+    bool exist=false;
+
+    if (block1){
+        if(block1->exist){ //if block exist
+            exist =true;
+        } else{
+            delete block1;
+            block1 = nullptr;
+        }
+    }
+    if (block2){
+        if(block2->exist){ //if block exist
+            exist =true;
+        } else{
+            delete block2;
+            block2 = nullptr;
+        }
+    }
+    if (block3){
+        if(block3->exist){ //if block exist
+            exist =true;
+        } else{
+            delete block3;
+            block3 = nullptr;
+        }
+    }
+    if (block4){
+        if(block4->exist){ //if block exist
+            exist =true;
+        } else{
+            delete block4;
+            block4 = nullptr;
+        }
+    }
+
+    if (!exist){
+        m_timer->stop();
+        qDebug()<< "      the square stopped.";
+        return;
+    }
+    // -----------------------------------
+
+
     movY = -5;
     int destination = (y() - (movY-25)); //(25 is a constant offset)
 
 
-    //hit occupied grid slot
-    if (m_grid->IsOccupied(x(),destination) == true || m_grid->IsOccupied(x()+x_correction,destination+y_correction) == true || m_grid->IsOccupied(x()+x_correction+x_correction,destination+y_correction+y_correction) == true || m_grid->IsOccupied(x()+x_correction+x_correction+x_correction,destination+y_correction+y_correction+y_correction) == true){
+    //update virtual positions
+    //update virtual positions (for extrablocks inside group be treated as parts of piece)
+    if (block1)
+        block1->virtual_position.second = (y());
+    if (block2)
+        block2->virtual_position.second = (y()+y_correction);
+    if (block3)
+        block3->virtual_position.second = (y()+(y_correction*2));
+    if (block4)
+        block4->virtual_position.second = (y()+(y_correction*3));
+    // ------------------------------------------------------------------------------------
 
-        m_timer->stop(); // timer cant really stop because of rows possubly being deleted
+
+
+    //--- -----------------------------// -----------------------------// -------------------------------------
+    // ----------------------------- CHECK IF COLLISION WITH OCCUPIED GRID SLOT (AND LIMIT) -------------------------------
+    //--- -----------------------------// -----------------------------// -------------------------------------
+
+    bool able_to_move = true;
+
+    if (formation == 1){
+
+        // all need to be free
+        if (block1)
+            able_to_move = (!(m_grid->IsOccupied(x(),destination) || (y()+30>=limiter)));
+        if (block2 && able_to_move)
+            able_to_move = (!(m_grid->IsOccupied(x()+x_correction,destination+y_correction) || ((y()+(y_correction+30))>=limiter) ));
+        if (block3 && able_to_move)
+            able_to_move = (!(m_grid->IsOccupied(x()+(x_correction*2),destination+(y_correction*2)) || ((y()+(30+y_correction*2))>=limiter) ));
+        if (block4 && able_to_move)
+            able_to_move = (!(m_grid->IsOccupied(x()+(x_correction*3),destination+(y_correction*3)) || ((y()+(30+y_correction*4))>=limiter)) );
+    }
+
+    if (formation == 2){
+        // in the vertical formation, only one need to be free, bcs the others are above something
+        // checks from bottom to top (in vert its the most important)
+        // [!]problem if middle of the line is cut
+
+        if (block4 && able_to_move)
+            able_to_move = (!(m_grid->IsOccupied(x()+(x_correction*3),destination+(y_correction*3)) || ((y()+(30+y_correction*3))>=limiter)));
+        else if ((able_to_move) && block3)
+            able_to_move = (!(m_grid->IsOccupied(x()+(x_correction*2),destination+(y_correction*2)) || ((y()+(30+y_correction*2))>=limiter)));
+        else if (able_to_move && block2)
+            able_to_move = (!(m_grid->IsOccupied(x()+x_correction,destination+y_correction) || ((y()+(30+y_correction))>=limiter)));
+        else if (able_to_move && block1)
+            able_to_move = (!(m_grid->IsOccupied(x(),destination) || (y()+30>=limiter)));
+    };
+
+    if (able_to_move == false){
+        m_timer->stop();
         // decrease time to reduce performance hogging
-        m_timer->start(100);
+        m_timer->start(200);
 
         falling = false;
-        m_grid->SetOccupied(x(),y());  //block 1
-        m_grid->SetOccupied(x()+x_correction,y()+y_correction);  //block 2
-        m_grid->SetOccupied(x()+x_correction+x_correction,y()+y_correction+y_correction);  //block 3
-        m_grid->SetOccupied(x()+x_correction+x_correction+x_correction,y()+y_correction+y_correction+y_correction);  //block 4
+        if (block1)
+            m_grid->SetOccupied(x(),y());  //block 1
+        if (block2)
+            m_grid->SetOccupied(x()+x_correction,y()+y_correction);  //block 2
+        if (block3)
+            m_grid->SetOccupied(x()+(x_correction*2),y()+(y_correction*2));  //block 3
+        if (block4)
+            m_grid->SetOccupied(x()+(x_correction*3),y()+(y_correction*3));  //block 4
 
-        qDebug() << "clock stopped bcs occupied. ";
+        qDebug() << "clock stopped bcs occupied. sqr not move";
 
         return;
     }
 
+    //--- -----------------------------// -----------------------------// -------------------------------------
+    //--- -----------------------------// -----------------------------// -------------------------------------
 
-    // yeah, so many "+" but it was better for mental visualization
-
-
-    // hit border
-    // only checks first and last block when vertical formation
-    if (destination >= (limiter) || destination+y_correction+y_correction+y_correction >= (limiter) ){
-
-        m_grid->SetOccupied(x(),y());  //block 1
-        m_grid->SetOccupied(x()+x_correction,y()+y_correction);  //block 2
-        m_grid->SetOccupied(x()+x_correction+x_correction,y()+y_correction+y_correction);  //block 3
-        m_grid->SetOccupied(x()+x_correction+x_correction+x_correction,y()+y_correction+y_correction+y_correction);  //block 4
-
-
-        m_timer->stop(); // timer cant really stop because of rows possubly being deleted
-        // decrease time to reduce performance hogging
-        m_timer->start(100);
-
-
-        falling = false;
-        qDebug() << "clock stopped bcs border.";
-
-        return;
-    };
 
     //--------------------------------------------------------------------------------------
     // IF BELLOW IS FREE
     //--------------------------------------------------------------------------------------
 
     if (falling == false){ //if was stopped and now moving, remove old "seat"
-        m_grid->RemoveOccupied(x(),y());
-        m_grid->RemoveOccupied(x()+x_correction,y()+y_correction);
-        m_grid->RemoveOccupied(x()+x_correction+x_correction,y()+y_correction+y_correction);
-        m_grid->RemoveOccupied(x()+x_correction+x_correction+x_correction,y()+y_correction+y_correction+y_correction);
+        if (block1)
+            m_grid->RemoveOccupied(x(),y());
+        if (block2)
+            m_grid->RemoveOccupied(x()+x_correction,y()+y_correction);
+        if (block3)
+            m_grid->RemoveOccupied(x()+x_correction+x_correction,y()+y_correction+y_correction);
+        if (block4)
+            m_grid->RemoveOccupied(x()+x_correction+x_correction+x_correction,y()+y_correction+y_correction+y_correction);
     }
 
     falling = true;
+    m_timer->stop(); //getting timer back to speed
+    m_timer->start(20);
+
 
     setPos(x()+movX,y()-movY);
 

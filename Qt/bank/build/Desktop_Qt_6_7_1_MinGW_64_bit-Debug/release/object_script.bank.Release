@@ -1,0 +1,13 @@
+release/account.o
+release/accountslist.o
+release/client.o
+release/logs.o
+release/main.o
+release/mainwindow.o
+release/operations.o
+release/registerwindow.o
+release/moc_accountslist.o
+release/moc_logs.o
+release/moc_mainwindow.o
+release/moc_operations.o
+release/moc_registerwindow.o

@@ -38,7 +38,7 @@ void ExtraBlock::move()
         falling = false;
         m_grid->SetOccupied(x(),y());
 
-        qDebug() << "clock stopped bcs occupied. ";
+        //qDebug() << "clock stopped bcs occupied. ";
 
         return;
     }
@@ -50,11 +50,11 @@ void ExtraBlock::move()
 
         m_timer->stop(); // timer cant really stop because of rows possubly being deleted
         // decrease time to reduce performance hogging
-        m_timer->start(100);
+        m_timer->start(200);
 
 
         falling = false;
-        qDebug() << "clock stopped bcs border.";
+        //qDebug() << "clock stopped bcs border.";
 
         return;
     };
@@ -67,7 +67,9 @@ void ExtraBlock::move()
         m_grid->RemoveOccupied(x(),y());
 
     falling = true;
+    m_timer->stop(); //getting timer back to speed
+    m_timer->start(20);
 
     setPos(x()+movX,y()-movY);
-
+    virtual_position = {x(),y()};
 };

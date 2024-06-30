@@ -1,0 +1,13 @@
+debug/account.o
+debug/accountslist.o
+debug/client.o
+debug/logs.o
+debug/main.o
+debug/mainwindow.o
+debug/operations.o
+debug/registerwindow.o
+debug/moc_accountslist.o
+debug/moc_logs.o
+debug/moc_mainwindow.o
+debug/moc_operations.o
+debug/moc_registerwindow.o

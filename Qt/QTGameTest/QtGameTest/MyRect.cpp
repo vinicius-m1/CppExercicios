@@ -32,10 +32,14 @@ void MyRect::keyPressEvent(QKeyEvent *event){
 
         square->setPos(x(),y());
 
-
-
         scene()->addItem(square);
-        blocks_in_scene.push_back(square);
+
+        //add the blocks inside piece to the blocks vector
+        //blocks_in_scene.push_back(square);
+        for (int i = 1; i<=square->number_of_blocks; i++){
+            blocks_in_scene.push_back(square->GetBlock(i));
+        }
+
         current_piece = square; // give control to player
 
     }
@@ -43,14 +47,12 @@ void MyRect::keyPressEvent(QKeyEvent *event){
     else if (event->key() == Qt::Key_1){
         // temporary - change current piece
 
-        test = test+1;
-        if(test>2)
-            test = 1;
-
-        if (current_piece)
-            current_piece->SetFormation(test);
-            //current_piece->setRotation(test); // just for test
-
+        if (current_piece){ // if not nullptr
+            if(current_piece->formation==current_piece->number_of_formations) //if max
+                current_piece->SetFormation(1);
+            else
+                current_piece->SetFormation(current_piece->formation + 1);
+        }
         qDebug()<< "tou tried to rotate the piece.";
     }
 
@@ -61,7 +63,7 @@ void MyRect::keyPressEvent(QKeyEvent *event){
 
         // generate extra block instance (base block for all formats)
         ExtraBlock * extra = new ExtraBlock(&grid);
-        QBrush brush(Qt::red);  // Example: blue color
+        QBrush brush(Qt::red);
         extra->setBrush(brush);
         // -------- i -------- extra should be renamed "format later"
 
@@ -69,26 +71,42 @@ void MyRect::keyPressEvent(QKeyEvent *event){
         scene()->addItem(extra);
         // create vector to store all blocks
         blocks_in_scene.push_back(extra); //accepts all formats of QGraphicsRectItem
-
+        qDebug() << " will try to check from full row ";
         //then check grid.row_to_destroy to see if something has to be destroyed and where
         if (grid.row_to_destroy.first == true){
-
             for (int i=0;i<blocks_in_scene.size();){
-                if (blocks_in_scene.at(i)->y() == grid.row_to_destroy.second){
+                if (blocks_in_scene.at(i)->virtual_position.second == grid.row_to_destroy.second){ // first part of OR is legacy blocks_in_scene.at(i)->y() == grid.row_to_destroy.second ||
                     // deletes object
-                    delete blocks_in_scene.at(i);
+
+                    if (blocks_in_scene.at(i)->piece_mode == false)
+                        delete blocks_in_scene.at(i);
+                    else{
+                        blocks_in_scene.at(i)->setBrush(brush);
+                        blocks_in_scene.at(i)->exist = false;
+                        // not as i intended to do but, couldnt set block as nullptr from here, so square does it.
+                    }
+
+                    //if(blocks_in_scene.at(i)){
+
+                    //    delete blocks_in_scene.at(i); //crashing aroud here, things are not beeing remove from occupied too
+                    //    blocks_in_scene.at(i) = nullptr;
+                    //    qDebug() << "deleted and set null";
+                    //}
+
                     // delete from vector
                     std::swap(blocks_in_scene.at(i), blocks_in_scene.back()); //move it to the back
                     blocks_in_scene.pop_back(); // deletes the back
                 } else {i++;}; // only increment if nothing deleted
             }
+            qDebug() << "deleted ALL FROM SCREEN";
+
             // after all is deleted
             grid.DestroyRow(grid.row_to_destroy.second); // destroy blocks position data inside grid
             grid.row_to_destroy = {false,0};
 
             // ------ i ------- maybe later make exclusive routine just to check for full rows
 
-        }
+        } else {qDebug() << "no row to remove";}
     }
 
 

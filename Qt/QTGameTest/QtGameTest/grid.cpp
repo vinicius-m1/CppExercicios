@@ -13,7 +13,7 @@ void Grid::SetOccupied(int x, int y)
 
     std::pair<int,int> temp(x,y);
     occupied.push_back(temp);
-    qDebug() << "occupied at:" << temp.first << "  "<< temp.second <<x << " " <<y << "size: "<<occupied.size();
+    //qDebug() << "occupied at:" << temp.first << "  "<< temp.second <<x << " " <<y << "size: "<<occupied.size();
 
 
     // see how many itens are in a row (basing on occupied)
@@ -21,7 +21,7 @@ void Grid::SetOccupied(int x, int y)
     for (int i =0; i < occupied.size() ; i++){
         if (occupied.at(i).second == y){
             y_amount++;
-            qDebug() << "there are "<<y_amount<< " blocks in the "<< y << "row.";
+            //qDebug() << "there are "<<y_amount<< " blocks in the "<< y << "row.";
         }
     };
 
@@ -41,7 +41,7 @@ void Grid::SetOccupied(int x, int y)
 void Grid::DestroyRow(int y)
 {
 
-
+    qDebug() << "remove row "<< y;
     // remove from occupied
     // Using std::remove_if with a lambda function
     occupied.erase(std::remove_if(occupied.begin(), occupied.end(),
@@ -49,8 +49,7 @@ void Grid::DestroyRow(int y)
                                       return element.second == y;
                                   }),
                    occupied.end()); //removes all occurences
-
-
+qDebug() << "removed all from occupied";
 }
 
 void Grid::RemoveOccupied(int x, int y)
@@ -58,6 +57,7 @@ void Grid::RemoveOccupied(int x, int y)
 
     //remove from occupied
     // only one item
+    qDebug() << "remove one item";
     occupied.erase(std::remove_if(occupied.begin(), occupied.end(),
                                   [&x, &y](const std::pair<int, int>& element) {
                                       return element.first == x && element.second == y;
@@ -73,11 +73,11 @@ bool Grid::IsOccupied(int x, int y)
 
     for (int i=0; i<occupied.size();i++){
         if (occupied.at(i) == search){
-            qDebug() << "already occupied" <<x << " " <<y << "size: "<<occupied.size();
+            //qDebug() << "already occupied" <<x << " " <<y << "size: "<<occupied.size();
             return (true);
         }
     }
 
-    qDebug() << "nothing found at "<<x << " " <<y << "size: "<<occupied.size();
+    //qDebug() << "nothing found at "<<x << " " <<y << "size: "<<occupied.size();
     return (false);
 }

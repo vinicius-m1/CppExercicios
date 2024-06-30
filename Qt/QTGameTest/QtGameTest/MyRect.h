@@ -17,7 +17,7 @@ public:
     Grid grid;
     //std::vector<ExtraBlock*> blocks_in_scene;
     SquarePiece *current_piece = nullptr; // piece that the player has control at the time
-    std::vector<QGraphicsItem*> blocks_in_scene;
+    std::vector<ExtraBlock*> blocks_in_scene;
     // polimorfismo é fo##
 
     void keyPressEvent(QKeyEvent * event);

@@ -219,7 +219,7 @@ build QtGameTest_autogen/timestamp QtGameTest_autogen/mocs_compilation.cpp | ${c
 #############################################
 # Phony custom command for CMakeFiles/QtGameTest_autogen_timestamp_deps
 
-build CMakeFiles/QtGameTest_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/QtGameTest_autogen_timestamp_deps: phony /home/bansola/Qt/6.7.0/gcc_64/./libexec/uic /home/bansola/Qt/6.7.0/gcc_64/./libexec/moc /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Core.so.6.7.0 /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Widgets.so.6.7.0
+build CMakeFiles/QtGameTest_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/QtGameTest_autogen_timestamp_deps: phony /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Widgets.so.6.7.0 /home/bansola/Qt/6.7.0/gcc_64/./libexec/uic /home/bansola/Qt/6.7.0/gcc_64/./libexec/moc /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Core.so.6.7.0
 
 
 #############################################
