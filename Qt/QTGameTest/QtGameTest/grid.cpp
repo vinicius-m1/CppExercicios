@@ -16,24 +16,20 @@ void Grid::SetOccupied(int x, int y)
     //qDebug() << "occupied at:" << temp.first << "  "<< temp.second <<x << " " <<y << "size: "<<occupied.size();
 
 
-    // see how many itens are in a row (basing on occupied)
-    int y_amount = 0;
-    for (int i =0; i < occupied.size() ; i++){
-        if (occupied.at(i).second == y){
-            y_amount++;
-            //qDebug() << "there are "<<y_amount<< " blocks in the "<< y << "row.";
+    //std::vector<int> repeatedNumbers;
+
+    std::unordered_map<int, int> countMap;
+
+    // count occurrences of each number in occupied vector
+    for (const auto& pair : occupied) {
+        countMap[pair.second]++;
+    }
+
+    // check if any number appears 10 or more times
+    for (const auto& pair : countMap) {
+        if (pair.second >= 10) {
+            row_to_destroy.push_back(pair.first);
         }
-    };
-
-    // if reached the limit of the row size, the row is deleted
-
-    if (y_amount >= row_horizontal_size){
-        qDebug() << "row shall be destroyed!";
-
-        // MyRect will check this and call DestroyRow (crazy, but due to syncronization issues)
-        row_to_destroy = {true,y};
-
-        //DestroyRow(y);
     }
 
 }

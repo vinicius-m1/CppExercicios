@@ -73,9 +73,14 @@ void MyRect::keyPressEvent(QKeyEvent *event){
         blocks_in_scene.push_back(extra); //accepts all formats of QGraphicsRectItem
         qDebug() << " will try to check from full row ";
         //then check grid.row_to_destroy to see if something has to be destroyed and where
-        if (grid.row_to_destroy.first == true){
+
+
+
+
+        // make for in here
+        for(int r=0; r<grid.row_to_destroy.size(); r++){
             for (int i=0;i<blocks_in_scene.size();){
-                if (blocks_in_scene.at(i)->virtual_position.second == grid.row_to_destroy.second){ // first part of OR is legacy blocks_in_scene.at(i)->y() == grid.row_to_destroy.second ||
+                if (blocks_in_scene.at(i)->virtual_position.second == grid.row_to_destroy.at(r)){ // first part of OR is legacy blocks_in_scene.at(i)->y() == grid.row_to_destroy.second ||
                     // deletes object
 
                     if (blocks_in_scene.at(i)->piece_mode == false)
@@ -85,29 +90,19 @@ void MyRect::keyPressEvent(QKeyEvent *event){
                         blocks_in_scene.at(i)->exist = false;
                         // not as i intended to do but, couldnt set block as nullptr from here, so square does it.
                     }
-
-                    //if(blocks_in_scene.at(i)){
-
-                    //    delete blocks_in_scene.at(i); //crashing aroud here, things are not beeing remove from occupied too
-                    //    blocks_in_scene.at(i) = nullptr;
-                    //    qDebug() << "deleted and set null";
-                    //}
-
                     // delete from vector
                     std::swap(blocks_in_scene.at(i), blocks_in_scene.back()); //move it to the back
                     blocks_in_scene.pop_back(); // deletes the back
                 } else {i++;}; // only increment if nothing deleted
             }
-            qDebug() << "deleted ALL FROM SCREEN";
-
-            // after all is deleted
-            grid.DestroyRow(grid.row_to_destroy.second); // destroy blocks position data inside grid
-            grid.row_to_destroy = {false,0};
+            qDebug() << "deleted ALL FROM row "<< r;
+            grid.DestroyRow(grid.row_to_destroy.at(r)); // destroy blocks position data inside grid
+        }
+            // after all is deleted   
+            grid.row_to_destroy.clear(); //wipes
 
             // ------ i ------- maybe later make exclusive routine just to check for full rows
-
-        } else {qDebug() << "no row to remove";}
-    }
+        }
 
 
     qDebug() << "Position:" << x() << "  "<< y() ;
