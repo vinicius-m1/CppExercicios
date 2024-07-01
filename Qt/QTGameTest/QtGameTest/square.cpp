@@ -4,6 +4,10 @@
 SquarePiece::SquarePiece(Grid * grid)
 {
 
+    number_of_formations = 2;
+    controls = true;
+    formation = 1;
+
     m_grid = grid; // saves received grid to pass to blocks
 
     QBrush brush(Qt::cyan);
@@ -50,6 +54,7 @@ SquarePiece::SquarePiece(Grid * grid)
 
 ExtraBlock *SquarePiece::GetBlock(int id)
 {
+    // handles blocks when MyRect asks
     switch(id){
     case(1):
         if (block1)
@@ -74,63 +79,107 @@ ExtraBlock *SquarePiece::GetBlock(int id)
     return(nullptr);
 }
 
+
 void SquarePiece::SetFormation(int t_formation)
 {
+    bool able_to_change = true;
+
     // change piece formation visually in the group
     // 1 - default (horizontal line)
     // 2 - vertical line
-    formation = t_formation;
+
     if (t_formation == 1){
 
+        //if(m_grid->IsOccupied(x(),y()))
+        //    able_to_change = false;       //better when every move ends in a valid slot
+        if(able_to_change && (m_grid->IsOccupied(x()+30,y())))
+            able_to_change = false;
+        if(able_to_change && (m_grid->IsOccupied(x()+60,y())))
+            able_to_change = false;
+        if(able_to_change && (m_grid->IsOccupied(x()+90,y())))
+            able_to_change = false;
+
+
+        // no need to check if blocks still exist, you shouldn't have control at this point anyway
+
         //remove old positions from occupied vector (uses old coord correction, so should be fine)
-        if (block1){
+        if(able_to_change){
+
+            formation = t_formation;
+
             m_grid->RemoveOccupied(x(),y()); //block 1 does not move
             block1->setPos(0,0);
-        }
-        if (block2){
-            m_grid->RemoveOccupied(x()+x_correction,y()+y_correction);
-            block2->setPos(30,0);
-        }
-        if (block3){
-            m_grid->RemoveOccupied(x()+(x_correction*2),y()+(y_correction*2));
-            block3->setPos(60,0);
-        }
-        if (block4){
-            m_grid->RemoveOccupied(x()+(x_correction*3),y()+(y_correction*3));
-            block4->setPos(90,0);
-        }
 
-        // change piece formation on collisions
-        y_correction = 0;
-        x_correction = 30;
+            m_grid->RemoveOccupied(x()+x_correction,y()+y_correction); //old pos
+            block2->setPos(30,0);
+
+            m_grid->RemoveOccupied(x()+(x_correction*2),y()+(y_correction*2));//old pos
+            block3->setPos(60,0);
+
+            m_grid->RemoveOccupied(x()+(x_correction*3),y()+(y_correction*3));//old pos
+            block4->setPos(90,0);
+
+            // change piece formation on collisions
+            y_correction = 0;
+            x_correction = 30;
+
+        } else return;
 
     }
+
     else if(t_formation == 2){
 
+        //if(m_grid->IsOccupied(x(),y()))
+        //    able_to_change = false;
+        if(able_to_change && (m_grid->IsOccupied(x(),y()+30)))
+            able_to_change = false;
+        if(able_to_change && (m_grid->IsOccupied(x(),y()+60)))
+            able_to_change = false;
+        if(able_to_change && (m_grid->IsOccupied(x(),y()+90)))
+            able_to_change = false;
+
         //move pieces on occupied vector
-        if (block1){
+        if(able_to_change){
+
+            formation = t_formation;
+
             m_grid->RemoveOccupied(x(),y()); //block 1 does not move
             block1->setPos(0,0);
-        }
-        if (block2){
+
             m_grid->RemoveOccupied(x()+x_correction,y()+y_correction);
             block2->setPos(0,30);
-        }
-        if (block3){
+
             m_grid->RemoveOccupied(x()+(x_correction*2),y()+(y_correction*2));
             block3->setPos(0,60);
-        }
-        if (block4){
+
             m_grid->RemoveOccupied(x()+(x_correction*3),y()+(y_correction*3));
             block4->setPos(0,90);
-        }
 
-        // change piece formation on collisions
-        x_correction = 0;
-        y_correction = 30;
-
+            // change piece formation on collisions
+            x_correction = 0;
+            y_correction = 30;
+        }else return;
     }
 
+}
+
+void SquarePiece::moveRight()
+{
+    // correction already accounts for formation
+    if (x()+10+(x_correction*3) > 520)//verify boundaries
+        return;
+
+    setPos(x()+30,y());
+}
+
+void SquarePiece::moveLeft()
+{
+
+    // correction already accounts for formation
+    if (x()-10 < 250)//verify boundaries
+        return;
+
+    setPos(x()-30,y());
 }
 
 
@@ -175,7 +224,7 @@ void SquarePiece::move()
 
     if (!exist){
         m_timer->stop();
-        qDebug()<< "      the square stopped.";
+        qDebug()<< "      the square stopped. group doenst exist anymore";
         return;
     }
     // -----------------------------------
@@ -237,6 +286,8 @@ void SquarePiece::move()
         m_timer->stop();
         // decrease time to reduce performance hogging
         m_timer->start(200);
+
+        controls = false; //player loses control
 
         falling = false;
         if (block1)

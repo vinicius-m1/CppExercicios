@@ -52,6 +52,7 @@ int main(int argc, char *argv[])
     scene->setSceneRect(0,0,800,600);
 
     rect->setPos(view->width()/2, view->height() - rect->rect().height());
+    rect->setPos(370,30); //top middle
 
     return a.exec();
 }

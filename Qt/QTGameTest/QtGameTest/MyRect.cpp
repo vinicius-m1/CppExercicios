@@ -1,29 +1,71 @@
 #include "MyRect.h"
-#include "square.h" // be carefull, it didnt have the extrablock .h in here and it worked (?)
+#include "square.h"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//==============================================================================================
+//                            VVV  CONTROLS SECTION  VVV
+
 
 void MyRect::keyPressEvent(QKeyEvent *event){
+
+    // -----------------------------
+    //      LEFT KEY PRESSED
+    // -----------------------------
     if (event->key() == Qt::Key_Left){
 
-        //verify boundaries
-        if (x()-10 < 250){return;};
+        if(current_piece){ // if something exists
 
-        setPos(x()-30,y());
+            if (!current_piece->controls) //if player can control
+                return;
+            //if all good
+            current_piece->moveLeft();
+        }
     }
+    // ------------------------------
+
+
+    // -----------------------------
+    //      RIGHT KEY PRESSED
+    // -----------------------------
     else if (event->key() == Qt::Key_Right){
 
-        //verify boundaries
+        if(current_piece){ // if something exists
 
-        if (x()+10 > 520){return;};
-
-        setPos(x()+30,y());
-    }
-    else if (event->key() == Qt::Key_Up){
-        //verify boundaries
-        if (y()-10 < -600){return;};
-        setPos(x(),y()-10);
+            if (!current_piece->controls) //if player can control
+                return;
+            //if all good
+            current_piece->moveRight();
+        }
 
     }
+    // ----------------------------------
 
+
+
+    // -----------------------------
+    //      0 KEY PRESSED
+    // -----------------------------
     else if (event->key() == Qt::Key_0){
         // temporary - spawn square
 
@@ -44,20 +86,36 @@ void MyRect::keyPressEvent(QKeyEvent *event){
 
     }
 
+
+    // -----------------------------
+    //      1 KEY PRESSED
+    // -----------------------------
+
     else if (event->key() == Qt::Key_1){
         // temporary - change current piece
 
         if (current_piece){ // if not nullptr
+
+            //this will change later REMOVE
+            if (!current_piece->controls) //check if player can control
+                return;
+
+
             if(current_piece->formation==current_piece->number_of_formations) //if max
                 current_piece->SetFormation(1);
             else
                 current_piece->SetFormation(current_piece->formation + 1);
         }
-        qDebug()<< "tou tried to rotate the piece.";
+        qDebug()<< "you tried to rotate the piece.";
     }
+    // --------------------------------------------------------
 
 
 
+
+    // -----------------------------
+    //      SPACEBAR KEY PRESSED
+    // -----------------------------
     else if (event->key() == Qt::Key_Space){
 
 
@@ -74,10 +132,6 @@ void MyRect::keyPressEvent(QKeyEvent *event){
         qDebug() << " will try to check from full row ";
         //then check grid.row_to_destroy to see if something has to be destroyed and where
 
-
-
-
-        // make for in here
         for(int r=0; r<grid.row_to_destroy.size(); r++){
             for (int i=0;i<blocks_in_scene.size();){
                 if (blocks_in_scene.at(i)->virtual_position.second == grid.row_to_destroy.at(r)){ // first part of OR is legacy blocks_in_scene.at(i)->y() == grid.row_to_destroy.second ||

@@ -5,7 +5,7 @@
 #include <QKeyEvent>
 #include <QGraphicsScene>
 #include <QDebug>
-#include"square.h"
+#include"PieceBase.h"
 
 
 #include <QGraphicsRectItem>
@@ -13,12 +13,22 @@
 class MyRect: public QGraphicsRectItem{
 public:
 
-    int test=1;
+    // positions stuff
     Grid grid;
-    //std::vector<ExtraBlock*> blocks_in_scene;
-    SquarePiece *current_piece = nullptr; // piece that the player has control at the time
     std::vector<ExtraBlock*> blocks_in_scene;
-    // polimorfismo é fo##
+
+    //controls stuff
+    PieceBase *current_piece = nullptr; // piece that the player has control at the time
+
+    //tick
+    void Tick(); // make timer for it later
+
+    //spawns
+    void SpawnExtraBlock();
+    void SpawnSquare();
+    void SpawnRandom();
+
+
 
     void keyPressEvent(QKeyEvent * event);
 };

@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-b110550cd2d1b6735ac6.json",
+					"jsonFile" : "directory-.-Debug-ebee51c1ef2703f00e00.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "QtGameTest::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-QtGameTest-Debug-2fa0878b4973a3033d77.json",
+					"jsonFile" : "target-QtGameTest-Debug-965d87ac341eb99a2853.json",
 					"name" : "QtGameTest",
 					"projectIndex" : 0
 				},

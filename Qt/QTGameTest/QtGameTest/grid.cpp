@@ -1,26 +1,26 @@
 #include "grid.h"
-//#include "QDebug"
-//#include"algorithm"
-
-#include "ExtraBlock.h" //idk what i did but test with this
+#include "ExtraBlock.h"
 
 
 void Grid::SetOccupied(int x, int y)
 {
 
+    // ----------------------------------------------------
+    //              SETTING SLOT AS OCCUPIED
+    // ----------------------------------------------------
     if (Grid::IsOccupied(x,y))
         return;
 
     std::pair<int,int> temp(x,y);
     occupied.push_back(temp);
-    //qDebug() << "occupied at:" << temp.first << "  "<< temp.second <<x << " " <<y << "size: "<<occupied.size();
 
 
-    //std::vector<int> repeatedNumbers;
-
-    std::unordered_map<int, int> countMap;
+    // ----------------------------------------------------
+    //              CHECKING FOR FULL ROWS
+    // ----------------------------------------------------
 
     // count occurrences of each number in occupied vector
+    std::unordered_map<int, int> countMap;
     for (const auto& pair : occupied) {
         countMap[pair.second]++;
     }
@@ -69,11 +69,9 @@ bool Grid::IsOccupied(int x, int y)
 
     for (int i=0; i<occupied.size();i++){
         if (occupied.at(i) == search){
-            //qDebug() << "already occupied" <<x << " " <<y << "size: "<<occupied.size();
             return (true);
         }
     }
 
-    //qDebug() << "nothing found at "<<x << " " <<y << "size: "<<occupied.size();
     return (false);
 }
