@@ -5,6 +5,8 @@
 #include "grid.h"
 #include "ExtraBlock.h"
 #include <QTimer>
+#include<QImage>
+
 class SquarePiece : public QObject, public PieceBase {
     Q_OBJECT //needed to handle slots
 public:
@@ -14,6 +16,14 @@ public:
     ~SquarePiece(){
         qDebug()<<"Square piece deleted.";
     };
+
+
+    std::vector<ExtraBlock*> *blocks_in_scene;
+
+    void SetBlocksInScene(std::vector<ExtraBlock*> *t_blocks_in_scene){
+        blocks_in_scene = t_blocks_in_scene;
+    };
+
 
     // members of this group
     ExtraBlock *block1;

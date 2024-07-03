@@ -12,7 +12,7 @@ void MyRect::SpawnSquare(){
     square->setPos(x(),y());
 
     scene()->addItem(square);
-
+    square->SetBlocksInScene(&blocks_in_scene);
     //add the blocks inside piece to the blocks vector
     for (int i = 1; i<=square->number_of_blocks; i++){
         blocks_in_scene.push_back(square->GetBlock(i));

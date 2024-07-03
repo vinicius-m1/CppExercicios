@@ -18,7 +18,7 @@ SquarePiece::SquarePiece(Grid * grid)
 
     // create individual blocks and add them to the group
     block1 = new ExtraBlock(grid,true); // piece_mode = true
-    block1->setBrush(brush);
+    block1->setBrush(test);
     block1->setPos(0, 0); // (position based on group)
     block1->name = "block 1";
     addToGroup(block1);
@@ -203,25 +203,58 @@ void SquarePiece::move()
         if(block2->exist){ //if block exist
             exist =true;
         } else{
+            // THIS CODE IS TO FIX PROBLEM WHEN BLOCK IN THE MIDDLE OF PIECE IS DELETED.
+            if((block1) && (formation == 2)){
 
-            //if(block1 && (formation == 2)){
-                //m_grid->RemoveOccupied(block1->virtual_position.first,block1->virtual_position.second);
-                //m_grid->SetOccupied(block2->virtual_position.first,block2->virtual_position.second);
-                //block1->setPos(block2->x(),block2->y());
-                //block1->virtual_position = block2->virtual_position;
+                //undo what my rect did
+                block2->exist=true;
+                QBrush brush(QImage(":/images/red.png"));
+                block2->setBrush(brush);
+                blocks_in_scene->push_back(block2);
 
-            //}
+                //block 1 takes the fall for block2
+                m_grid->RemoveOccupied(x(),y());
+                block1->exist=false; //remove
+                delete block1;
+                block1 = nullptr;
 
-            delete block2;
-            block2 = nullptr;
+            } else{ //or just do normal
+                delete block2;
+                block2 = nullptr;
+            }
         }
     }
     if (block3){
         if(block3->exist){ //if block exist
             exist =true;
         } else{
-            delete block3;
-            block3 = nullptr;
+            // THIS CODE IS TRY TO FIX PROBLEM WHEN BLOCK IN THE MIDDLE OF PIECE IS DELETED.
+            if ((block2 || block1) && (formation == 2)){
+                //undo what my rect did
+                block3->exist=true;
+                QBrush brush(QImage(":/images/red.png"));
+                block3->setBrush(brush);
+                blocks_in_scene->push_back(block3);
+
+                if(block1){
+                //block 1 takes the fall for block3
+                m_grid->RemoveOccupied(x(),y());
+                block1->exist=false; //remove
+                delete block1;
+                block1 = nullptr;
+                } else{ //if block 1 doennt exist
+                //block2 takes the fall for block3
+                m_grid->RemoveOccupied(x(),y()+y_correction);
+                block2->exist=false; //remove
+                delete block2;
+                block2 = nullptr;
+                }
+
+
+            } else{//or just do normal
+                delete block3;
+                block3 = nullptr;
+            }
         }
     }
     if (block4){
