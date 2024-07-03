@@ -350,7 +350,8 @@
 		"/home/bansola/Qt/6.7.0/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessTargets.cmake",
 		"/home/bansola/Qt/6.7.0/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsMacros.cmake",
 		"/home/bansola/Qt/6.7.0/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsPlugins.cmake",
-		"/home/bansola/Qt/Tools/CMake/share/cmake-3.27/Modules/GNUInstallDirs.cmake"
+		"/home/bansola/Qt/Tools/CMake/share/cmake-3.27/Modules/GNUInstallDirs.cmake",
+		"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/resources.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest",
 	"DEP_FILE" : "/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/deps",

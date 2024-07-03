@@ -1,22 +1,24 @@
 #include "square.h"
-
+#include<QImage>
 
 SquarePiece::SquarePiece(Grid * grid)
 {
 
+    //changing values from parent class
     number_of_formations = 2;
     controls = true;
     formation = 1;
 
+
     m_grid = grid; // saves received grid to pass to blocks
 
-    QBrush brush(Qt::cyan);
+    QBrush brush(QImage(":/images/red.png"));
 
-    QBrush test(Qt::green);  // debug color
+    QBrush test(QImage(":/images/green.png"));  // debug color
 
     // create individual blocks and add them to the group
     block1 = new ExtraBlock(grid,true); // piece_mode = true
-    block1->setBrush(test);
+    block1->setBrush(brush);
     block1->setPos(0, 0); // (position based on group)
     block1->name = "block 1";
     addToGroup(block1);
@@ -186,7 +188,7 @@ void SquarePiece::moveLeft()
 void SquarePiece::move()
 {
 
-    //CHECK IF GROUP SHOLD STILL EXIST
+    //CHECK IF GROUP SHOULD STILL EXIST
     bool exist=false;
 
     if (block1){
@@ -201,6 +203,15 @@ void SquarePiece::move()
         if(block2->exist){ //if block exist
             exist =true;
         } else{
+
+            //if(block1 && (formation == 2)){
+                //m_grid->RemoveOccupied(block1->virtual_position.first,block1->virtual_position.second);
+                //m_grid->SetOccupied(block2->virtual_position.first,block2->virtual_position.second);
+                //block1->setPos(block2->x(),block2->y());
+                //block1->virtual_position = block2->virtual_position;
+
+            //}
+
             delete block2;
             block2 = nullptr;
         }
@@ -235,9 +246,12 @@ void SquarePiece::move()
 
 
     //update virtual positions
-    //update virtual positions (for extrablocks inside group be treated as parts of piece)
-    if (block1)
+    //update virtual positions (for extrablocks inside group be treated as parts of scene(deletion))
+    if (block1){
         block1->virtual_position.second = (y());
+        //if (!block2)
+        //    block1->virtual_position.second = (y()+y_correction);
+    }
     if (block2)
         block2->virtual_position.second = (y()+y_correction);
     if (block3)
@@ -314,7 +328,7 @@ void SquarePiece::move()
 
     if (falling == false){ //if was stopped and now moving, remove old "seat"
         if (block1)
-            m_grid->RemoveOccupied(x(),y());
+            m_grid->RemoveOccupied(x(),y()); //try using virtual positions
         if (block2)
             m_grid->RemoveOccupied(x()+x_correction,y()+y_correction);
         if (block3)

@@ -6,11 +6,13 @@
 #include <QGraphicsScene>
 #include <QDebug>
 #include"PieceBase.h"
+#include <QTimer>
 
 
 #include <QGraphicsRectItem>
 
-class MyRect: public QGraphicsRectItem{
+class MyRect: public QObject, public QGraphicsRectItem{
+    Q_OBJECT //needed to handle slots
 public:
 
     // positions stuff
@@ -19,9 +21,17 @@ public:
 
     //controls stuff
     PieceBase *current_piece = nullptr; // piece that the player has control at the time
+    void keyPressEvent(QKeyEvent * event);
 
     //tick
-    void Tick(); // make timer for it later
+    MyRect(){
+        connect(timer,SIGNAL(timeout()), this, SLOT(Tick()) );
+        timer->start(200);
+    }
+    QTimer * timer = new QTimer();
+
+
+
 
     //spawns
     void SpawnExtraBlock();
@@ -29,8 +39,9 @@ public:
     void SpawnRandom();
 
 
+public slots:
+    void Tick();
 
-    void keyPressEvent(QKeyEvent * event);
 };
 
 #endif // MYRECT_H

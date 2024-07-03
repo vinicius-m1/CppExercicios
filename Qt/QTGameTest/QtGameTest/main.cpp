@@ -2,7 +2,7 @@
 #include <QGraphicsScene>
 #include "MyRect.h"
 #include <QGraphicsView>
-
+#include <QImage>
 /*
 Prereqs:
 -basic knowledge of c++ (pointers and memory management)
@@ -29,7 +29,6 @@ int main(int argc, char *argv[])
 
     // add the item to the scene
     scene->addItem(rect);
-
     //make rect focusable
     rect->setFlag(QGraphicsItem::ItemIsFocusable);
     rect->setFocus();
@@ -53,6 +52,7 @@ int main(int argc, char *argv[])
 
     rect->setPos(view->width()/2, view->height() - rect->rect().height());
     rect->setPos(370,30); //top middle
+    scene->setBackgroundBrush(QBrush(QImage(":/images/Untitled.png")));
 
     return a.exec();
 }
