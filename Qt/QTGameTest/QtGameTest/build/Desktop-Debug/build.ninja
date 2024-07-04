@@ -105,6 +105,14 @@ build CMakeFiles/QtGameTest.dir/spawns.cpp.o: CXX_COMPILER__QtGameTest_unscanned
   OBJECT_DIR = CMakeFiles/QtGameTest.dir
   OBJECT_FILE_DIR = CMakeFiles/QtGameTest.dir
 
+build CMakeFiles/QtGameTest.dir/cube.cpp.o: CXX_COMPILER__QtGameTest_unscanned_Debug /home/bansola/Desktop/C$ codigos/Qt/QTGameTest/QtGameTest/cube.cpp || cmake_object_order_depends_target_QtGameTest
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/QtGameTest.dir/cube.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always -fPIC
+  INCLUDES = -I"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/include" -isystem /home/bansola/Qt/6.7.0/gcc_64/include/QtCore -isystem /home/bansola/Qt/6.7.0/gcc_64/include -isystem /home/bansola/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -isystem /home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets -isystem /home/bansola/Qt/6.7.0/gcc_64/include/QtGui
+  OBJECT_DIR = CMakeFiles/QtGameTest.dir
+  OBJECT_FILE_DIR = CMakeFiles/QtGameTest.dir
+
 build CMakeFiles/QtGameTest.dir/QtGameTest_autogen/EWIEGA46WW/qrc_resources.cpp.o: CXX_COMPILER__QtGameTest_unscanned_Debug /home/bansola/Desktop/C$ codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/QtGameTest_autogen/EWIEGA46WW/qrc_resources.cpp || cmake_object_order_depends_target_QtGameTest
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/QtGameTest.dir/QtGameTest_autogen/EWIEGA46WW/qrc_resources.cpp.o.d
@@ -121,7 +129,7 @@ build CMakeFiles/QtGameTest.dir/QtGameTest_autogen/EWIEGA46WW/qrc_resources.cpp.
 #############################################
 # Link the executable QtGameTest
 
-build QtGameTest: CXX_EXECUTABLE_LINKER__QtGameTest_Debug CMakeFiles/QtGameTest.dir/QtGameTest_autogen/mocs_compilation.cpp.o CMakeFiles/QtGameTest.dir/main.cpp.o CMakeFiles/QtGameTest.dir/MyRect.cpp.o CMakeFiles/QtGameTest.dir/ExtraBlock.cpp.o CMakeFiles/QtGameTest.dir/grid.cpp.o CMakeFiles/QtGameTest.dir/square.cpp.o CMakeFiles/QtGameTest.dir/spawns.cpp.o CMakeFiles/QtGameTest.dir/QtGameTest_autogen/EWIEGA46WW/qrc_resources.cpp.o | /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Widgets.so.6.7.0 /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Gui.so.6.7.0 /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Core.so.6.7.0 /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so || QtGameTest_autogen QtGameTest_autogen_timestamp_deps
+build QtGameTest: CXX_EXECUTABLE_LINKER__QtGameTest_Debug CMakeFiles/QtGameTest.dir/QtGameTest_autogen/mocs_compilation.cpp.o CMakeFiles/QtGameTest.dir/main.cpp.o CMakeFiles/QtGameTest.dir/MyRect.cpp.o CMakeFiles/QtGameTest.dir/ExtraBlock.cpp.o CMakeFiles/QtGameTest.dir/grid.cpp.o CMakeFiles/QtGameTest.dir/square.cpp.o CMakeFiles/QtGameTest.dir/spawns.cpp.o CMakeFiles/QtGameTest.dir/cube.cpp.o CMakeFiles/QtGameTest.dir/QtGameTest_autogen/EWIEGA46WW/qrc_resources.cpp.o | /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Widgets.so.6.7.0 /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Gui.so.6.7.0 /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Core.so.6.7.0 /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so || QtGameTest_autogen QtGameTest_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = -Wl,-rpath,/home/bansola/Qt/6.7.0/gcc_64/lib:  /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Widgets.so.6.7.0  /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Gui.so.6.7.0  /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Core.so.6.7.0  /usr/lib/x86_64-linux-gnu/libGLX.so  /usr/lib/x86_64-linux-gnu/libOpenGL.so
   OBJECT_DIR = CMakeFiles/QtGameTest.dir

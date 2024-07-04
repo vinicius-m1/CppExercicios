@@ -1,5 +1,6 @@
 #include "MyRect.h"
 #include "square.h"
+#include "cube.h"
 #include "ExtraBlock.h"
 #include <cstdlib>
 
@@ -12,6 +13,7 @@ void MyRect::SpawnSquare(){
     square->setPos(x(),y());
 
     scene()->addItem(square);
+    all_pieces.push_back(square);
     square->SetBlocksInScene(&blocks_in_scene);
     //add the blocks inside piece to the blocks vector
     for (int i = 1; i<=square->number_of_blocks; i++){
@@ -21,19 +23,25 @@ void MyRect::SpawnSquare(){
     current_piece = square; // give control to player
 };
 
+void MyRect::SpawnCube(){
+    CubePiece * cube = new CubePiece(&grid);
+    qDebug() << "Cube created.";
+    cube->setPos(x(),y());
+    all_pieces.push_back(cube);
+    scene()->addItem(cube);
+    cube->SetBlocksInScene(&blocks_in_scene);
+    //add the blocks inside piece to the blocks vector
+    for (int i = 1; i<=cube->number_of_blocks; i++){
+        blocks_in_scene.push_back(cube->GetBlock(i));
+    }
+    current_piece = cube; // give control to player
+};
+
+
+
 void MyRect::SpawnExtraBlock(){
 
-    // generate extra block instance (base block for all formats)
-    ExtraBlock * extra = new ExtraBlock(&grid);
-    QBrush brush(Qt::red);
-    extra->setBrush(brush);
-
-    QBrush line_piec(QImage(":/images/line_shaped.png"));
-    next_piece_pic->setBrush(line_piec);
-
-    extra->setPos(x(),y());
-    scene()->addItem(extra);
-    blocks_in_scene.push_back(extra); //accepts all formats of QGraphicsRectItem
+    return; //legacy
 };
 
 void MyRect::SpawnRandom(){
@@ -51,12 +59,17 @@ void MyRect::SpawnRandom(){
         SpawnSquare();
         break;
 
+    case(2):
+        SpawnCube();
+        break;
+
     default: break;
     }
 
     switch(rand_spawns.second){
     case(1):
         next_piece_pic->setBrush(line_piece);
+
 
 
 

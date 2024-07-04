@@ -19,6 +19,7 @@ public:
     std::vector<ExtraBlock*> blocks_in_scene;
 
     //controls stuff
+    std::vector<PieceBase*> all_pieces;
     PieceBase *current_piece = nullptr; // piece that the player has control at the time
     void keyPressEvent(QKeyEvent * event);
 
@@ -33,11 +34,14 @@ public:
     QGraphicsTextItem * score;
     int points=0;
     QGraphicsRectItem * next_piece_pic;
+    bool debug_mode = false; // turns off random spawn
+    void GameOver();
 
     //spawns
     std::pair<int,int> rand_spawns;
     void SpawnExtraBlock();
     void SpawnSquare();
+    void SpawnCube();
     void SpawnRandom();
 
 

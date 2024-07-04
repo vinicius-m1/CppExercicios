@@ -11,6 +11,11 @@ void Grid::SetOccupied(int x, int y)
     if (Grid::IsOccupied(x,y))
         return;
 
+    if(y<=100){ // game over
+        game_over = true;
+        return;
+    }
+
     std::pair<int,int> temp(x,y);
     occupied.push_back(temp);
 

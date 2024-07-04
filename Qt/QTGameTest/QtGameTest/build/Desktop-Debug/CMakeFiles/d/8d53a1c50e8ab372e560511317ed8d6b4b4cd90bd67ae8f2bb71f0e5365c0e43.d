@@ -9,6 +9,8 @@ QtGameTest_autogen/timestamp: \
   CMakeFiles/3.27.7/CMakeCXXCompiler.cmake \
   CMakeFiles/3.27.7/CMakeSystem.cmake \
   QtGameTest_autogen/moc_predefs.h \
+  /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/cube.cpp \
+  /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/cube.h \
   /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/grid.cpp \
   /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/grid.h \
   /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/main.cpp \

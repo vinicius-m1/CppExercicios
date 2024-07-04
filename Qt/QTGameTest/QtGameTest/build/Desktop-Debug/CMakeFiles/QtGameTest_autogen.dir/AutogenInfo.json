@@ -377,6 +377,12 @@
 			null
 		],
 		[
+			"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/cube.h",
+			"MU",
+			"EWIEGA46WW/moc_cube.cpp",
+			null
+		],
+		[
 			"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/grid.h",
 			"MU",
 			"EWIEGA46WW/moc_grid.cpp",
@@ -455,6 +461,11 @@
 		],
 		[
 			"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/MyRect.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/cube.cpp",
 			"MU",
 			null
 		],

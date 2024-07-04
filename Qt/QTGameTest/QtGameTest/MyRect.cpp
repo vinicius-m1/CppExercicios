@@ -1,6 +1,6 @@
 #include "MyRect.h"
 #include "square.h"
-
+#include <QMessageBox>
 
 
 void MyRect::Tick(){
@@ -9,13 +9,17 @@ void MyRect::Tick(){
     qDebug()<<"tic-tac";
     setFocus();
 
+    if(grid.game_over){
+        grid.game_over=false;
+        GameOver();
+    }
 
     //update score
     score->setPlainText(QString::number(points));
 
     //spawn next pieces
 
-    if((current_piece && !(current_piece->falling)) || current_piece == nullptr)
+    if((current_piece && !(current_piece->falling) && (!debug_mode)) || current_piece == nullptr)
         SpawnRandom();
 
 
@@ -54,7 +58,31 @@ void MyRect::Tick(){
 
 
 
+void MyRect::GameOver(){
 
+    timer->stop();
+    grid.game_over == false;
+    // clear screen
+    points = 0;
+    for(int i = 0; i < blocks_in_scene.size();i++){
+        blocks_in_scene.at(i)->exist=false;
+    }
+
+    for(int i = 0; i < all_pieces.size();i++){
+        delete all_pieces.at(i);
+    }
+
+    all_pieces.clear();
+    grid.occupied.clear();
+    blocks_in_scene.clear();
+
+    QMessageBox::StandardButton btn;
+    btn = QMessageBox::question(nullptr, "):", "Game Over! Restart?");
+    if(btn == QMessageBox::Yes){
+        timer->start(200);
+    } else
+        qApp->quit();
+};
 
 
 
@@ -107,13 +135,17 @@ void MyRect::keyPressEvent(QKeyEvent *event){
 
     }
 
-
-
-
     //      0 KEY PRESSED
     else if (event->key() == Qt::Key_0){
         SpawnSquare();
     }
+
+    //      9 KEY PRESSED
+    else if (event->key() == Qt::Key_9){
+        SpawnCube();
+    }
+
+
 
     //      SPACEBAR KEY PRESSED
     else if (event->key() == Qt::Key_1){
