@@ -7,8 +7,7 @@
 #include <QDebug>
 #include"PieceBase.h"
 #include <QTimer>
-
-
+#include <QFont>
 #include <QGraphicsRectItem>
 
 class MyRect: public QObject, public QGraphicsRectItem{
@@ -30,10 +29,13 @@ public:
     }
     QTimer * timer = new QTimer();
 
-
-
+    //game ui
+    QGraphicsTextItem * score;
+    int points=0;
+    QGraphicsRectItem * next_piece_pic;
 
     //spawns
+    std::pair<int,int> rand_spawns;
     void SpawnExtraBlock();
     void SpawnSquare();
     void SpawnRandom();

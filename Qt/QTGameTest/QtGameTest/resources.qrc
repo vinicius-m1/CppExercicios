@@ -5,5 +5,7 @@
         <file>green.png</file>
         <file>red.png</file>
         <file>yellow.png</file>
+        <file>l_piece.png</file>
+        <file>line_shaped.png</file>
     </qresource>
 </RCC>

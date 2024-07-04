@@ -11,7 +11,9 @@
 		"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/green.png",
 		"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/yellow.png",
 		"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/blue.png",
-		"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/Untitled.png"
+		"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/Untitled.png",
+		"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/l_piece.png",
+		"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/line_shaped.png"
 	],
 	"LOCK_FILE" : "/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/build/Desktop-Debug/CMakeFiles/QtGameTest_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",
 	"MULTI_CONFIG" : false,

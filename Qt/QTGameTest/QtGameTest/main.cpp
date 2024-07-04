@@ -3,15 +3,7 @@
 #include "MyRect.h"
 #include <QGraphicsView>
 #include <QImage>
-/*
-Prereqs:
--basic knowledge of c++ (pointers and memory management)
--VERY basic knowledge of Qt (widgets)
-Tutorial Topics:
--QGraphicsScene
--QGraphicsItem (QGraphicsRectItem)
--QGraphicsView
-*/
+
 
 int main(int argc, char *argv[])
 {
@@ -25,8 +17,8 @@ int main(int argc, char *argv[])
     MyRect * rect = new MyRect();
 
     rect->setRect(0,0,30,10);
-
-
+    QPen pen(Qt::NoPen); // remove ugly border
+    rect->setPen(pen);
     // add the item to the scene
     scene->addItem(rect);
     //make rect focusable
@@ -53,6 +45,22 @@ int main(int argc, char *argv[])
     rect->setPos(view->width()/2, view->height() - rect->rect().height());
     rect->setPos(370,30); //top middle
     scene->setBackgroundBrush(QBrush(QImage(":/images/Untitled.png")));
+
+
+    // setting score panel
+    rect->score = new QGraphicsTextItem;
+    scene->addItem(rect->score);
+    rect->score->setDefaultTextColor(Qt::white);
+    QFont font("Helvetica", 16);
+    font.setBold(true);
+    rect->score->setFont(font);
+    rect->score->setPos(700,111);
+
+    rect->next_piece_pic = new QGraphicsRectItem;
+    rect->next_piece_pic->setRect(690,145,50,50);
+    rect->next_piece_pic->setPen(pen);
+
+    scene->addItem(rect->next_piece_pic);
 
     return a.exec();
 }

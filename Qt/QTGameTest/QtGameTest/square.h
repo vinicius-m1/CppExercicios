@@ -13,11 +13,6 @@ public:
     Grid * m_grid;
     SquarePiece(Grid * grid);
 
-    ~SquarePiece(){
-        qDebug()<<"Square piece deleted.";
-    };
-
-
     std::vector<ExtraBlock*> *blocks_in_scene;
 
     void SetBlocksInScene(std::vector<ExtraBlock*> *t_blocks_in_scene){
@@ -47,7 +42,7 @@ public:
     QTimer * m_timer;
     int limiter = 550;
     int movX=0,movY=0;
-    bool falling = true; //spawns falling
+    //bool falling = true; //spawns falling     now in base class
     //bool controls = true; //user starts controlling -- now in contructor
     void moveRight();
     void moveLeft();

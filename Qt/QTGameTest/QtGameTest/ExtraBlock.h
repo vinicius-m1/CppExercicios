@@ -11,7 +11,7 @@ class ExtraBlock : public QObject, public QGraphicsRectItem{
     Q_OBJECT //needed to handle slots
 public:
     QTimer * m_timer;
-    bool falling = true; //spawns falling
+    bool falling = true; //spawns falling --  now in base class
 
     std::pair<int,int> virtual_position;
     std::string name = "No-name";

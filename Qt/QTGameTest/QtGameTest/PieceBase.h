@@ -16,7 +16,7 @@ public:
     bool controls = true;
     int formation = 0;
     int number_of_formations = 0;
-
+    bool falling = true;
 
 
     // to be overritten methods

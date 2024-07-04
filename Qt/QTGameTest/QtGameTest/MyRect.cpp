@@ -5,8 +5,18 @@
 
 void MyRect::Tick(){
 
+    //routine stuff
     qDebug()<<"tic-tac";
     setFocus();
+
+
+    //update score
+    score->setPlainText(QString::number(points));
+
+    //spawn next pieces
+
+    if((current_piece && !(current_piece->falling)) || current_piece == nullptr)
+        SpawnRandom();
 
 
     if(grid.row_to_destroy.empty())
@@ -35,6 +45,7 @@ void MyRect::Tick(){
 
         qDebug() << "deleted ALL FROM row "<< r;
         grid.DestroyRow(grid.row_to_destroy.at(r)); // destroy blocks position data inside grid
+        points = points + (1*grid.row_to_destroy.size());
     }
     // after all is deleted
     grid.row_to_destroy.clear(); //wipes flagging vector

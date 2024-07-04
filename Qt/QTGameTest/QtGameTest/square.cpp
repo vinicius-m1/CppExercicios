@@ -13,30 +13,34 @@ SquarePiece::SquarePiece(Grid * grid)
     m_grid = grid; // saves received grid to pass to blocks
 
     QBrush brush(QImage(":/images/red.png"));
-
     QBrush test(QImage(":/images/green.png"));  // debug color
+    QPen pen(Qt::NoPen); // remove ugly border
 
     // create individual blocks and add them to the group
     block1 = new ExtraBlock(grid,true); // piece_mode = true
     block1->setBrush(test);
+    block1->setPen(pen);
     block1->setPos(0, 0); // (position based on group)
     block1->name = "block 1";
     addToGroup(block1);
 
     block2 = new ExtraBlock(grid,true);
     block2->setBrush(brush);
+    block1->setPen(pen);
     block2->setPos(30,0);
     block2->name = "block 2";
     addToGroup(block2);
 
     block3 = new ExtraBlock(grid,true);
     block3->setBrush(brush);
+    block1->setPen(pen);
     block3->setPos(60,0);
     block3->name = "block 3";
     addToGroup(block3);
 
     block4 = new ExtraBlock(grid,true);
     block4->setBrush(brush);
+    block1->setPen(pen);
     block4->setPos(90,0);
     block4->name = "block 4";
     addToGroup(block4);

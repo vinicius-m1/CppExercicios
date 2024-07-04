@@ -9,7 +9,6 @@ ExtraBlock::ExtraBlock(Grid * grid, bool t_piece_mode){
     movY =0;
     movX=0;
     m_grid = grid;
-
     //conect slot to timer, when timer runs out the slot is executed
     QTimer * timer = new QTimer();
     m_timer = timer;
