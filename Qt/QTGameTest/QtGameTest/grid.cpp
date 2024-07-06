@@ -2,18 +2,18 @@
 #include "ExtraBlock.h"
 
 
-void Grid::SetOccupied(int x, int y)
+int Grid::SetOccupied(int x, int y)
 {
 
     // ----------------------------------------------------
     //              SETTING SLOT AS OCCUPIED
     // ----------------------------------------------------
     if (Grid::IsOccupied(x,y))
-        return;
+        return 1;
 
     if(y<=100){ // game over
         game_over = true;
-        return;
+        return 0;
     }
 
     std::pair<int,int> temp(x,y);
@@ -36,7 +36,7 @@ void Grid::SetOccupied(int x, int y)
             row_to_destroy.push_back(pair.first);
         }
     }
-
+    return 0;
 }
 
 void Grid::DestroyRow(int y)

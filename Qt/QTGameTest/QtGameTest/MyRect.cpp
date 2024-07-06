@@ -18,7 +18,7 @@ void MyRect::Tick(){
     score->setPlainText(QString::number(points));
 
     //spawn next pieces
-    if((current_piece && !(current_piece->falling) && (!debug_mode)) || current_piece == nullptr)
+    if((current_piece && !(current_piece->falling) || current_piece == nullptr) && (!debug_mode))
         SpawnRandom();
 
 
@@ -142,6 +142,12 @@ void MyRect::keyPressEvent(QKeyEvent *event){
     else if (event->key() == Qt::Key_0){
         SpawnSquare();
     }
+
+    //      7 KEY PRESSED
+    else if (event->key() == Qt::Key_7){
+        SpawnLPiece();
+    }
+
 
     //      9 KEY PRESSED
     else if (event->key() == Qt::Key_9){

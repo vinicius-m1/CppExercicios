@@ -41,12 +41,13 @@ public:
 
     //spawns
     std::pair<int,int> rand_spawns;
-    int num_cube=0,num_line=0,num_triangle=0;
+    int num_cube=0,num_line=0,num_triangle=0,num_lpiece=0;
     void SpawnExtraBlock();
     void SpawnSquare();
     void SpawnCube();
     void SpawnRandom();
     void SpawnTriangle();
+    void SpawnLPiece();
 
 public slots:
     void Tick();

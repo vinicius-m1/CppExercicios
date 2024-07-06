@@ -1,6 +1,7 @@
 #include "MyRect.h"
 #include "square.h"
 #include "cube.h"
+#include "LPiece.h"
 #include "ExtraBlock.h"
 #include"triangle.h"
 #include <cstdlib>
@@ -40,11 +41,29 @@ void MyRect::SpawnCube(){
     current_piece = cube; // give control to player
 };
 
+
+void MyRect::SpawnLPiece(){
+    num_lpiece++;
+    LPiece * lpiece = new LPiece(&grid);
+    qDebug() << "L Piece created.";
+    lpiece->setPos(x(),y()+60); //custom height
+    all_pieces.push_back(lpiece);
+    scene()->addItem(lpiece);
+    lpiece->SetBlocksInScene(&blocks_in_scene);
+    //add the blocks inside piece to the blocks vector
+    for (int i = 1; i<=lpiece->number_of_blocks; i++){
+        blocks_in_scene.push_back(lpiece->GetBlock(i));
+    }
+    current_piece = lpiece; // give control to player
+};
+
+
+
 void MyRect::SpawnTriangle(){
     num_triangle++;
     TrianglePiece * triangle = new TrianglePiece(&grid);
     qDebug() << "Triangle created.";
-    triangle->setPos(x(),y()+30);
+    triangle->setPos(x(),y()+30); //custom height
     all_pieces.push_back(triangle);
     scene()->addItem(triangle);
     triangle->SetBlocksInScene(&blocks_in_scene);
@@ -63,7 +82,7 @@ void MyRect::SpawnExtraBlock(){
 
 void MyRect::SpawnRandom(){
 
-    rand_spawns.second = ((std::rand()%3)+1);
+    rand_spawns.second = ((std::rand()%4)+1);
 
 
     switch (rand_spawns.first){
@@ -75,6 +94,9 @@ void MyRect::SpawnRandom(){
         break;
     case(3):
         SpawnTriangle();
+        break;
+    case(4):
+        SpawnLPiece();
         break;
     default: break;
     }
@@ -90,6 +112,9 @@ void MyRect::SpawnRandom(){
     case(3):
         next_piece_pic->setBrush(QBrush(QImage(":/images/triangle_shaped.png")));
         break;
+    case(4):
+        next_piece_pic->setBrush(QBrush(QImage(":/images/L_shaped.png")));
+
     default: break;
     }
 

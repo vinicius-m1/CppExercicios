@@ -53,7 +53,7 @@ CubePiece::CubePiece(Grid * grid)
     m_timer = timer;
     connect(timer,SIGNAL(timeout()), this, SLOT(move()) );
 
-    timer->start(500);
+    timer->start(500);//short waiting after spawn
 
     // -------------------------------------------------------------
 }

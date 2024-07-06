@@ -25,7 +25,7 @@ public:
 
     bool IsOccupied(int x,int y);
 
-    void SetOccupied(int x,int y);
+    int SetOccupied(int x,int y);
 
     void DestroyRow(int y);
 

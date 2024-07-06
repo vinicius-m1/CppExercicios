@@ -56,6 +56,8 @@ int main(int argc, char *argv[])
     rect->score->setFont(font);
     rect->score->setPos(700,111);
 
+
+    // setting next piece picture frame
     rect->next_piece_pic = new QGraphicsRectItem;
     rect->next_piece_pic->setRect(690,145,60,60);
     rect->next_piece_pic->setPen(pen);

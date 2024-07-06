@@ -53,7 +53,7 @@ SquarePiece::SquarePiece(Grid * grid)
     m_timer = timer;
     connect(timer,SIGNAL(timeout()), this, SLOT(move()) );
 
-    timer->start(500);
+    timer->start(500); //short waiting after spawn
 
     // -------------------------------------------------------------
 }
@@ -135,8 +135,6 @@ void SquarePiece::SetFormation(int t_formation)
 
     else if(t_formation == 2){
 
-        //if(m_grid->IsOccupied(x(),y()))
-        //    able_to_change = false;
         if(able_to_change && (m_grid->IsOccupied(x(),y()+30)))
             able_to_change = false;
         if(able_to_change && (m_grid->IsOccupied(x(),y()+60)))
@@ -288,11 +286,8 @@ void SquarePiece::move()
 
     //update virtual positions
     //update virtual positions (for extrablocks inside group be treated as parts of scene(deletion))
-    if (block1){
+    if (block1)
         block1->virtual_position.second = (y());
-        //if (!block2)
-        //    block1->virtual_position.second = (y()+y_correction);
-    }
     if (block2)
         block2->virtual_position.second = (y()+y_correction);
     if (block3)
