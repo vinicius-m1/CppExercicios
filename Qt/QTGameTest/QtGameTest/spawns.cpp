@@ -2,6 +2,7 @@
 #include "square.h"
 #include "cube.h"
 #include "ExtraBlock.h"
+#include"triangle.h"
 #include <cstdlib>
 
 //this file contain the spawn operations for the game
@@ -37,6 +38,23 @@ void MyRect::SpawnCube(){
     current_piece = cube; // give control to player
 };
 
+void MyRect::SpawnTriangle(){
+    TrianglePiece * triangle = new TrianglePiece(&grid);
+    qDebug() << "Triangle created.";
+    triangle->setPos(x(),y()+30);
+    all_pieces.push_back(triangle);
+    scene()->addItem(triangle);
+    triangle->SetBlocksInScene(&blocks_in_scene);
+    //add the blocks inside piece to the blocks vector
+    for (int i = 1; i<=triangle->number_of_blocks; i++){
+        blocks_in_scene.push_back(triangle->GetBlock(i));
+    }
+    current_piece = triangle; // give control to player
+};
+
+
+
+
 
 
 void MyRect::SpawnExtraBlock(){
@@ -51,28 +69,31 @@ void MyRect::SpawnRandom(){
         //second is the next piece to spawn
     rand_spawns.first = rand_spawns.second;
     rand_spawns.second = ((std::rand()%6)+1);
-    QBrush line_piece(QImage(":/images/line_piece.png"));
-    //qDebug()<< rand_spawns.first <<" " << rand_spawns.second;
 
     switch (rand_spawns.first){
     case(1):
         SpawnSquare();
         break;
-
     case(2):
         SpawnCube();
         break;
-
+    case(3):
+        SpawnTriangle();
+        break;
     default: break;
     }
 
     switch(rand_spawns.second){
     case(1):
-        next_piece_pic->setBrush(line_piece);
-
-
-
-
+        //QBrush line_piece(QImage(":/images/line_piece.png"));
+        next_piece_pic->setBrush(QBrush(QImage(":/images/line_shaped.png")));
+        break;
+    case (2):
+        next_piece_pic->setBrush(QBrush(QImage(":/images/square_shaped.png")));
+        break;
+    case(3):
+        next_piece_pic->setBrush(QBrush(QImage(":/images/triangle_shaped.png")));
+        break;
     default: break;
     }
 };

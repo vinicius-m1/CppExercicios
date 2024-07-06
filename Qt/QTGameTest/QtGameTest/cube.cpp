@@ -1,6 +1,6 @@
 #include "cube.h"
 #include<QImage>
-
+#include<QObject>
 CubePiece::CubePiece(Grid * grid)
 {
 
@@ -53,7 +53,7 @@ CubePiece::CubePiece(Grid * grid)
     m_timer = timer;
     connect(timer,SIGNAL(timeout()), this, SLOT(move()) );
 
-    timer->start(20);
+    timer->start(500);
 
     // -------------------------------------------------------------
 }
@@ -232,7 +232,7 @@ void CubePiece::move()
 
     falling = true;
     m_timer->stop(); //getting timer back to speed
-    m_timer->start(20);
+    m_timer->start(speed);
 
 
     setPos(x()+movX,y()-movY);

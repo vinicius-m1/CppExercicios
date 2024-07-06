@@ -34,8 +34,12 @@ public:
     QGraphicsTextItem * score;
     int points=0;
     QGraphicsRectItem * next_piece_pic;
-    bool debug_mode = false; // turns off random spawn
+    bool debug_mode = true; // turns off random spawn
     void GameOver();
+
+
+
+
 
     //spawns
     std::pair<int,int> rand_spawns;
@@ -43,7 +47,7 @@ public:
     void SpawnSquare();
     void SpawnCube();
     void SpawnRandom();
-
+    void SpawnTriangle();
 
 public slots:
     void Tick();

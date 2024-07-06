@@ -53,7 +53,7 @@ SquarePiece::SquarePiece(Grid * grid)
     m_timer = timer;
     connect(timer,SIGNAL(timeout()), this, SLOT(move()) );
 
-    timer->start(20);
+    timer->start(500);
 
     // -------------------------------------------------------------
 }
@@ -218,6 +218,8 @@ void SquarePiece::move()
 
                 //block 1 takes the fall for block2
                 m_grid->RemoveOccupied(x(),y());
+                // remove from blocks_in_scene
+                blocks_in_scene->erase(std::remove(blocks_in_scene->begin(), blocks_in_scene->end(), block1), blocks_in_scene->end());
                 block1->exist=false; //remove
                 delete block1;
                 block1 = nullptr;
@@ -244,11 +246,13 @@ void SquarePiece::move()
                 //block 1 takes the fall for block3
                 m_grid->RemoveOccupied(x(),y());
                 block1->exist=false; //remove
+                blocks_in_scene->erase(std::remove(blocks_in_scene->begin(), blocks_in_scene->end(), block1), blocks_in_scene->end());
                 delete block1;
                 block1 = nullptr;
                 } else{ //if block 1 doennt exist
                 //block2 takes the fall for block3
                 m_grid->RemoveOccupied(x(),y()+y_correction);
+                blocks_in_scene->erase(std::remove(blocks_in_scene->begin(), blocks_in_scene->end(), block2), blocks_in_scene->end());
                 block2->exist=false; //remove
                 delete block2;
                 block2 = nullptr;
@@ -376,7 +380,7 @@ void SquarePiece::move()
 
     falling = true;
     m_timer->stop(); //getting timer back to speed
-    m_timer->start(20);
+    m_timer->start(speed);
 
 
     setPos(x()+movX,y()-movY);

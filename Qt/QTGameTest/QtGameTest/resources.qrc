@@ -7,5 +7,7 @@
         <file>yellow.png</file>
         <file>l_piece.png</file>
         <file>line_shaped.png</file>
+        <file>triangle_shaped.png</file>
+        <file>square_shaped.png</file>
     </qresource>
 </RCC>

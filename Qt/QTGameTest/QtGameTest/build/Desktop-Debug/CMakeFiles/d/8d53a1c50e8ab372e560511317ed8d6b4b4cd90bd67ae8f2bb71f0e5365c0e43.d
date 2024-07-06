@@ -18,6 +18,8 @@ QtGameTest_autogen/timestamp: \
   /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/spawns.cpp \
   /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/square.cpp \
   /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/square.h \
+  /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/triangle.cpp \
+  /home/bansola/Desktop/C\ codigos/Qt/QTGameTest/QtGameTest/triangle.h \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QDebug \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QList \
   /home/bansola/Qt/6.7.0/gcc_64/include/QtCore/QObject \

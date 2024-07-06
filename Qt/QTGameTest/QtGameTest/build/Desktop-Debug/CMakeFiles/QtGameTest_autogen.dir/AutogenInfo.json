@@ -393,6 +393,12 @@
 			"MU",
 			"EWIEGA46WW/moc_square.cpp",
 			null
+		],
+		[
+			"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/triangle.h",
+			"MU",
+			"EWIEGA46WW/moc_triangle.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -486,6 +492,11 @@
 		],
 		[
 			"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/square.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/bansola/Desktop/C codigos/Qt/QTGameTest/QtGameTest/triangle.cpp",
 			"MU",
 			null
 		]

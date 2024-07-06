@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     scene->setSceneRect(0,0,800,600);
 
     rect->setPos(view->width()/2, view->height() - rect->rect().height());
-    rect->setPos(370,30); //top middle
+    rect->setPos(370,65); //top middle
     scene->setBackgroundBrush(QBrush(QImage(":/images/Untitled.png")));
 
 
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
     rect->score->setPos(700,111);
 
     rect->next_piece_pic = new QGraphicsRectItem;
-    rect->next_piece_pic->setRect(690,145,50,50);
+    rect->next_piece_pic->setRect(690,145,60,60);
     rect->next_piece_pic->setPen(pen);
 
     scene->addItem(rect->next_piece_pic);

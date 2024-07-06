@@ -18,7 +18,6 @@ void MyRect::Tick(){
     score->setPlainText(QString::number(points));
 
     //spawn next pieces
-
     if((current_piece && !(current_piece->falling) && (!debug_mode)) || current_piece == nullptr)
         SpawnRandom();
 
@@ -42,8 +41,9 @@ void MyRect::Tick(){
 
                 // delete from vector
                 std::swap(blocks_in_scene.at(i), blocks_in_scene.back());
+                qDebug()<< "size was: "<<blocks_in_scene.size();
                 blocks_in_scene.pop_back();
-
+                qDebug()<< "size is: "<<blocks_in_scene.size();
             } else {i++;}; // only increment if nothing deleted
         }
 
@@ -64,12 +64,15 @@ void MyRect::GameOver(){
     grid.game_over == false;
     // clear screen
     points = 0;
+
     for(int i = 0; i < blocks_in_scene.size();i++){
         blocks_in_scene.at(i)->exist=false;
+        blocks_in_scene.at(i) = nullptr;
     }
 
     for(int i = 0; i < all_pieces.size();i++){
         delete all_pieces.at(i);
+        all_pieces.at(i) = nullptr;
     }
 
     all_pieces.clear();
@@ -145,6 +148,11 @@ void MyRect::keyPressEvent(QKeyEvent *event){
         SpawnCube();
     }
 
+
+    //      8 KEY PRESSED
+    else if (event->key() == Qt::Key_8){
+        SpawnTriangle();
+    }
 
 
     //      SPACEBAR KEY PRESSED

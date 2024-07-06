@@ -39,6 +39,7 @@ public:
 
 
     // move stuff
+    int speed = 25;
     QTimer * m_timer;
     int limiter = 550;
     int movX=0,movY=0;
