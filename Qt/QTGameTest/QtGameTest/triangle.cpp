@@ -178,8 +178,8 @@ void TrianglePiece::move()
         if(block2->exist){ //if block exist
             exist =true;
         } else{
-            if (formation==2){
-                if(block3 && block3->exist && block4){ //weird but should not cause seg fault bcs block3 check is first
+            if (block3 && block3->exist && block1 && block1->exist){ // and 1 exist?
+                if(formation == 2){
                     // delete 3 and 4, set to dont exist, remove from block in scene, remove from occupied
                     m_grid->RemoveOccupied(x(),y()-60);
                     block3->exist = false;
@@ -187,35 +187,18 @@ void TrianglePiece::move()
                     delete block3;
                     block3 = nullptr;
 
-                    m_grid->RemoveOccupied(x()+30,y()-30);
-                    block4->exist = false;
-                    blocks_in_scene->erase(std::remove(blocks_in_scene->begin(), blocks_in_scene->end(), block4), blocks_in_scene->end());
-                    delete block4;
-                    block4 = nullptr;
-
                     // add 2 back in block in scene, set it to exist, set it to color
                     block2->exist=true;
                     QBrush brush(QImage(":/images/yellow.png"));
                     block2->setBrush(brush);
                     blocks_in_scene->push_back(block2);
-                } else {
-                    //or just do normal
-                    delete block2;
-                    block2 = nullptr;
                 }
-            }
-            else if (formation == 4){
-                if(block3 && block3->exist && block4){ //weird but should not cause seg fault bcs block3 check is first
+                else if (formation == 4){
                     // delete 3 and 4, set to dont exist, remove from block in scene, remove from occupied
                     m_grid->RemoveOccupied(x(),y()-60);
                     blocks_in_scene->erase(std::remove(blocks_in_scene->begin(), blocks_in_scene->end(), block3), blocks_in_scene->end());
                     delete block3;
                     block3 = nullptr;
-
-                    m_grid->RemoveOccupied(x()-30,y()-30);
-                    blocks_in_scene->erase(std::remove(blocks_in_scene->begin(), blocks_in_scene->end(), block4), blocks_in_scene->end());
-                    delete block4;
-                    block4 = nullptr;
 
                     // add 2 back in block in scene, set it to exist, set it to color
                     block2->exist=true;
