@@ -178,7 +178,7 @@ void TrianglePiece::move()
         if(block2->exist){ //if block exist
             exist =true;
         } else{
-            if (block3 && block3->exist && block1 && block1->exist){ // and 1 exist?
+            if (block3 && block3->exist && block1 && block1->exist){ // weird, but no seg fault bcs nullptr checked first
                 if(formation == 2){
                     // delete 3 and 4, set to dont exist, remove from block in scene, remove from occupied
                     m_grid->RemoveOccupied(x(),y()-60);

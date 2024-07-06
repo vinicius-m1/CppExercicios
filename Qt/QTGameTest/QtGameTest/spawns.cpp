@@ -9,6 +9,7 @@
 
 
 void MyRect::SpawnSquare(){
+    num_line++;
     SquarePiece * square = new SquarePiece(&grid);
     qDebug() << "Square created.";
     square->setPos(x(),y());
@@ -25,6 +26,7 @@ void MyRect::SpawnSquare(){
 };
 
 void MyRect::SpawnCube(){
+    num_cube++;
     CubePiece * cube = new CubePiece(&grid);
     qDebug() << "Cube created.";
     cube->setPos(x(),y());
@@ -39,6 +41,7 @@ void MyRect::SpawnCube(){
 };
 
 void MyRect::SpawnTriangle(){
+    num_triangle++;
     TrianglePiece * triangle = new TrianglePiece(&grid);
     qDebug() << "Triangle created.";
     triangle->setPos(x(),y()+30);
@@ -53,10 +56,6 @@ void MyRect::SpawnTriangle(){
 };
 
 
-
-
-
-
 void MyRect::SpawnExtraBlock(){
 
     return; //legacy
@@ -64,11 +63,8 @@ void MyRect::SpawnExtraBlock(){
 
 void MyRect::SpawnRandom(){
 
-    if(!(rand_spawns.second == 0))
-        rand_spawns.first = ((std::rand()%6)+1);
-        //second is the next piece to spawn
-    rand_spawns.first = rand_spawns.second;
-    rand_spawns.second = ((std::rand()%6)+1);
+    rand_spawns.second = ((std::rand()%3)+1);
+
 
     switch (rand_spawns.first){
     case(1):
@@ -96,5 +92,7 @@ void MyRect::SpawnRandom(){
         break;
     default: break;
     }
+
+    rand_spawns.first = rand_spawns.second;
 };
 
