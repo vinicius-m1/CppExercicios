@@ -32,9 +32,10 @@ public:
 
     //game ui
     QGraphicsTextItem * score;
+    QGraphicsTextItem * stats;
     int points=0;
     QGraphicsRectItem * next_piece_pic;
-    bool debug_mode = false; // turns off random spawn
+    bool debug_mode = false; // turns off random spawn, turn on user spawn
     void GameOver();
 
 

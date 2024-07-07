@@ -16,6 +16,8 @@ void MyRect::Tick(){
 
     //update score
     score->setPlainText(QString::number(points));
+    //update statistics
+    stats->setPlainText(QString::number(num_line) + "x\n\n\n" + QString::number(num_triangle) + "x\n\n\n"+ QString::number(num_cube) + "x\n\n\n\n"+ QString::number(num_lpiece) + "x\n\n\n"+ QString::number(0) + "x");
 
     //spawn next pieces
     if((current_piece && !(current_piece->falling) || current_piece == nullptr) && (!debug_mode))
@@ -56,14 +58,14 @@ void MyRect::Tick(){
 
 };
 
-
-
 void MyRect::GameOver(){
 
     timer->stop();
     grid.game_over == false;
     // clear screen
     points = 0;
+    num_cube=0,num_line=0,num_triangle=0,num_lpiece=0;
+
 
     for(int i = 0; i < blocks_in_scene.size();i++){
         blocks_in_scene.at(i)->exist=false;
@@ -79,6 +81,7 @@ void MyRect::GameOver(){
     grid.occupied.clear();
     blocks_in_scene.clear();
 
+    // game over prompt, restart or quit
     QMessageBox::StandardButton btn;
     btn = QMessageBox::question(nullptr, "):", "Game Over! Restart?");
     if(btn == QMessageBox::Yes){

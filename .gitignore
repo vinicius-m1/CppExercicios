@@ -8,3 +8,5 @@
 *.pdf
 
 ativ2
+
+!CMakeLists.txt

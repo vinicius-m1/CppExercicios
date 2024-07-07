@@ -9,5 +9,6 @@
         <file>line_shaped.png</file>
         <file>triangle_shaped.png</file>
         <file>square_shaped.png</file>
+        <file>background_menu.png</file>
     </qresource>
 </RCC>

@@ -3,12 +3,66 @@
 #include "MyRect.h"
 #include <QGraphicsView>
 #include <QImage>
+#include <QPushButton>
+
+int Tetris(QApplication *a);
+void Menu(int argc, char *argv[]);
 
 
 int main(int argc, char *argv[])
 {
+    Menu(argc, argv);
+    //Tetris(argc, argv);
+
+}
+
+void Menu(int argc, char *argv[]) {
     QApplication a(argc, argv);
 
+    // Create a scene
+    QGraphicsScene scene;
+
+    QGraphicsView view(&scene);
+    view.show();
+    view.setFixedSize(400,600);
+    scene.setSceneRect(0,0,400,600);
+    scene.setBackgroundBrush(QBrush(QImage(":/images/background_menu.png")));
+
+    // hide scrollbar
+    view.setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view.setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    // Create the play button
+    QPushButton* playButton = new QPushButton(QString("Play"));
+    //playButton->setStyleSheet("background-color: blue; color: white;");
+    //playButton->setVisible(false);
+    playButton->setStyleSheet("background-color: transparent; border: none; color: rgba(0,0,0,0);");
+    int bxPos = 150;
+    int byPos = 320;
+    playButton->setGeometry(bxPos, byPos, 170,40);
+
+    QObject::connect(playButton, &QPushButton::clicked, &a, [&](){
+        //pressed play
+        view.hide();
+        Tetris(&a);
+    });
+    scene.addWidget(playButton);
+
+    //quit button
+    QPushButton* quitButton = new QPushButton(QString("Quit"));
+    quitButton->setStyleSheet("background-color: transparent; border: none; color: rgba(0,0,0,0);");
+    int qxPos = 220;
+    int qyPos = 370;
+    quitButton->setGeometry(qxPos, qyPos, 170, 40);
+    QObject::connect(quitButton, &QPushButton::clicked, &a, &QApplication::quit);
+    scene.addWidget(quitButton);
+
+    a.exec();
+}
+
+int Tetris(QApplication *a){
+
+    //QApplication a(argc, argv);
     // create a scene
     QGraphicsScene * scene = new QGraphicsScene();
 
@@ -55,12 +109,22 @@ int main(int argc, char *argv[])
     rect->score->setPos(700,111);
 
 
+    // setting score panel
+    rect->stats = new QGraphicsTextItem;
+    scene->addItem(rect->stats);
+    rect->stats->setDefaultTextColor(Qt::white);
+    QFont font2("Helvetica", 12);
+    font2.setBold(true);
+    rect->stats->setFont(font2);
+    rect->stats->setPos(20,150);
+
     // setting next piece picture frame
     rect->next_piece_pic = new QGraphicsRectItem;
     rect->next_piece_pic->setRect(690,145,60,60);
     rect->next_piece_pic->setPen(pen);
 
     scene->addItem(rect->next_piece_pic);
+    return 0;
+    //return a.exec();
+};
 
-    return a.exec();
-}
