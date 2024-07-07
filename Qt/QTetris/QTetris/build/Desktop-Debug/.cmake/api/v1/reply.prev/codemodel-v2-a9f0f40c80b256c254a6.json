@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-13f084bda30d35a25f92.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "QTetris",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "QTetris::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-QTetris-Debug-0872141c232787eac75c.json",
+					"name" : "QTetris",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "QTetris_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-QTetris_autogen-Debug-e498800b69f964638e66.json",
+					"name" : "QTetris_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "QTetris_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-QTetris_autogen_timestamp_deps-Debug-a113a55149227bab8946.json",
+					"name" : "QTetris_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug",
+		"source" : "/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

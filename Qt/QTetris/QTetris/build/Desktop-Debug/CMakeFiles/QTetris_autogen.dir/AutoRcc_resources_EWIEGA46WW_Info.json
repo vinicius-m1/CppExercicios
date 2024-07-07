@@ -1,0 +1,31 @@
+{
+	"BUILD_DIR" : "/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen",
+	"CMAKE_BINARY_DIR" : "/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris",
+	"CMAKE_SOURCE_DIR" : "/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris",
+	"INCLUDE_DIR" : "/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/red.png",
+		"/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/green.png",
+		"/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/yellow.png",
+		"/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/triangle_shaped.png",
+		"/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/blue.png",
+		"/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/Untitled.png",
+		"/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/l_piece.png",
+		"/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/square_shaped.png",
+		"/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/line_shaped.png",
+		"/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/background_menu.png"
+	],
+	"LOCK_FILE" : "/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/CMakeFiles/QTetris_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "/home/bansola/Qt/6.7.0/gcc_64/./libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/CMakeFiles/QTetris_autogen.dir/AutoRcc_resources_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/resources.qrc",
+	"VERBOSITY" : 0
+}
