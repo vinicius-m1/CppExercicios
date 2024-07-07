@@ -20,28 +20,24 @@ TrianglePiece::TrianglePiece(Grid * grid)
     block1->setBrush(test);
     block1->setPen(pen);
     block1->setPos(0, 0); // (position based on group)
-    block1->name = "block 1";
     addToGroup(block1);
 
     block2 = new ExtraBlock(grid,true);
     block2->setBrush(brush);
     block1->setPen(pen);
     block2->setPos(30,0);
-    block2->name = "block 2";
     addToGroup(block2);
 
     block3 = new ExtraBlock(grid,true);
     block3->setBrush(brush);
     block1->setPen(pen);
     block3->setPos(60,0);
-    block3->name = "block 3";
     addToGroup(block3);
 
     block4 = new ExtraBlock(grid,true);
     block4->setBrush(brush);
     block1->setPen(pen);
     block4->setPos(30,-30);
-    block4->name = "block 4";
     addToGroup(block4);
 
 
@@ -236,7 +232,7 @@ void TrianglePiece::move()
 
     if (!exist){
         m_timer->stop();
-        qDebug()<< "      the square stopped. group doenst exist anymore";
+        //qDebug()<< "      the square stopped. group doenst exist anymore";
         return;
     }
     // -----------------------------------
@@ -371,7 +367,7 @@ void TrianglePiece::move()
         if (block4)
             m_grid->SetOccupied(block4->virtual_position.first,block4->virtual_position.second);  //block 4
 
-        qDebug() << "clock stopped bcs occupied. sqr not move";
+        //qDebug() << "clock stopped bcs occupied. triangle not move";
 
         return;
     }

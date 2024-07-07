@@ -42,7 +42,7 @@ int Grid::SetOccupied(int x, int y)
 void Grid::DestroyRow(int y)
 {
 
-    qDebug() << "remove row "<< y;
+    //qDebug() << "remove row "<< y;
     // remove from occupied
     // Using std::remove_if with a lambda function
     occupied.erase(std::remove_if(occupied.begin(), occupied.end(),
@@ -50,7 +50,7 @@ void Grid::DestroyRow(int y)
                                       return element.second == y;
                                   }),
                    occupied.end()); //removes all occurences
-qDebug() << "removed all from occupied";
+    //qDebug() << "removed all from occupied";
 }
 
 void Grid::RemoveOccupied(int x, int y)
@@ -58,7 +58,7 @@ void Grid::RemoveOccupied(int x, int y)
 
     //remove from occupied
     // only one item
-    qDebug() << "remove one item";
+    //qDebug() << "remove one item";
     occupied.erase(std::remove_if(occupied.begin(), occupied.end(),
                                   [&x, &y](const std::pair<int, int>& element) {
                                       return element.first == x && element.second == y;

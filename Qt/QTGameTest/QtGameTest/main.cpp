@@ -12,19 +12,17 @@ int main(int argc, char *argv[])
     // create a scene
     QGraphicsScene * scene = new QGraphicsScene();
 
-    // create an item to put into the scene
-
+    // create spawner
     MyRect * rect = new MyRect();
-
     rect->setRect(0,0,30,10);
     QPen pen(Qt::NoPen); // remove ugly border
     rect->setPen(pen);
+
     // add the item to the scene
     scene->addItem(rect);
     //make rect focusable
     rect->setFlag(QGraphicsItem::ItemIsFocusable);
     rect->setFocus();
-    //rect->grabKeyboard();
 
 
     // add a view to visualize the scene

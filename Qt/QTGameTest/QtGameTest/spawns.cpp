@@ -12,7 +12,7 @@
 void MyRect::SpawnSquare(){
     num_line++;
     SquarePiece * square = new SquarePiece(&grid);
-    qDebug() << "Square created.";
+    //qDebug() << "Square created.";
     square->setPos(x(),y());
 
     scene()->addItem(square);
@@ -29,7 +29,7 @@ void MyRect::SpawnSquare(){
 void MyRect::SpawnCube(){
     num_cube++;
     CubePiece * cube = new CubePiece(&grid);
-    qDebug() << "Cube created.";
+    //qDebug() << "Cube created.";
     cube->setPos(x(),y());
     all_pieces.push_back(cube);
     scene()->addItem(cube);
@@ -45,7 +45,7 @@ void MyRect::SpawnCube(){
 void MyRect::SpawnLPiece(){
     num_lpiece++;
     LPiece * lpiece = new LPiece(&grid);
-    qDebug() << "L Piece created.";
+    //qDebug() << "L Piece created.";
     lpiece->setPos(x(),y()+60); //custom height
     all_pieces.push_back(lpiece);
     scene()->addItem(lpiece);
@@ -62,7 +62,7 @@ void MyRect::SpawnLPiece(){
 void MyRect::SpawnTriangle(){
     num_triangle++;
     TrianglePiece * triangle = new TrianglePiece(&grid);
-    qDebug() << "Triangle created.";
+    //qDebug() << "Triangle created.";
     triangle->setPos(x(),y()+30); //custom height
     all_pieces.push_back(triangle);
     scene()->addItem(triangle);
@@ -72,12 +72,6 @@ void MyRect::SpawnTriangle(){
         blocks_in_scene.push_back(triangle->GetBlock(i));
     }
     current_piece = triangle; // give control to player
-};
-
-
-void MyRect::SpawnExtraBlock(){
-
-    return; //legacy
 };
 
 void MyRect::SpawnRandom(){
@@ -113,7 +107,7 @@ void MyRect::SpawnRandom(){
         next_piece_pic->setBrush(QBrush(QImage(":/images/triangle_shaped.png")));
         break;
     case(4):
-        next_piece_pic->setBrush(QBrush(QImage(":/images/L_shaped.png")));
+        next_piece_pic->setBrush(QBrush(QImage(":/images/l_piece.png")));
 
     default: break;
     }

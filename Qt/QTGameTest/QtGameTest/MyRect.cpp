@@ -6,7 +6,7 @@
 void MyRect::Tick(){
 
     //routine stuff
-    qDebug()<<"tic-tac";
+    //qDebug()<<"tic-tac";
     setFocus();
 
     if(grid.game_over){
@@ -41,13 +41,13 @@ void MyRect::Tick(){
 
                 // delete from vector
                 std::swap(blocks_in_scene.at(i), blocks_in_scene.back());
-                qDebug()<< "size was: "<<blocks_in_scene.size();
+                //qDebug()<< "size was: "<<blocks_in_scene.size();
                 blocks_in_scene.pop_back();
-                qDebug()<< "size is: "<<blocks_in_scene.size();
+                //qDebug()<< "size is: "<<blocks_in_scene.size();
             } else {i++;}; // only increment if nothing deleted
         }
 
-        qDebug() << "deleted ALL FROM row "<< r;
+        //qDebug() << "deleted ALL FROM row "<< r;
         grid.DestroyRow(grid.row_to_destroy.at(r)); // destroy blocks position data inside grid
         points = points + (1*grid.row_to_destroy.size());
     }
@@ -94,14 +94,6 @@ void MyRect::GameOver(){
 
 
 
-
-
-
-
-
-
-
-
 //==============================================================================================
 //                            VVV  CONTROLS SECTION  VVV
 
@@ -109,9 +101,9 @@ void MyRect::GameOver(){
 void MyRect::keyPressEvent(QKeyEvent *event){
 
     // -----------------------------
-    //      LEFT KEY PRESSED
+    //      LEFT KEY PRESSED (OR A)
     // -----------------------------
-    if (event->key() == Qt::Key_Left){
+    if (event->key() == Qt::Key_Left || event->key() == Qt::Key_A){
 
         if(current_piece){ // if something exists
 
@@ -124,9 +116,9 @@ void MyRect::keyPressEvent(QKeyEvent *event){
 
 
     // -----------------------------
-    //      RIGHT KEY PRESSED
+    //      RIGHT KEY PRESSED (OR D)
     // -----------------------------
-    else if (event->key() == Qt::Key_Right){
+    else if (event->key() == Qt::Key_Right || event->key() == Qt::Key_D){
 
         if(current_piece){ // if something exists
 
@@ -139,41 +131,29 @@ void MyRect::keyPressEvent(QKeyEvent *event){
     }
 
     //      0 KEY PRESSED
-    else if (event->key() == Qt::Key_0){
+    else if (event->key() == Qt::Key_0 && debug_mode){
         SpawnSquare();
     }
 
     //      7 KEY PRESSED
-    else if (event->key() == Qt::Key_7){
+    else if (event->key() == Qt::Key_7 && debug_mode){
         SpawnLPiece();
     }
 
 
     //      9 KEY PRESSED
-    else if (event->key() == Qt::Key_9){
+    else if (event->key() == Qt::Key_9 && debug_mode){
         SpawnCube();
     }
 
 
     //      8 KEY PRESSED
-    else if (event->key() == Qt::Key_8){
+    else if (event->key() == Qt::Key_8 && debug_mode){
         SpawnTriangle();
     }
 
-
-    //      SPACEBAR KEY PRESSED
-    else if (event->key() == Qt::Key_1){
-        SpawnExtraBlock();
-    }
-
-
-
-    // -----------------------------
-    //      1 KEY PRESSED
-    // -----------------------------
-
     else if (event->key() == Qt::Key_Space){
-        // temporary - change current piece
+        // change current piece
 
         if (current_piece){ // if not nullptr
 
@@ -181,16 +161,15 @@ void MyRect::keyPressEvent(QKeyEvent *event){
             if (!current_piece->controls) //check if player can control
                 return;
 
-
             if(current_piece->formation==current_piece->number_of_formations) //if max
                 current_piece->SetFormation(1);
             else
                 current_piece->SetFormation(current_piece->formation + 1);
         }
-        qDebug()<< "you tried to rotate the piece.";
+        //qDebug()<< "you tried to rotate the piece.";
     }
     // --------------------------------------------------------
 
 
-    qDebug() << "Position:" << x() << "  "<< y() ;
+    //qDebug() << "Position:" << x() << "  "<< y() ;
 }
