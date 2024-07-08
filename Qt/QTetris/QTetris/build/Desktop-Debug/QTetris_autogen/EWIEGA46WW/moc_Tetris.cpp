@@ -33,9 +33,9 @@ QT_WARNING_DISABLE_GCC("-Wuseless-cast")
 namespace {
 
 #ifdef QT_MOC_HAS_STRINGDATA
-struct qt_meta_stringdata_CLASSMyRectENDCLASS_t {};
-constexpr auto qt_meta_stringdata_CLASSMyRectENDCLASS = QtMocHelpers::stringData(
-    "MyRect",
+struct qt_meta_stringdata_CLASSTetrisENDCLASS_t {};
+constexpr auto qt_meta_stringdata_CLASSTetrisENDCLASS = QtMocHelpers::stringData(
+    "Tetris",
     "Tick",
     ""
 );
@@ -44,7 +44,7 @@ constexpr auto qt_meta_stringdata_CLASSMyRectENDCLASS = QtMocHelpers::stringData
 #endif // !QT_MOC_HAS_STRINGDATA
 } // unnamed namespace
 
-Q_CONSTINIT static const uint qt_meta_data_CLASSMyRectENDCLASS[] = {
+Q_CONSTINIT static const uint qt_meta_data_CLASSTetrisENDCLASS[] = {
 
  // content:
       12,       // revision
@@ -66,25 +66,25 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMyRectENDCLASS[] = {
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject MyRect::staticMetaObject = { {
+Q_CONSTINIT const QMetaObject Tetris::staticMetaObject = { {
     QMetaObject::SuperData::link<QObject::staticMetaObject>(),
-    qt_meta_stringdata_CLASSMyRectENDCLASS.offsetsAndSizes,
-    qt_meta_data_CLASSMyRectENDCLASS,
+    qt_meta_stringdata_CLASSTetrisENDCLASS.offsetsAndSizes,
+    qt_meta_data_CLASSTetrisENDCLASS,
     qt_static_metacall,
     nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSMyRectENDCLASS_t,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSTetrisENDCLASS_t,
         // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<MyRect, std::true_type>,
+        QtPrivate::TypeAndForceComplete<Tetris, std::true_type>,
         // method 'Tick'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
 
-void MyRect::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void Tetris::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<MyRect *>(_o);
+        auto *_t = static_cast<Tetris *>(_o);
         (void)_t;
         switch (_id) {
         case 0: _t->Tick(); break;
@@ -94,22 +94,22 @@ void MyRect::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
     (void)_a;
 }
 
-const QMetaObject *MyRect::metaObject() const
+const QMetaObject *Tetris::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *MyRect::qt_metacast(const char *_clname)
+void *Tetris::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_CLASSMyRectENDCLASS.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_CLASSTetrisENDCLASS.stringdata0))
         return static_cast<void*>(this);
     if (!strcmp(_clname, "QGraphicsRectItem"))
         return static_cast< QGraphicsRectItem*>(this);
     return QObject::qt_metacast(_clname);
 }
 
-int MyRect::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int Tetris::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QObject::qt_metacall(_c, _id, _a);
     if (_id < 0)

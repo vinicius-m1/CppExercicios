@@ -12,12 +12,12 @@ LPiece::LPiece(Grid * grid)
     m_grid = grid; // saves received grid to pass to blocks
 
     QBrush brush(QImage(":/images/green.png"));
-    QBrush test(QImage(":/images/yellow.png"));  // debug color
+    //QBrush test(QImage(":/images/yellow.png"));  // debug color
     QPen pen(Qt::NoPen); // remove ugly border
 
     // create individual blocks and add them to the group
     block1 = new ExtraBlock(grid,true); // piece_mode = true
-    block1->setBrush(test);
+    block1->setBrush(brush);
     block1->setPen(pen);
     block1->setPos(0, 0); // (position based on group)
     addToGroup(block1);
@@ -55,7 +55,7 @@ LPiece::LPiece(Grid * grid)
 
 ExtraBlock *LPiece::GetBlock(int id)
 {
-    // handles blocks when MyRect asks
+    // handles blocks when Tetris asks
     switch(id){
     case(1):
         if (block1)

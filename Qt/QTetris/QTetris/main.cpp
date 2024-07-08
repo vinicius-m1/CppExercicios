@@ -5,7 +5,7 @@
 #include <QImage>
 #include <QPushButton>
 
-int Tetris(QApplication *a);
+int TetrisGame(QApplication *a);
 void Menu(int argc, char *argv[]);
 
 
@@ -44,7 +44,7 @@ void Menu(int argc, char *argv[]) {
     QObject::connect(playButton, &QPushButton::clicked, &a, [&](){
         //pressed play
         view.hide();
-        Tetris(&a);
+        TetrisGame(&a);
     });
     scene.addWidget(playButton);
 
@@ -60,14 +60,14 @@ void Menu(int argc, char *argv[]) {
     a.exec();
 }
 
-int Tetris(QApplication *a){
+int TetrisGame(QApplication *a){
 
     //QApplication a(argc, argv);
     // create a scene
     QGraphicsScene * scene = new QGraphicsScene();
 
     // create spawner
-    MyRect * rect = new MyRect();
+    Tetris * rect = new Tetris();
     rect->setRect(0,0,30,10);
     QPen pen(Qt::NoPen); // remove ugly border
     rect->setPen(pen);
@@ -125,6 +125,5 @@ int Tetris(QApplication *a){
 
     scene->addItem(rect->next_piece_pic);
     return 0;
-    //return a.exec();
 };
 

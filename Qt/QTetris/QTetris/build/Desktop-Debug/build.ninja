@@ -129,6 +129,14 @@ build CMakeFiles/QTetris.dir/Lpiece.cpp.o: CXX_COMPILER__QTetris_unscanned_Debug
   OBJECT_DIR = CMakeFiles/QTetris.dir
   OBJECT_FILE_DIR = CMakeFiles/QTetris.dir
 
+build CMakeFiles/QTetris.dir/invertedL.cpp.o: CXX_COMPILER__QTetris_unscanned_Debug /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/invertedL.cpp || cmake_object_order_depends_target_QTetris
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/QTetris.dir/invertedL.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always -fPIC
+  INCLUDES = -I"/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/include" -isystem /home/bansola/Qt/6.7.0/gcc_64/include/QtCore -isystem /home/bansola/Qt/6.7.0/gcc_64/include -isystem /home/bansola/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -isystem /home/bansola/Qt/6.7.0/gcc_64/include/QtWidgets -isystem /home/bansola/Qt/6.7.0/gcc_64/include/QtGui
+  OBJECT_DIR = CMakeFiles/QTetris.dir
+  OBJECT_FILE_DIR = CMakeFiles/QTetris.dir
+
 build CMakeFiles/QTetris.dir/QTetris_autogen/EWIEGA46WW/qrc_resources.cpp.o: CXX_COMPILER__QTetris_unscanned_Debug /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/EWIEGA46WW/qrc_resources.cpp || cmake_object_order_depends_target_QTetris
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/QTetris.dir/QTetris_autogen/EWIEGA46WW/qrc_resources.cpp.o.d
@@ -145,7 +153,7 @@ build CMakeFiles/QTetris.dir/QTetris_autogen/EWIEGA46WW/qrc_resources.cpp.o: CXX
 #############################################
 # Link the executable QTetris
 
-build QTetris: CXX_EXECUTABLE_LINKER__QTetris_Debug CMakeFiles/QTetris.dir/QTetris_autogen/mocs_compilation.cpp.o CMakeFiles/QTetris.dir/main.cpp.o CMakeFiles/QTetris.dir/Tetris.cpp.o CMakeFiles/QTetris.dir/ExtraBlock.cpp.o CMakeFiles/QTetris.dir/grid.cpp.o CMakeFiles/QTetris.dir/line.cpp.o CMakeFiles/QTetris.dir/spawns.cpp.o CMakeFiles/QTetris.dir/cube.cpp.o CMakeFiles/QTetris.dir/triangle.cpp.o CMakeFiles/QTetris.dir/Lpiece.cpp.o CMakeFiles/QTetris.dir/QTetris_autogen/EWIEGA46WW/qrc_resources.cpp.o | /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Widgets.so.6.7.0 /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Gui.so.6.7.0 /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Core.so.6.7.0 /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so || QTetris_autogen QTetris_autogen_timestamp_deps
+build QTetris: CXX_EXECUTABLE_LINKER__QTetris_Debug CMakeFiles/QTetris.dir/QTetris_autogen/mocs_compilation.cpp.o CMakeFiles/QTetris.dir/main.cpp.o CMakeFiles/QTetris.dir/Tetris.cpp.o CMakeFiles/QTetris.dir/ExtraBlock.cpp.o CMakeFiles/QTetris.dir/grid.cpp.o CMakeFiles/QTetris.dir/line.cpp.o CMakeFiles/QTetris.dir/spawns.cpp.o CMakeFiles/QTetris.dir/cube.cpp.o CMakeFiles/QTetris.dir/triangle.cpp.o CMakeFiles/QTetris.dir/Lpiece.cpp.o CMakeFiles/QTetris.dir/invertedL.cpp.o CMakeFiles/QTetris.dir/QTetris_autogen/EWIEGA46WW/qrc_resources.cpp.o | /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Widgets.so.6.7.0 /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Gui.so.6.7.0 /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Core.so.6.7.0 /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so || QTetris_autogen QTetris_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = -Wl,-rpath,/home/bansola/Qt/6.7.0/gcc_64/lib:  /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Widgets.so.6.7.0  /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Gui.so.6.7.0  /home/bansola/Qt/6.7.0/gcc_64/lib/libQt6Core.so.6.7.0  /usr/lib/x86_64-linux-gnu/libGLX.so  /usr/lib/x86_64-linux-gnu/libOpenGL.so
   OBJECT_DIR = CMakeFiles/QTetris.dir
@@ -246,7 +254,7 @@ build QTetris_autogen/timestamp QTetris_autogen/mocs_compilation.cpp | ${cmake_n
 #############################################
 # Custom command for QTetris_autogen/EWIEGA46WW/qrc_resources.cpp
 
-build QTetris_autogen/EWIEGA46WW/qrc_resources.cpp | ${cmake_ninja_workdir}QTetris_autogen/EWIEGA46WW/qrc_resources.cpp: CUSTOM_COMMAND /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/resources.qrc CMakeFiles/QTetris_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/red.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/green.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/yellow.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/triangle_shaped.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/blue.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/Untitled.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/l_piece.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/square_shaped.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/line_shaped.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/background_menu.png /home/bansola/Qt/6.7.0/gcc_64/./libexec/rcc || QTetris_autogen QTetris_autogen_timestamp_deps
+build QTetris_autogen/EWIEGA46WW/qrc_resources.cpp | ${cmake_ninja_workdir}QTetris_autogen/EWIEGA46WW/qrc_resources.cpp: CUSTOM_COMMAND /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/resources.qrc CMakeFiles/QTetris_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/red.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/green.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/yellow.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/triangle_shaped.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/blue.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/Untitled.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/white.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/l_piece.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/square_shaped.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/Untitled_debug.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/line_shaped.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/inverted_L_shaped.png /home/bansola/Desktop/C$ codigos/Qt/QTetris/QTetris/background_menu.png /home/bansola/Qt/6.7.0/gcc_64/./libexec/rcc || QTetris_autogen QTetris_autogen_timestamp_deps
   COMMAND = cd "/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug" && /home/bansola/Qt/Tools/CMake/bin/cmake -E cmake_autorcc /home/bansola/Desktop/C\ codigos/Qt/QTetris/QTetris/build/Desktop-Debug/CMakeFiles/QTetris_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json Debug
   DESC = Automatic RCC for resources.qrc
   restat = 1

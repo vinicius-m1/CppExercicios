@@ -1,28 +1,55 @@
 # ninja log v5
 3293	12974	1720393202607198495	CMakeFiles/QTetris.dir/MyRect.cpp.o	e9efec83230e8d09
-3310	11582	1720393201223184549	CMakeFiles/QTetris.dir/line.cpp.o	21fbdf852ff01b3a
-3292	13863	1720393203503207509	CMakeFiles/QTetris.dir/main.cpp.o	b4d7e50a9241db8f
-0	2271	1720393191903089935	/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/timestamp	5156b4518eb1b625
-3291	13985	1720393203627208756	CMakeFiles/QTetris.dir/QTetris_autogen/mocs_compilation.cpp.o	6f46b4b9341a7d8d
-12974	20645	1720393210287275404	CMakeFiles/QTetris.dir/Lpiece.cpp.o	a1cad84b33ae0af5
-11582	20312	1720393209951272057	CMakeFiles/QTetris.dir/triangle.cpp.o	43c83a6fdb7fd6f8
-0	2271	1720393191903089935	/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/mocs_compilation.cpp	5156b4518eb1b625
-2271	3291	1720393192931100431	QTetris_autogen/EWIEGA46WW/qrc_resources.cpp	20b26ad5e53843b
-11247	20064	1720393209707269624	CMakeFiles/QTetris.dir/cube.cpp.o	4e9c64364961b79d
-3295	11247	1720393200887181160	CMakeFiles/QTetris.dir/ExtraBlock.cpp.o	ff87240f74a6fb66
-2271	3291	1720393192931100431	/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/EWIEGA46WW/qrc_resources.cpp	20b26ad5e53843b
-13864	14718	1720393204359216111	CMakeFiles/QTetris.dir/QTetris_autogen/EWIEGA46WW/qrc_resources.cpp.o	e70ba6433ab9d58a
-20645	21437	1720393211071283211	QTetris	b839e58bcae74d3b
-0	2271	1720393191903089935	QTetris_autogen/timestamp	5156b4518eb1b625
-0	2271	1720393191903089935	QTetris_autogen/mocs_compilation.cpp	5156b4518eb1b625
-10987	20220	1720393209851271061	CMakeFiles/QTetris.dir/spawns.cpp.o	c587504122ef49f6
-3302	10985	1720393200627178534	CMakeFiles/QTetris.dir/grid.cpp.o	824518496f4b5fc1
-3	567	1720393340544466142	QTetris_autogen/timestamp	5156b4518eb1b625
-3	567	1720393340544466142	QTetris_autogen/mocs_compilation.cpp	5156b4518eb1b625
-3	567	1720393340544466142	/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/timestamp	5156b4518eb1b625
-3	567	1720393340544466142	/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/mocs_compilation.cpp	5156b4518eb1b625
-568	6608	1720393346588516648	CMakeFiles/QTetris.dir/spawns.cpp.o	c587504122ef49f6
-568	6845	1720393346824518612	CMakeFiles/QTetris.dir/main.cpp.o	b4d7e50a9241db8f
-568	6970	1720393346952519678	CMakeFiles/QTetris.dir/Tetris.cpp.o	267c973113254b9
-567	6992	1720393346972519845	CMakeFiles/QTetris.dir/QTetris_autogen/mocs_compilation.cpp.o	6f46b4b9341a7d8d
-6992	7677	1720393347648525466	QTetris	731bc9e69beb7a17
+0	7	0	CMakeFiles/clean.additional	342cb1edb1166fd7
+3885	11023	1720404050319321608	CMakeFiles/QTetris.dir/line.cpp.o	21fbdf852ff01b3a
+1063	9350	1720401560293872636	CMakeFiles/QTetris.dir/main.cpp.o	b4d7e50a9241db8f
+6	3873	1720404043167357263	/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/timestamp	5156b4518eb1b625
+3874	11918	1720404051215317120	CMakeFiles/QTetris.dir/QTetris_autogen/mocs_compilation.cpp.o	6f46b4b9341a7d8d
+61	6394	1720402236272439102	CMakeFiles/QTetris.dir/Lpiece.cpp.o	a1cad84b33ae0af5
+11219	15882	1720404055179297211	CMakeFiles/QTetris.dir/triangle.cpp.o	43c83a6fdb7fd6f8
+6	3873	1720404043167357263	/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/mocs_compilation.cpp	5156b4518eb1b625
+44	1019	1720403656852705505	QTetris_autogen/EWIEGA46WW/qrc_resources.cpp	20b26ad5e53843b
+11023	15584	1720404054879298720	CMakeFiles/QTetris.dir/cube.cpp.o	4e9c64364961b79d
+3876	10546	1720404049843323990	CMakeFiles/QTetris.dir/ExtraBlock.cpp.o	ff87240f74a6fb66
+44	1019	1720403656852705505	/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/EWIEGA46WW/qrc_resources.cpp	20b26ad5e53843b
+1020	2091	1720403657928703781	CMakeFiles/QTetris.dir/QTetris_autogen/EWIEGA46WW/qrc_resources.cpp.o	e70ba6433ab9d58a
+65	6548	1720402236424436741	CMakeFiles/QTetris.dir/invertedL.cpp.o	5624cdb22dd60116
+3874	11930	1720404051223317079	CMakeFiles/QTetris.dir/Tetris.cpp.o	267c973113254b9
+4565	5323	1720403661152698530	QTetris	f859fdabed2ec74
+6	3873	1720404043167357263	QTetris_autogen/timestamp	5156b4518eb1b625
+6	3873	1720404043167357263	QTetris_autogen/mocs_compilation.cpp	5156b4518eb1b625
+7	16	0	clean	2db4a79084368e4
+10546	15446	1720404054739299425	CMakeFiles/QTetris.dir/spawns.cpp.o	c587504122ef49f6
+3877	11219	1720404050515320626	CMakeFiles/QTetris.dir/grid.cpp.o	824518496f4b5fc1
+4	1885	1720404120318957695	QTetris_autogen/timestamp	5156b4518eb1b625
+4	1885	1720404120318957695	QTetris_autogen/mocs_compilation.cpp	5156b4518eb1b625
+4	1885	1720404120318957695	/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/timestamp	5156b4518eb1b625
+4	1885	1720404120318957695	/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/mocs_compilation.cpp	5156b4518eb1b625
+1885	2563	1720404120998954034	QTetris_autogen/EWIEGA46WW/qrc_resources.cpp	20b26ad5e53843b
+1885	2563	1720404120998954034	/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/EWIEGA46WW/qrc_resources.cpp	20b26ad5e53843b
+2564	8782	1720404127222920413	CMakeFiles/QTetris.dir/ExtraBlock.cpp.o	ff87240f74a6fb66
+2565	9037	1720404127474919048	CMakeFiles/QTetris.dir/grid.cpp.o	824518496f4b5fc1
+2564	9144	1720404127582918462	CMakeFiles/QTetris.dir/Tetris.cpp.o	267c973113254b9
+2566	9435	1720404127874916881	CMakeFiles/QTetris.dir/line.cpp.o	21fbdf852ff01b3a
+2563	9514	1720404127950916469	CMakeFiles/QTetris.dir/QTetris_autogen/mocs_compilation.cpp.o	6f46b4b9341a7d8d
+9144	12232	1720404130670901706	CMakeFiles/QTetris.dir/triangle.cpp.o	43c83a6fdb7fd6f8
+9037	12643	1720404131082899466	CMakeFiles/QTetris.dir/cube.cpp.o	4e9c64364961b79d
+8783	12930	1720404131370897901	CMakeFiles/QTetris.dir/spawns.cpp.o	c587504122ef49f6
+4	37	1720404429565094877	QTetris_autogen/timestamp	5156b4518eb1b625
+4	37	1720404429565094877	QTetris_autogen/mocs_compilation.cpp	5156b4518eb1b625
+4	37	1720404429565094877	/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/timestamp	5156b4518eb1b625
+4	37	1720404429565094877	/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/mocs_compilation.cpp	5156b4518eb1b625
+41	1657	1720404431185084266	CMakeFiles/QTetris.dir/QTetris_autogen/EWIEGA46WW/qrc_resources.cpp.o	e70ba6433ab9d58a
+40	4981	1720404434509062470	CMakeFiles/QTetris.dir/Lpiece.cpp.o	a1cad84b33ae0af5
+41	5067	1720404434593061919	CMakeFiles/QTetris.dir/invertedL.cpp.o	5624cdb22dd60116
+40	5402	1720404434929059714	CMakeFiles/QTetris.dir/main.cpp.o	b4d7e50a9241db8f
+5403	6343	1720404435861053596	QTetris	f859fdabed2ec74
+7	836	1720404512172545082	QTetris_autogen/timestamp	5156b4518eb1b625
+7	836	1720404512172545082	QTetris_autogen/mocs_compilation.cpp	5156b4518eb1b625
+7	836	1720404512172545082	/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/timestamp	5156b4518eb1b625
+7	836	1720404512172545082	/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/build/Desktop-Debug/QTetris_autogen/mocs_compilation.cpp	5156b4518eb1b625
+837	6367	1720404517712507611	CMakeFiles/QTetris.dir/Tetris.cpp.o	267c973113254b9
+836	6533	1720404517876506500	CMakeFiles/QTetris.dir/QTetris_autogen/mocs_compilation.cpp.o	6f46b4b9341a7d8d
+838	6544	1720404517888506420	CMakeFiles/QTetris.dir/spawns.cpp.o	c587504122ef49f6
+836	6560	1720404517904506311	CMakeFiles/QTetris.dir/main.cpp.o	b4d7e50a9241db8f
+6560	7482	1720404518820500109	QTetris	f859fdabed2ec74

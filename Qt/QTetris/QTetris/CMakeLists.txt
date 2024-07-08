@@ -41,6 +41,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         triangle.cpp
         LPiece.h
         Lpiece.cpp
+        invertedL.h
+        invertedL.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET QtGameTest APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

@@ -13,12 +13,12 @@ LinePiece::LinePiece(Grid * grid)
     m_grid = grid; // saves received grid to pass to blocks
 
     QBrush brush(QImage(":/images/red.png"));
-    QBrush test(QImage(":/images/green.png"));  // debug color
+    //QBrush test(QImage(":/images/green.png"));  // debug color
     QPen pen(Qt::NoPen); // remove ugly border
 
     // create individual blocks and add them to the group
     block1 = new ExtraBlock(grid,true); // piece_mode = true
-    block1->setBrush(test);
+    block1->setBrush(brush);
     block1->setPen(pen);
     block1->setPos(0, 0); // (position based on group)
     addToGroup(block1);
@@ -56,7 +56,7 @@ LinePiece::LinePiece(Grid * grid)
 
 ExtraBlock *LinePiece::GetBlock(int id)
 {
-    // handles blocks when MyRect asks
+    // handles blocks when Tetris asks
     switch(id){
     case(1):
         if (block1)
@@ -240,6 +240,8 @@ void LinePiece::move()
                 //block 1 takes the fall for block3
                 m_grid->RemoveOccupied(x(),y());
                 block1->exist=false; //remove
+                QBrush brush(QImage(":/images/red.png"));
+                block2->setBrush(brush);
                 blocks_in_scene->erase(std::remove(blocks_in_scene->begin(), blocks_in_scene->end(), block1), blocks_in_scene->end());
                 delete block1;
                 block1 = nullptr;

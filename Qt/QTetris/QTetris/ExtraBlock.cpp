@@ -1,6 +1,17 @@
 #include "ExtraBlock.h"
 
 
+
+
+// MOST OF THIS FILE IS LEGACY CODE THAT IS
+// INACTIVE (piece_mode=true) AND NEVER RUNS
+// USED FOR EARLY DEBUG PURPOSE
+
+
+
+
+
+
 ExtraBlock::ExtraBlock(Grid * grid, bool t_piece_mode){
 
     piece_mode = t_piece_mode;

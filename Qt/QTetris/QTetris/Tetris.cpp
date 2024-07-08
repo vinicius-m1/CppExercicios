@@ -3,12 +3,13 @@
 #include <QMessageBox>
 
 
-void MyRect::Tick(){
+void Tetris::Tick(){
 
     //routine stuff
     //qDebug()<<"tic-tac";
     setFocus();
 
+    // check game over
     if(grid.game_over){
         grid.game_over=false;
         GameOver();
@@ -17,12 +18,13 @@ void MyRect::Tick(){
     //update score
     score->setPlainText(QString::number(points));
     //update statistics
-    stats->setPlainText(QString::number(num_line) + "x\n\n\n" + QString::number(num_triangle) + "x\n\n\n"+ QString::number(num_cube) + "x\n\n\n\n"+ QString::number(num_lpiece) + "x\n\n\n"+ QString::number(0) + "x");
+    stats->setPlainText(QString::number(num_line) + "x\n\n\n" + QString::number(num_triangle) + "x\n\n\n"+ QString::number(num_cube) + "x\n\n\n\n"+ QString::number(num_lpiece) + "x\n\n\n"+ QString::number(num_invertedL) + "x");
 
     //spawn next pieces
     if((current_piece && !(current_piece->falling) || current_piece == nullptr) && (!debug_mode))
         SpawnRandom();
-
+    else if(debug_mode)
+        scene()->setBackgroundBrush(QBrush(QImage(":/images/Untitled_debug.png")));
 
     if(grid.row_to_destroy.empty())
         return;
@@ -51,14 +53,14 @@ void MyRect::Tick(){
 
         //qDebug() << "deleted ALL FROM row "<< r;
         grid.DestroyRow(grid.row_to_destroy.at(r)); // destroy blocks position data inside grid
-        points = points + (1*grid.row_to_destroy.size());
+        points = points + (10);
     }
     // after all is deleted
     grid.row_to_destroy.clear(); //wipes flagging vector
 
 };
 
-void MyRect::GameOver(){
+void Tetris::GameOver(){
 
     timer->stop();
     grid.game_over == false;
@@ -86,13 +88,10 @@ void MyRect::GameOver(){
     btn = QMessageBox::question(nullptr, "):", "Game Over! Restart?");
     if(btn == QMessageBox::Yes){
         timer->start(200);
+        scene()->setBackgroundBrush(QBrush(QImage(":/images/Untitled.png")));
     } else
         qApp->quit();
 };
-
-
-
-
 
 
 
@@ -101,7 +100,7 @@ void MyRect::GameOver(){
 //                            VVV  CONTROLS SECTION  VVV
 
 
-void MyRect::keyPressEvent(QKeyEvent *event){
+void Tetris::keyPressEvent(QKeyEvent *event){
 
     // -----------------------------
     //      LEFT KEY PRESSED (OR A)
@@ -150,10 +149,24 @@ void MyRect::keyPressEvent(QKeyEvent *event){
     }
 
 
+    //      6 KEY PRESSED
+    else if (event->key() == Qt::Key_6 && debug_mode){
+        SpawnInvertedL();
+    }
+
+
     //      8 KEY PRESSED
     else if (event->key() == Qt::Key_8 && debug_mode){
         SpawnTriangle();
     }
+
+    //      1 KEY PRESSED / SUPER SECRET SETTING :O
+    else if (event->key() == Qt::Key_1){
+        debug_mode = !debug_mode;
+        if (!debug_mode)
+            scene()->setBackgroundBrush(QBrush(QImage(":/images/Untitled.png")));
+    }
+
 
     else if (event->key() == Qt::Key_Space){
         // change current piece

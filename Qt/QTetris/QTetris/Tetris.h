@@ -10,7 +10,7 @@
 #include <QFont>
 #include <QGraphicsRectItem>
 
-class MyRect: public QObject, public QGraphicsRectItem{
+class Tetris: public QObject, public QGraphicsRectItem{
     Q_OBJECT //needed to handle slots
 public:
 
@@ -24,7 +24,7 @@ public:
     void keyPressEvent(QKeyEvent * event);
 
     //tick
-    MyRect(){
+    Tetris(){
         connect(timer,SIGNAL(timeout()), this, SLOT(Tick()) );
         timer->start(200);
     }
@@ -42,12 +42,13 @@ public:
 
     //spawns
     std::pair<int,int> rand_spawns;
-    int num_cube=0,num_line=0,num_triangle=0,num_lpiece=0;
+    int num_cube=0,num_line=0,num_triangle=0,num_lpiece=0,num_invertedL=0;
     void SpawnLine();
     void SpawnCube();
     void SpawnRandom();
     void SpawnTriangle();
     void SpawnLPiece();
+    void SpawnInvertedL();
 
 public slots:
     void Tick();

@@ -395,6 +395,12 @@
 			null
 		],
 		[
+			"/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/invertedL.h",
+			"MU",
+			"EWIEGA46WW/moc_invertedL.cpp",
+			null
+		],
+		[
 			"/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/line.h",
 			"MU",
 			"EWIEGA46WW/moc_line.cpp",
@@ -488,6 +494,11 @@
 		],
 		[
 			"/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/grid.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/bansola/Desktop/C codigos/Qt/QTetris/QTetris/invertedL.cpp",
 			"MU",
 			null
 		],

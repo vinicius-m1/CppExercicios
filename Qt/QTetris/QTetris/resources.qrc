@@ -10,5 +10,9 @@
         <file>triangle_shaped.png</file>
         <file>square_shaped.png</file>
         <file>background_menu.png</file>
+        <file>white.png</file>
+        <file>inverted_L_shaped.png</file>
+        <file>Untitled_debug.png</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>
