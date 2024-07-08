@@ -309,7 +309,6 @@ void InvertedLPiece::move()
             //qDebug()<<"second running";
             able_to_move = !( m_grid->IsOccupied(x()+30,destination-60) || m_grid->IsOccupied(x(),destination-30) || (y()>= limiter));
         }
-
         else if (block1 && block4){
             //qDebug()<<"third running";
             able_to_move = !( m_grid->IsOccupied(x()+30,destination-60) || m_grid->IsOccupied(x(),destination) || (y() + 30 >= limiter));
@@ -327,11 +326,10 @@ void InvertedLPiece::move()
     if (formation == 2){
         if (!block4)
             able_to_move = !( m_grid->IsOccupied(x(),destination) ||  m_grid->IsOccupied(x()+30,destination) || m_grid->IsOccupied(x()+60,destination) || (y() + 60 >= limiter) );
-        if (!block1 && block4)
-            able_to_move = !(m_grid->IsOccupied(x()+60,destination+30) || (y()>= limiter));
+        if (!block1 && !block2 && !block3 && block4)
+            able_to_move = !(m_grid->IsOccupied(x()+60,destination+30) || (y() +60>= limiter));
         if (block1 && block4)
             able_to_move = !(m_grid->IsOccupied(x()+60,destination+30) || m_grid->IsOccupied(x()+30,destination) || m_grid->IsOccupied(x(),destination) || (y() +60>= limiter));
-
     };
 
     if (formation == 3){
@@ -361,11 +359,11 @@ void InvertedLPiece::move()
     };
 
     if (formation == 4){
-        if (block1 &&  !block4)
-            able_to_move = !( m_grid->IsOccupied(x(),destination) ||  m_grid->IsOccupied(x()+30,destination) || m_grid->IsOccupied(x()+60,destination) || (y()>= limiter) );
-        else if (!block1)
-            able_to_move = !(m_grid->IsOccupied(x(),destination-30) || (y()+30>= limiter));
-        else
+        if (block1 && block2 && block3 &&  !block4)
+            able_to_move = !( m_grid->IsOccupied(x(),destination) ||  m_grid->IsOccupied(x()+30,destination) || m_grid->IsOccupied(x()+60,destination) || (y()+30>= limiter) );
+        else if (!block1 && block4)
+            able_to_move = !(m_grid->IsOccupied(x(),destination-30) || (y()>= limiter));
+        else // if all exist
             able_to_move = !(m_grid->IsOccupied(x(),destination+30) || m_grid->IsOccupied(x()+60,destination) || m_grid->IsOccupied(x(),destination+30) || (y()+30>= limiter));
     };
 

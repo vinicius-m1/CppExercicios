@@ -12,12 +12,12 @@ TrianglePiece::TrianglePiece(Grid * grid)
     m_grid = grid; // saves received grid to pass to blocks
 
     QBrush brush(QImage(":/images/yellow.png"));
-    //QBrush test(QImage(":/images/green.png"));  // debug color
+    QBrush test(QImage(":/images/green.png"));  // debug color
     QPen pen(Qt::NoPen); // remove ugly border
 
     // create individual blocks and add them to the group
     block1 = new ExtraBlock(grid,true); // piece_mode = true
-    block1->setBrush(brush);
+    block1->setBrush(test);
     block1->setPen(pen);
     block1->setPos(0, 0); // (position based on group)
     addToGroup(block1);
@@ -307,9 +307,12 @@ void TrianglePiece::move()
 
     if (formation == 2){
 
-        if ((!block3) && (!block4) && (block2)) {
-            able_to_move = (!(m_grid->IsOccupied(x(), destination) || (y() + 30 >= limiter)));
-        } else if (block1 && (!block2) && (!block3) && (!block4)) {
+
+        if ((!block3) && (!block4) && (block2) && block1)
+            able_to_move = (!(m_grid->IsOccupied(x(), destination) || (y() +30 >= limiter)));
+        else if (block2 && !block1 && !block3 && !block4)
+            able_to_move = !(m_grid->IsOccupied(x(), destination - 30) || (y()  >= limiter));
+        else if (block1 && (!block2) && (!block3) && (!block4)) {
             able_to_move = (!(m_grid->IsOccupied(x(), destination) || (y() + 30 >= limiter)));
         } else if (block4 && block1) {
             able_to_move = !((m_grid->IsOccupied(x(), destination) || m_grid->IsOccupied(x() + 30, destination - 30) || (y() + 30 >= limiter)));
